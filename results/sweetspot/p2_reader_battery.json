@@ -1,0 +1,91 @@
+{
+ "admissions": 20,
+ "yes_cases": 60,
+ "battery": {
+  "mask": {
+   "cases": 60,
+   "expected": "off",
+   "reader": {
+    "holds": 0.6,
+    "ci": [
+     0.467,
+     0.717
+    ]
+   }
+  },
+  "sufficiency": {
+   "cases": 60,
+   "expected": "on",
+   "reader": {
+    "holds": 0.983,
+    "ci": [
+     0.95,
+     1.0
+    ]
+   }
+  },
+  "paraphrase": {
+   "cases": 26,
+   "expected": "on",
+   "reader": {
+    "holds": 0.923,
+    "ci": [
+     0.815,
+     1.0
+    ]
+   }
+  },
+  "reorder": {
+   "cases": 60,
+   "expected": "on",
+   "reader": {
+    "holds": 0.95,
+    "ci": [
+     0.883,
+     1.0
+    ]
+   }
+  },
+  "negate": {
+   "cases": 28,
+   "expected": "off",
+   "reader": {
+    "holds": 0.893,
+    "ci": [
+     0.724,
+     1.0
+    ]
+   }
+  },
+  "family": {
+   "cases": 40,
+   "expected": "off",
+   "reader": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "ruled_out": {
+   "cases": 40,
+   "expected": "off",
+   "reader": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  }
+ },
+ "cost": {
+  "calls": 702,
+  "input_tokens": 250908,
+  "output_tokens": 108271,
+  "usd": 0.0792,
+  "median_call_seconds": 2.676,
+  "p95_call_seconds": 6.812
+ }
+}
