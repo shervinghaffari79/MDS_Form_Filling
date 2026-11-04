@@ -1,0 +1,31 @@
+{
+ "dev": {
+  "candidate_codes": 1767,
+  "codes_with_phrases": 1766,
+  "recall_at_50": {
+   "old_ensemble": 0.3848,
+   "E": 0.6702,
+   "bm25": 0.2648,
+   "bge": 0.2869,
+   "biolord": 0.3515,
+   "es_bm25": 0.4486,
+   "phrase_match": 0.5835,
+   "m3": 0.3934
+  }
+ },
+ "test": {
+  "candidate_codes": 2194,
+  "codes_with_phrases": 2192,
+  "recall_at_50": {
+   "old_ensemble": 0.373,
+   "E": 0.6837,
+   "bm25": 0.2393,
+   "bge": 0.2889,
+   "biolord": 0.3297,
+   "es_bm25": 0.4353,
+   "phrase_match": 0.651,
+   "m3": 0.411
+  }
+ },
+ "seconds": 615
+}
