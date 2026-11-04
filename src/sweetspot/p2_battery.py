@@ -40,33 +40,41 @@ EXPECT = {"mask": False, "sufficiency": True, "negate": False, "paraphrase": Tru
 ADD_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["sentence"], "properties": {"sentence": {"type": "string"}}}
 
 
-def run_note(chunks_list, llms, membership, item_codes, records=None):
-    """Extraction, verifier and membership for one perturbed note; returns {arm: set of filled codes among item_codes}."""
+def run_many(cases, llms, membership):
+    """Batched version of run_note for many perturbed notes: every stage is sent as one parallel batch (same requests, same results)."""
     ext, ver, mem = llms
-    rows = ext.run([A.mention_request(c) for c in chunks_list])
+    flat = [(n, c) for n, (chunks_list, _) in enumerate(cases) for c in chunks_list]
+    rows = ext.run([A.mention_request(c) for _, c in flat])
     raw = []
-    for c, r in zip(chunks_list, rows):
+    for (n, c), r in zip(flat, rows):
         valid = {sid for sid, _, _ in c}
         raw.append([m for m in (r["parsed"]["mentions"] if r else []) if m["sentence"] in valid and m["text"].strip()])
-    vq = [(i, A.verify_request(c, ms)) for i, (c, ms) in enumerate(zip(chunks_list, raw)) if ms]
+    vq = [(i, A.verify_request(flat[i][1], ms)) for i, ms in enumerate(raw) if ms]
     vr = ver.run([q for _, q in vq])
     kept = list(raw)
     for (i, _), r in zip(vq, vr):
         kept[i] = A.apply_verdicts(raw[i], r["parsed"] if r else None)
-    flat_raw = [m for ms in raw for m in ms]
-    flat_kept = [m for ms in kept for m in ms]
-    new = sorted({(m["type"], A.norm(m["text"])) for m in flat_raw + flat_kept} - set(membership))
+    new = sorted({(m["type"], A.norm(m["text"])) for ms in raw + kept for m in ms} - set(membership))
+    mrows = []
     if new:
         valid_codes = {i["code"] for i in A.ITEMS["items"]}
         mreqs = A.member_requests(new)
-        for (q, t, batch), r in zip(mreqs, mem.run([q for q, _, _ in mreqs])):
+        mrows = mem.run([q for q, _, _ in mreqs])
+        for (q, t, batch), r in zip(mreqs, mrows):
             for a in (r["parsed"]["answers"] if r else []):
                 if 0 <= a["concept"] < len(batch):
                     membership[(t, batch[a["concept"]])] = [c for c in a["items"] if c in valid_codes]
-    out = {"notes": A.build_graph("", flat_raw, [], membership, None),
-           "notes+v": A.build_graph("", flat_kept, [], membership, None),
-           "notes+v+t": A.build_graph("", flat_kept, [], membership, None, time_update=True)}
-    return {arm: {c for c in g if c in item_codes} for arm, g in out.items()}, rows + vr
+    per_raw, per_kept = defaultdict(list), defaultdict(list)
+    for i, (n, _) in enumerate(flat):
+        per_raw[n] += raw[i]
+        per_kept[n] += kept[i]
+    out = []
+    for n, (_, code) in enumerate(cases):
+        g = {"notes": A.build_graph("", per_raw[n], [], membership, None),
+             "notes+v": A.build_graph("", per_kept[n], [], membership, None),
+             "notes+v+t": A.build_graph("", per_kept[n], [], membership, None, time_update=True)}
+        out.append({arm: code in gg for arm, gg in g.items()})
+    return out, list(rows) + list(vr) + list(mrows)
 
 
 def main():
@@ -82,11 +90,14 @@ def main():
     nli = perturb.NLI()
     results = defaultdict(list)  # kind -> list of (admission, {arm: holds})
     spend = []
+    specs = []          # (admission, code, kind, builder data)
+    rewrite_reqs, rewrite_meta = [], []
+    add_reqs, add_meta = [], []
+    notes = {}
     for k in sample:
         rows = sents[sents["note_key"] == k].sort_values("sent_id")
         triples = list(zip(rows["sent_id"], rows["section"], rows["text"]))
-        text_of = {sid: (sec, t) for sid, sec, t in triples}
-        orig_chunks = list(A.chunks(triples))
+        notes[k] = (triples, {sid: (sec, t) for sid, sec, t in triples}, list(A.chunks(triples)))
         filled = arms["notes+v"][k]
         yes = [c for c in filled if any(p["source"] == "note" for p in filled[c])]
         yes = rng.sample(yes, min(3, len(yes)))
@@ -94,42 +105,55 @@ def main():
         for code in yes:
             cited = sorted({p["sentence"] for p in filled[code] if p["source"] == "note"})
             concept = filled[code][0]["concept"]
-            variants = {
-                "mask": [[x for x in c if x[0] not in cited] for c in orig_chunks],
-                "sufficiency": [[(sid, *text_of[sid]) for sid in cited]],
-            }
+            specs.append((k, code, cited))
             for kind in ("negate", "paraphrase"):
-                items_in = [{"id": sid, "sentence": text_of[sid][1], "concept": concept} for sid in cited]
-                reps = gen.run(perturb.requests_for(items_in, kind))
-                spend += reps
-                new_text = {}
-                for it, r in zip(items_in, reps):
-                    t = r["parsed"]["text"].strip() if r else ""
-                    if t and t != it["sentence"] and perturb.accept(kind, nli, [it["sentence"]], [t])[0]:
-                        new_text[it["id"]] = t
-                if len(new_text) == len(cited):  # every cited sentence must be changed, or the case is not used
-                    variants[kind] = [[(sid, sec, new_text.get(sid, t)) for sid, sec, t in c] for c in orig_chunks]
-            order = list(dict.fromkeys(sec for _, sec, _ in triples))[::-1]
-            variants["reorder"] = list(A.chunks([x for sec in order for x in triples if x[1] == sec]))
-            for kind, chunks_list in variants.items():
-                got, used = run_note([c for c in chunks_list if c], llms, membership, {code})
-                spend += used
-                results[kind].append((k, {arm: (code in got[arm]) == EXPECT[kind] for arm in ARMS}))
+                its = [{"id": sid, "sentence": notes[k][1][sid][1], "concept": concept} for sid in cited]
+                for it, q in zip(its, perturb.requests_for(its, kind)):
+                    rewrite_reqs.append(q)
+                    rewrite_meta.append((k, code, kind, it))
         for code in no:
             label = items[code]["label"]
             for kind, ask in (("family", f"Write one sentence for a discharge summary stating that the patient's mother has a history of {label}."),
                               ("ruled_out", f"Write one sentence for a discharge summary stating that {label} was considered in this patient and ruled out.")):
-                r = gen.run([{"name": "add", "system": "You write single sentences for a robustness test of clinical NLP.", "prompt": ask,
-                              "schema": ADD_SCHEMA}])[0]
-                spend.append(r)
-                if not r:
-                    continue
-                last_sid = triples[-1][0] + 1
-                section = "Family History" if kind == "family" else "Brief Hospital Course"
-                chunks_list = orig_chunks[:-1] + [orig_chunks[-1] + [(last_sid, section, r["parsed"]["sentence"].strip())]]
-                got, used = run_note(chunks_list, llms, membership, {code})
-                spend += used
-                results[kind].append((k, {arm: (code in got[arm]) == EXPECT[kind] for arm in ARMS}))
+                add_reqs.append({"name": "add", "system": "You write single sentences for a robustness test of clinical NLP.", "prompt": ask,
+                                 "schema": ADD_SCHEMA})
+                add_meta.append((k, code, kind))
+    rew = gen.run(rewrite_reqs)
+    adds = gen.run(add_reqs)
+    spend += rew + adds
+    cand = [(m, r["parsed"]["text"].strip()) for m, r in zip(rewrite_meta, rew) if r and r["parsed"]["text"].strip() != m[3]["sentence"]]
+    by_kind = defaultdict(list)
+    for (m, t) in cand:
+        by_kind[m[2]].append((m, t))
+    new_text = defaultdict(dict)
+    for kind, pairs in by_kind.items():
+        ok = perturb.accept(kind, nli, [m[3]["sentence"] for m, _ in pairs], [t for _, t in pairs])
+        for (m, t), good in zip(pairs, ok):
+            if good:
+                new_text[(m[0], m[1], kind)][m[3]["id"]] = t
+    cases, meta = [], []
+    for k, code, cited in specs:
+        triples, text_of, orig_chunks = notes[k]
+        cases.append(([c for c in ([x for x in c if x[0] not in cited] for c in orig_chunks) if c], code)); meta.append((k, "mask"))
+        cases.append(([[(sid, *text_of[sid]) for sid in cited]], code)); meta.append((k, "sufficiency"))
+        for kind in ("negate", "paraphrase"):
+            nt = new_text.get((k, code, kind), {})
+            if len(nt) == len(cited):  # every cited sentence must be changed, or the case is not used
+                cases.append(([[(sid, sec, nt.get(sid, t)) for sid, sec, t in c] for c in orig_chunks], code)); meta.append((k, kind))
+        order = list(dict.fromkeys(sec for _, sec, _ in triples))[::-1]
+        cases.append((list(A.chunks([x for sec in order for x in triples if x[1] == sec])), code)); meta.append((k, "reorder"))
+    for (k, code, kind), r in zip(add_meta, adds):
+        if not r:
+            continue
+        triples, _, orig_chunks = notes[k]
+        section = "Family History" if kind == "family" else "Brief Hospital Course"
+        extra = (triples[-1][0] + 1, section, r["parsed"]["sentence"].strip())
+        cases.append((orig_chunks[:-1] + [orig_chunks[-1] + [extra]], code)); meta.append((k, kind))
+    got, used = run_many(cases, llms, membership)
+    spend += used
+    for (k, kind), g in zip(meta, got):
+        results[kind].append((k, {arm: g[arm] == EXPECT[kind] for arm in ARMS}))
+    generation = {kind: {"cases_with_all_cited_rewritten": sum(1 for _, kd in meta if kd == kind)} for kind in ("negate", "paraphrase")}
     boot = np.random.default_rng(0)
     summary = {}
     for kind, rows in results.items():
@@ -146,7 +170,7 @@ def main():
                 xs = [x for a in pick for x in by[a]]
                 vals.append(np.mean(xs))
             summary[kind][arm] = {"holds": round(point, 3), "ci": [round(float(np.quantile(vals, .025)), 3), round(float(np.quantile(vals, .975)), 3)]}
-    out = {"admissions": len(sample), "battery": summary, "cost": cost(spend)}
+    out = {"admissions": len(sample), "yes_cases": len(specs), "battery": summary, "rewrites_accepted": generation, "cost": cost(spend)}
     OUT.write_text(json.dumps(out, indent=1))
     print(json.dumps(out, indent=1))
 
