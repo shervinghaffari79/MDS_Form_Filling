@@ -1,0 +1,419 @@
+{
+ "admissions": 20,
+ "items": 78,
+ "calls_per_admission": 78,
+ "cost_usd_per_admission": 0.0079,
+ "total": {
+  "calls": 1560,
+  "input_tokens": 1144639,
+  "output_tokens": 86271,
+  "usd": 0.1576,
+  "median_call_seconds": 1.368,
+  "p95_call_seconds": 2.979
+ },
+ "delay_seconds_per_admission": {
+  "all_parallel_median": 4.46,
+  "16_workers_median": 7.67
+ },
+ "yes_per_admission": 13.45,
+ "agreement_with_graph_notes_v": {
+  "cohen_kappa_pooled": 0.734,
+  "both_yes": 183,
+  "reader_only": 86,
+  "graph_only": 21,
+  "both_no": 1270,
+  "by_item": {
+   "I1a": {
+    "both": 7,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1b": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1c": {
+    "both": 6,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1d": {
+    "both": 8,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1e": {
+    "both": 10,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1f": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 3
+   },
+   "I1g": {
+    "both": 0,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1h": {
+    "both": 15,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1i": {
+    "both": 4,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1j": {
+    "both": 4,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1k": {
+    "both": 8,
+    "reader_only": 11,
+    "graph_only": 1
+   },
+   "I1l": {
+    "both": 5,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I1m": {
+    "both": 4,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1n": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1o": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1p": {
+    "both": 2,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1q": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1r": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1s": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1t": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1u": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 1
+   },
+   "I1v": {
+    "both": 0,
+    "reader_only": 3,
+    "graph_only": 0
+   },
+   "I1w": {
+    "both": 1,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I1x": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1y": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1z": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1aa": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1bb": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1cc": {
+    "both": 2,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I1dd": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1ee": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1ff": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1gg": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1hh": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1ii": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1jj": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 1
+   },
+   "I1kk": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1ll": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1mm": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1nn": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1oo": {
+    "both": 2,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I1pp": {
+    "both": 1,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I1qq": {
+    "both": 4,
+    "reader_only": 8,
+    "graph_only": 0
+   },
+   "I1rr": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1ss": {
+    "both": 7,
+    "reader_only": 3,
+    "graph_only": 1
+   },
+   "I1tt": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I1uu": {
+    "both": 3,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I2a": {
+    "both": 1,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I2b": {
+    "both": 0,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "I2c": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2d": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2e": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2f": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2g": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 1
+   },
+   "I2h": {
+    "both": 2,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2i": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2j": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2k": {
+    "both": 4,
+    "reader_only": 2,
+    "graph_only": 0
+   },
+   "I2l": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "I2m": {
+    "both": 0,
+    "reader_only": 3,
+    "graph_only": 0
+   },
+   "O4a": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "O4b": {
+    "both": 2,
+    "reader_only": 1,
+    "graph_only": 1
+   },
+   "O4c": {
+    "both": 5,
+    "reader_only": 3,
+    "graph_only": 1
+   },
+   "O4d": {
+    "both": 0,
+    "reader_only": 1,
+    "graph_only": 2
+   },
+   "O4e": {
+    "both": 5,
+    "reader_only": 1,
+    "graph_only": 2
+   },
+   "O4f": {
+    "both": 17,
+    "reader_only": 1,
+    "graph_only": 2
+   },
+   "P1a-a": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-b": {
+    "both": 1,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-c": {
+    "both": 9,
+    "reader_only": 3,
+    "graph_only": 3
+   },
+   "P1a-d": {
+    "both": 0,
+    "reader_only": 9,
+    "graph_only": 0
+   },
+   "P1a-e": {
+    "both": 1,
+    "reader_only": 17,
+    "graph_only": 0
+   },
+   "P1a-f": {
+    "both": 1,
+    "reader_only": 1,
+    "graph_only": 0
+   },
+   "P1a-g": {
+    "both": 0,
+    "reader_only": 1,
+    "graph_only": 2
+   },
+   "P1a-h": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-i": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-j": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-k": {
+    "both": 3,
+    "reader_only": 0,
+    "graph_only": 0
+   },
+   "P1a-l": {
+    "both": 0,
+    "reader_only": 0,
+    "graph_only": 0
+   }
+  }
+ },
+ "failures": {}
+}
