@@ -41,9 +41,14 @@ def main():
     llm, gen = LLM("p2_reader"), LLM("p2_reader_battery_rewrites")
     nli = perturb.NLI()
 
+    emb_cache = {}  # sentence text -> embedding; each distinct sentence is encoded once (the encoder is deterministic)
+
     def ask(triples, code):
         texts = [t for _, _, t in triples]
-        e = enc.encode(texts, normalize_embeddings=True, batch_size=128)
+        missing = [t for t in dict.fromkeys(texts) if t not in emb_cache]
+        if missing:
+            emb_cache.update(zip(missing, enc.encode(missing, normalize_embeddings=True, batch_size=128)))
+        e = np.stack([emb_cache[t] for t in texts])
         top = np.sort(np.argsort(-(e @ qv[code]))[:TOP])
         block = [triples[t] for t in top]
         return {"name": "plain", "system": SYSTEM, "prompt": build_prompt("plain", items[code]["wording"], block), "schema": PLAIN_SCHEMA}
