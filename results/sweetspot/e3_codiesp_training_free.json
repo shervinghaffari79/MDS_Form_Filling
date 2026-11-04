@@ -1,0 +1,89 @@
+{
+ "dev_grid": {
+  "T1+A1": {
+   "map": 0.5628,
+   "f1": 0.4659
+  },
+  "T1+A2": {
+   "map": 0.5628,
+   "f1": 0.4572
+  },
+  "T1+A3": {
+   "map": 0.5628,
+   "f1": 0.328
+  },
+  "T2+A1": {
+   "map": 0.5689,
+   "f1": 0.4659
+  },
+  "T2+A2": {
+   "map": 0.5689,
+   "f1": 0.4572
+  },
+  "T2+A3": {
+   "map": 0.5689,
+   "f1": 0.328
+  },
+  "T3+A1": {
+   "map": 0.4056,
+   "f1": 0.4659
+  },
+  "T3+A2": {
+   "map": 0.4056,
+   "f1": 0.4572
+  },
+  "T3+A3": {
+   "map": 0.4056,
+   "f1": 0.328
+  }
+ },
+ "picked": {
+  "ranking": "T2",
+  "acceptance": "A1"
+ },
+ "test": {
+  "training_free": {
+   "map": 0.5845,
+   "f1": 0.4829,
+   "precision": 0.8133,
+   "recall": 0.3434
+  },
+  "logistic_graph": {
+   "map": 0.6186,
+   "f1": 0.6287,
+   "precision": 0.7758,
+   "recall": 0.5285
+  },
+  "llm_paths_only_T3": {
+   "map": 0.4122,
+   "f1": 0.4829
+  },
+  "map_training_free_minus_logistic": {
+   "difference": -0.0341,
+   "ci": [
+    -0.0419,
+    -0.0258
+   ]
+  }
+ },
+ "leaderboard": {
+  "by_map": {
+   "score": 0.5845,
+   "place": 2,
+   "of_teams": 22,
+   "next_above": "IXA-AAA",
+   "best": "IXA-AAA",
+   "best_score": 0.593
+  },
+  "by_f1": {
+   "score": 0.4829,
+   "place": 8,
+   "of_teams": 22,
+   "next_above": "SINAI",
+   "best": "IAM",
+   "best_score": 0.687
+  }
+ },
+ "D3_holds": true,
+ "look_at_test": 7
+}
