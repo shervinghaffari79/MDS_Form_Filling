@@ -1,0 +1,37 @@
+# Core
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1          # read the MDS 2.0 Field Reference.xlsx
+python-docx>=1.1       # read the project brief .docx
+pypdf>=4.0              # extract text from MDS 2.0.pdf
+
+# NLP - general
+spacy>=3.7
+scispacy>=0.5.4         # biomedical spaCy pipelines (NER, abbreviation resolution)
+transformers>=4.40
+torch>=2.2
+sentencepiece>=0.2.0
+datasets>=2.19
+
+# Clinical / biomedical NLP
+medspacy>=1.1           # clinical NLP: negation, context, sectionizer (ConText algorithm)
+negspacy>=1.0.4         # standalone negation detection for spaCy pipelines
+quickumls>=1.4.2        # optional: UMLS concept matching (needs local UMLS install)
+
+# Evaluation & utilities
+scikit-learn>=1.4
+seqeval>=1.2.2           # span/entity-level P/R/F1 for NER evaluation
+tqdm>=4.66
+python-dotenv>=1.0
+
+# Single-command pipeline (src/run_pipeline.py)
+sentence-transformers>=5.0
+scipy>=1.11
+pyarrow>=15.0
+duckdb>=1.0
+openai>=2.0
+modal>=1.0             # only for --encode modal
+
+# Notebooks
+jupyterlab>=4.1
+matplotlib>=3.8

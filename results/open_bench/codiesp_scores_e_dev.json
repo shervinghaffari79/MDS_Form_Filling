@@ -1,0 +1,91 @@
+{
+ "split": "dev",
+ "model": "gpt-6-luna",
+ "arms": {
+  "two_stage": {
+   "map": 0.1952,
+   "precision": 0.572,
+   "recall": 0.2196,
+   "f1": 0.3174,
+   "docs": 250
+  },
+  "free": {
+   "map": 0.2063,
+   "precision": 0.4781,
+   "recall": 0.2932,
+   "f1": 0.3635,
+   "docs": 250
+  },
+  "two_stage_e": {
+   "map": 0.2799,
+   "precision": 0.6568,
+   "recall": 0.3411,
+   "f1": 0.449,
+   "docs": 250
+  },
+  "two_stage_kg": {
+   "map": 0.1952,
+   "precision": 0.3037,
+   "recall": 0.2196,
+   "f1": 0.2549,
+   "docs": 250
+  }
+ },
+ "contrasts": [
+  {
+   "a": "two_stage",
+   "b": "free",
+   "map_difference": -0.0111,
+   "ci": [
+    -0.0339,
+    0.0137
+   ]
+  },
+  {
+   "a": "two_stage",
+   "b": "two_stage_e",
+   "map_difference": -0.0847,
+   "ci": [
+    -0.0999,
+    -0.0702
+   ]
+  },
+  {
+   "a": "two_stage",
+   "b": "two_stage_kg",
+   "map_difference": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "a": "free",
+   "b": "two_stage_e",
+   "map_difference": -0.0736,
+   "ci": [
+    -0.0988,
+    -0.0493
+   ]
+  },
+  {
+   "a": "free",
+   "b": "two_stage_kg",
+   "map_difference": 0.0111,
+   "ci": [
+    -0.0137,
+    0.0339
+   ]
+  },
+  {
+   "a": "two_stage_e",
+   "b": "two_stage_kg",
+   "map_difference": 0.0847,
+   "ci": [
+    0.0702,
+    0.0999
+   ]
+  }
+ ],
+ "frozen": "two_stage_e"
+}

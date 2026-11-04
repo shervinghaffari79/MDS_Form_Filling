@@ -1,0 +1,158 @@
+{
+ "pilot": {
+  "admissions": 24,
+  "pairs": 264,
+  "true": 77,
+  "scores": {
+   "note_discharge": 0.8193,
+   "rx_active": 0.9492,
+   "window_or": 0.9171,
+   "window_and": 0.8514
+  }
+ },
+ "frozen": "rx_active",
+ "proxy": {
+  "admissions": 244,
+  "pairs": 2684,
+  "true": 893,
+  "scores": {
+   "stay_note": 0.8441,
+   "stay_records": 0.885,
+   "note_discharge": 0.8546,
+   "rx_active": 0.9536,
+   "window_or": 0.9263,
+   "window_and": 0.8819
+  },
+  "by_item": {
+   "N_antianxiety": {
+    "stay_note": 0.8213,
+    "stay_records": 0.901,
+    "note_discharge": 0.8305,
+    "rx_active": 0.9565,
+    "window_or": 0.9034,
+    "window_and": 0.8837
+   },
+   "N_antibiotic": {
+    "stay_note": 0.7318,
+    "stay_records": 0.6719,
+    "note_discharge": 0.8763,
+    "rx_active": 0.9722,
+    "window_or": 0.9437,
+    "window_and": 0.9048
+   },
+   "N_anticoagulant": {
+    "stay_note": 0.652,
+    "stay_records": 0.7317,
+    "note_discharge": 0.6587,
+    "rx_active": 0.8171,
+    "window_or": 0.7683,
+    "window_and": 0.7075
+   },
+   "N_anticonvulsant": {
+    "stay_note": 0.9397,
+    "stay_records": 0.9674,
+    "note_discharge": 0.956,
+    "rx_active": 0.9946,
+    "window_or": 0.981,
+    "window_and": 0.9696
+   },
+   "N_antidepressant": {
+    "stay_note": 0.8926,
+    "stay_records": 0.9043,
+    "note_discharge": 0.8774,
+    "rx_active": 0.9414,
+    "window_or": 0.9321,
+    "window_and": 0.8867
+   },
+   "N_antiplatelet": {
+    "stay_note": 0.8934,
+    "stay_records": 0.9549,
+    "note_discharge": 0.918,
+    "rx_active": 0.9754,
+    "window_or": 0.9508,
+    "window_and": 0.9426
+   },
+   "N_antipsychotic": {
+    "stay_note": 0.9271,
+    "stay_records": 0.9143,
+    "note_discharge": 0.9285,
+    "rx_active": 0.9578,
+    "window_or": 0.951,
+    "window_and": 0.9354
+   },
+   "N_diuretic": {
+    "stay_note": 0.8986,
+    "stay_records": 0.904,
+    "note_discharge": 0.9574,
+    "rx_active": 0.9814,
+    "window_or": 0.9669,
+    "window_and": 0.9719
+   },
+   "N_hypnotic": {
+    "stay_note": 0.8038,
+    "stay_records": 0.9626,
+    "note_discharge": 0.8193,
+    "rx_active": 0.9758,
+    "window_or": 0.8899,
+    "window_and": 0.9052
+   },
+   "N_hypoglycemic": {
+    "stay_note": 0.9198,
+    "stay_records": 0.8851,
+    "note_discharge": 0.8884,
+    "rx_active": 0.9397,
+    "window_or": 0.9368,
+    "window_and": 0.8913
+   },
+   "N_opioid": {
+    "stay_note": 0.8177,
+    "stay_records": 0.7483,
+    "note_discharge": 0.8474,
+    "rx_active": 0.8448,
+    "window_or": 0.8345,
+    "window_and": 0.8577
+   }
+  },
+  "positive_rate": {
+   "truth": 0.3327,
+   "stay_note": 0.4255,
+   "stay_records": 0.4851,
+   "note_discharge": 0.3387,
+   "rx_active": 0.389,
+   "window_or": 0.4288,
+   "window_and": 0.2988
+  }
+ },
+ "decisions": {
+  "D1_window_beats_today": {
+   "a": "rx_active",
+   "b": "stay_records",
+   "difference": 0.0687,
+   "ci": [
+    0.0588,
+    0.0786
+   ],
+   "above_zero": true
+  },
+  "D3_note_places_timing": {
+   "a": "note_discharge",
+   "b": "stay_note",
+   "difference": 0.0105,
+   "ci": [
+    0.0004,
+    0.0206
+   ],
+   "above_zero": true
+  },
+  "also_frozen_vs_stay_note": {
+   "a": "rx_active",
+   "b": "stay_note",
+   "difference": 0.1096,
+   "ci": [
+    0.0957,
+    0.1229
+   ],
+   "above_zero": true
+  }
+ }
+}

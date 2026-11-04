@@ -1,0 +1,464 @@
+{
+ "split": {
+  "dev_admissions": 202,
+  "eval_admissions": 202
+ },
+ "I_uti": {
+  "pairs": 136,
+  "admissions": 136,
+  "true": 45,
+  "lg_u_source_estimates": {
+   "sensitivity": {
+    "reader": 0.963,
+    "note_window": 0.897,
+    "not_negated": 0.966,
+    "record": 0.899
+   },
+   "specificity": {
+    "reader": 0.99,
+    "note_window": 0.99,
+    "not_negated": 0.151,
+    "record": 0.963
+   },
+   "prevalence": 0.221
+  },
+  "lg_s_edge_coefficients": {
+   "reader": 1.135,
+   "note_window": 0.626,
+   "note_negated": -0.81,
+   "record": 1.218
+  },
+  "LG-U": {
+   "all": {
+    "n": 136,
+    "accuracy": 0.8015,
+    "balanced": 0.7337,
+    "precision": 0.8,
+    "recall": 0.5333,
+    "f1": 0.64,
+    "false_positive_share_of_yes": 0.2
+   },
+   "answered": {
+    "n": 136,
+    "accuracy": 0.8015,
+    "balanced": 0.7337,
+    "precision": 0.8,
+    "recall": 0.5333,
+    "f1": 0.64,
+    "false_positive_share_of_yes": 0.2
+   },
+   "coverage": 1.0,
+   "risk_at_coverage": {
+    "80%": 0.1468,
+    "90%": 0.1475,
+    "95%": 0.1628
+   },
+   "M1_minus_records": [
+    -0.0277,
+    [
+     -0.0814,
+     0.0249
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    -0.0333,
+    [
+     -0.0814,
+     0.0119
+    ],
+    false
+   ]
+  },
+  "LG-S": {
+   "all": {
+    "n": 136,
+    "accuracy": 0.8015,
+    "balanced": 0.7337,
+    "precision": 0.8,
+    "recall": 0.5333,
+    "f1": 0.64,
+    "false_positive_share_of_yes": 0.2
+   },
+   "answered": {
+    "n": 124,
+    "accuracy": 0.8387,
+    "balanced": 0.7468,
+    "precision": 0.8636,
+    "recall": 0.5278,
+    "f1": 0.6552,
+    "false_positive_share_of_yes": 0.1364
+   },
+   "coverage": 0.9118,
+   "risk_at_coverage": {
+    "80%": 0.156,
+    "90%": 0.1639,
+    "95%": 0.1705
+   },
+   "M1_minus_records": [
+    -0.0277,
+    [
+     -0.0814,
+     0.0249
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    -0.0333,
+    [
+     -0.0814,
+     0.0119
+    ],
+    false
+   ],
+   "M3_abstained_minus_answered_error": [
+    0.422,
+    [
+     0.1127,
+     0.7103
+    ],
+    true
+   ]
+  },
+  "comparators": {
+   "reader": {
+    "n": 136,
+    "accuracy": 0.7941,
+    "balanced": 0.7226,
+    "precision": 0.7931,
+    "recall": 0.5111,
+    "f1": 0.6216,
+    "false_positive_share_of_yes": 0.2069
+   },
+   "record": {
+    "n": 136,
+    "accuracy": 0.8235,
+    "balanced": 0.7614,
+    "precision": 0.8387,
+    "recall": 0.5778,
+    "f1": 0.6842,
+    "false_positive_share_of_yes": 0.1613
+   },
+   "kg_rules": {
+    "n": 136,
+    "accuracy": 0.8235,
+    "balanced": 0.767,
+    "precision": 0.8182,
+    "recall": 0.6,
+    "f1": 0.6923,
+    "false_positive_share_of_yes": 0.1818
+   }
+  }
+ },
+ "N_window": {
+  "pairs": 1430,
+  "admissions": 130,
+  "true": 472,
+  "lg_u_source_estimates": {
+   "sensitivity": {
+    "reader": 0.99,
+    "note_window": 0.95,
+    "not_negated": 0.93,
+    "record": 0.879
+   },
+   "specificity": {
+    "reader": 0.903,
+    "note_window": 0.99,
+    "not_negated": 0.093,
+    "record": 0.905
+   },
+   "prevalence": 0.364
+  },
+  "lg_s_edge_coefficients": {
+   "reader": 0.516,
+   "note_window": 1.344,
+   "note_negated": 0.198,
+   "record": 5.272
+  },
+  "LG-U": {
+   "all": {
+    "n": 1430,
+    "accuracy": 0.8909,
+    "balanced": 0.8912,
+    "precision": 0.8004,
+    "recall": 0.8919,
+    "f1": 0.8437,
+    "false_positive_share_of_yes": 0.1996
+   },
+   "answered": {
+    "n": 1399,
+    "accuracy": 0.8949,
+    "balanced": 0.8928,
+    "precision": 0.8061,
+    "recall": 0.8867,
+    "f1": 0.8444,
+    "false_positive_share_of_yes": 0.1939
+   },
+   "coverage": 0.9783,
+   "risk_at_coverage": {
+    "80%": 0.0297,
+    "90%": 0.0971,
+    "95%": 0.1075
+   },
+   "M1_minus_records": [
+    -0.0665,
+    [
+     -0.0826,
+     -0.0512
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    -0.0028,
+    [
+     -0.0202,
+     0.0146
+    ],
+    false
+   ],
+   "M3_abstained_minus_answered_error": [
+    0.1852,
+    [
+     0.037,
+     0.3539
+    ],
+    true
+   ]
+  },
+  "LG-S": {
+   "all": {
+    "n": 1430,
+    "accuracy": 0.9538,
+    "balanced": 0.9575,
+    "precision": 0.8996,
+    "recall": 0.9682,
+    "f1": 0.9327,
+    "false_positive_share_of_yes": 0.1004
+   },
+   "answered": {
+    "n": 1292,
+    "accuracy": 0.9791,
+    "balanced": 0.9829,
+    "precision": 0.9409,
+    "recall": 0.9922,
+    "f1": 0.9659,
+    "false_positive_share_of_yes": 0.0591
+   },
+   "coverage": 0.9035,
+   "risk_at_coverage": {
+    "80%": 0.0114,
+    "90%": 0.021,
+    "95%": 0.0309
+   },
+   "M1_minus_records": [
+    -0.0002,
+    [
+     -0.0095,
+     0.0085
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    0.0635,
+    [
+     0.0472,
+     0.0805
+    ],
+    true
+   ],
+   "M3_abstained_minus_answered_error": [
+    0.2617,
+    [
+     0.1925,
+     0.3318
+    ],
+    true
+   ]
+  },
+  "comparators": {
+   "reader": {
+    "n": 1430,
+    "accuracy": 0.835,
+    "balanced": 0.8494,
+    "precision": 0.6947,
+    "recall": 0.8919,
+    "f1": 0.7811,
+    "false_positive_share_of_yes": 0.3053
+   },
+   "record": {
+    "n": 1430,
+    "accuracy": 0.9455,
+    "balanced": 0.9577,
+    "precision": 0.8621,
+    "recall": 0.9936,
+    "f1": 0.9232,
+    "false_positive_share_of_yes": 0.1379
+   },
+   "kg_rules": {
+    "n": 1430,
+    "accuracy": 0.8846,
+    "balanced": 0.894,
+    "precision": 0.7726,
+    "recall": 0.9216,
+    "f1": 0.8406,
+    "false_positive_share_of_yes": 0.2274
+   },
+   "timeline_llm": {
+    "n": 1430,
+    "accuracy": 0.8986,
+    "balanced": 0.9098,
+    "precision": 0.7904,
+    "recall": 0.9428,
+    "f1": 0.8599,
+    "false_positive_share_of_yes": 0.2096
+   }
+  }
+ },
+ "O_icu": {
+  "pairs": 312,
+  "admissions": 78,
+  "true": 63,
+  "lg_u_source_estimates": {
+   "sensitivity": {
+    "reader": 0.986,
+    "note_window": 0.973,
+    "not_negated": 0.99,
+    "record": 0.883
+   },
+   "specificity": {
+    "reader": 0.99,
+    "note_window": 0.99,
+    "not_negated": 0.025,
+    "record": 0.933
+   },
+   "prevalence": 0.22
+  },
+  "lg_s_edge_coefficients": {
+   "reader": 0.724,
+   "note_window": 0.568,
+   "note_negated": -0.553,
+   "record": 3.428
+  },
+  "LG-U": {
+   "all": {
+    "n": 312,
+    "accuracy": 0.9103,
+    "balanced": 0.8786,
+    "precision": 0.7536,
+    "recall": 0.8254,
+    "f1": 0.7879,
+    "false_positive_share_of_yes": 0.2464
+   },
+   "answered": {
+    "n": 312,
+    "accuracy": 0.9103,
+    "balanced": 0.8786,
+    "precision": 0.7536,
+    "recall": 0.8254,
+    "f1": 0.7879,
+    "false_positive_share_of_yes": 0.2464
+   },
+   "coverage": 1.0,
+   "risk_at_coverage": {
+    "80%": 0.024,
+    "90%": 0.032,
+    "95%": 0.0642
+   },
+   "M1_minus_records": [
+    -0.0834,
+    [
+     -0.1269,
+     -0.0397
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    -0.0633,
+    [
+     -0.104,
+     -0.0208
+    ],
+    false
+   ]
+  },
+  "LG-S": {
+   "all": {
+    "n": 312,
+    "accuracy": 0.9583,
+    "balanced": 0.968,
+    "precision": 0.8378,
+    "recall": 0.9841,
+    "f1": 0.9051,
+    "false_positive_share_of_yes": 0.1622
+   },
+   "answered": {
+    "n": 274,
+    "accuracy": 0.9891,
+    "balanced": 0.9826,
+    "precision": 0.9487,
+    "recall": 0.9737,
+    "f1": 0.961,
+    "false_positive_share_of_yes": 0.0513
+   },
+   "coverage": 0.8782,
+   "risk_at_coverage": {
+    "80%": 0.012,
+    "90%": 0.0214,
+    "95%": 0.027
+   },
+   "M1_minus_records": [
+    0.006,
+    [
+     0.0,
+     0.0139
+    ],
+    false
+   ],
+   "M2_minus_kg_rules": [
+    0.0261,
+    [
+     0.0124,
+     0.0413
+    ],
+    true
+   ],
+   "M3_abstained_minus_answered_error": [
+    0.2522,
+    [
+     0.1209,
+     0.4029
+    ],
+    true
+   ]
+  },
+  "comparators": {
+   "reader": {
+    "n": 312,
+    "accuracy": 0.9071,
+    "balanced": 0.8706,
+    "precision": 0.75,
+    "recall": 0.8095,
+    "f1": 0.7786,
+    "false_positive_share_of_yes": 0.25
+   },
+   "record": {
+    "n": 312,
+    "accuracy": 0.9487,
+    "balanced": 0.9619,
+    "precision": 0.8052,
+    "recall": 0.9841,
+    "f1": 0.8857,
+    "false_positive_share_of_yes": 0.1948
+   },
+   "kg_rules": {
+    "n": 312,
+    "accuracy": 0.9167,
+    "balanced": 0.9419,
+    "precision": 0.7126,
+    "recall": 0.9841,
+    "f1": 0.8267,
+    "false_positive_share_of_yes": 0.2874
+   }
+  }
+ }
+}

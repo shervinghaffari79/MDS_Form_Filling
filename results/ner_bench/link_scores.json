@@ -1,0 +1,76 @@
+{
+ "attributes": 1196,
+ "pairs": 300,
+ "exposure": {
+  "lines": 5511,
+  "lines_2plus_drugs_and_attribute": 129,
+  "lines_2plus_drugs": 187
+ },
+ "llm_tokens": 81200,
+ "accuracy": {
+  "nearest": 0.9206,
+  "parse": 0.9423,
+  "llm": 0.9967
+ },
+ "by_join": {
+  "; ": {
+   "nearest": 0.9128,
+   "parse": 0.9631,
+   "llm": 0.9933
+  },
+  ", ": {
+   "nearest": 0.8986,
+   "parse": 0.973,
+   "llm": 1.0
+  },
+  " and ": {
+   "nearest": 0.9507,
+   "parse": 0.8487,
+   "llm": 1.0
+  },
+  ". ": {
+   "nearest": 0.9195,
+   "parse": 0.9866,
+   "llm": 0.9933
+  }
+ },
+ "by_position": {
+  "before": {
+   "n": 7,
+   "nearest": 1.0,
+   "parse": 1.0,
+   "llm": 1.0
+  },
+  "after": {
+   "n": 1189,
+   "nearest": 0.9201,
+   "parse": 0.942,
+   "llm": 0.9966
+  }
+ },
+ "decisions": {
+  "C1_parse_minus_nearest": {
+   "difference": 0.0217,
+   "ci": [
+    0.0009,
+    0.0399
+   ],
+   "helps": true
+  },
+  "C2_llm_minus_parse": {
+   "difference": 0.0543,
+   "ci": [
+    0.0391,
+    0.0724
+   ],
+   "matches": true
+  },
+  "extra_llm_minus_nearest": {
+   "difference": 0.0761,
+   "ci": [
+    0.0618,
+    0.0898
+   ]
+  }
+ }
+}

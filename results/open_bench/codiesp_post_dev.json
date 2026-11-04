@@ -1,0 +1,117 @@
+{
+ "split": "dev",
+ "graph": {
+  "cooccurrence_links": 1154,
+  "codes_with_links": 357
+ },
+ "versions": {
+  "free:base": {
+   "map": 0.2063,
+   "precision": 0.4781,
+   "recall": 0.2932,
+   "f1": 0.3635,
+   "docs": 250,
+   "codes_per_doc": 6.6
+  },
+  "free:A": {
+   "map": 0.2795,
+   "precision": 0.1041,
+   "recall": 0.5275,
+   "f1": 0.1739,
+   "docs": 250,
+   "codes_per_doc": 54.2
+  },
+  "free:B": {
+   "map": 0.227,
+   "precision": 0.3842,
+   "recall": 0.3433,
+   "f1": 0.3626,
+   "docs": 250,
+   "codes_per_doc": 9.6
+  },
+  "free:C": {
+   "map": 0.203,
+   "precision": 0.4906,
+   "recall": 0.294,
+   "f1": 0.3677,
+   "docs": 250,
+   "codes_per_doc": 6.4
+  },
+  "free:C+B": {
+   "map": 0.2308,
+   "precision": 0.3579,
+   "recall": 0.3605,
+   "f1": 0.3592,
+   "docs": 250,
+   "codes_per_doc": 10.8
+  },
+  "free:C+B+A": {
+   "map": 0.2824,
+   "precision": 0.1029,
+   "recall": 0.5491,
+   "f1": 0.1734,
+   "docs": 250,
+   "codes_per_doc": 57.1
+  },
+  "two_stage:base": {
+   "map": 0.1952,
+   "precision": 0.572,
+   "recall": 0.2196,
+   "f1": 0.3174,
+   "docs": 250,
+   "codes_per_doc": 4.1
+  },
+  "two_stage:A": {
+   "map": 0.2481,
+   "precision": 0.0827,
+   "recall": 0.3863,
+   "f1": 0.1363,
+   "docs": 250,
+   "codes_per_doc": 50.0
+  },
+  "two_stage:B": {
+   "map": 0.2273,
+   "precision": 0.4192,
+   "recall": 0.2899,
+   "f1": 0.3428,
+   "docs": 250,
+   "codes_per_doc": 7.4
+  },
+  "two_stage:C": {
+   "map": 0.1952,
+   "precision": 0.572,
+   "recall": 0.2196,
+   "f1": 0.3174,
+   "docs": 250,
+   "codes_per_doc": 4.1
+  },
+  "two_stage:C+B": {
+   "map": 0.2273,
+   "precision": 0.4192,
+   "recall": 0.2899,
+   "f1": 0.3428,
+   "docs": 250,
+   "codes_per_doc": 7.4
+  },
+  "two_stage:C+B+A": {
+   "map": 0.2712,
+   "precision": 0.089,
+   "recall": 0.44,
+   "f1": 0.1481,
+   "docs": 250,
+   "codes_per_doc": 52.9
+  }
+ },
+ "frozen": {
+  "map": "free:C+B+A",
+  "f1": "free:C"
+ },
+ "map_frozen_vs_free_base": {
+  "difference": 0.0761,
+  "ci": [
+   0.0576,
+   0.0928
+  ]
+ },
+ "f1_frozen_vs_free_base": null
+}

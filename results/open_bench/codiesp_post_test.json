@@ -1,0 +1,140 @@
+{
+ "split": "test",
+ "graph": {
+  "cooccurrence_links": 1555,
+  "codes_with_links": 472
+ },
+ "versions": {
+  "free:base": {
+   "map": 0.2057,
+   "precision": 0.4924,
+   "recall": 0.2977,
+   "f1": 0.3711,
+   "docs": 250,
+   "codes_per_doc": 6.9
+  },
+  "free:A": {
+   "map": 0.2779,
+   "precision": 0.1101,
+   "recall": 0.5281,
+   "f1": 0.1823,
+   "docs": 250,
+   "codes_per_doc": 54.5
+  },
+  "free:B": {
+   "map": 0.2366,
+   "precision": 0.4068,
+   "recall": 0.3656,
+   "f1": 0.3851,
+   "docs": 250,
+   "codes_per_doc": 10.2
+  },
+  "free:C": {
+   "map": 0.2255,
+   "precision": 0.528,
+   "recall": 0.3114,
+   "f1": 0.3918,
+   "docs": 250,
+   "codes_per_doc": 6.7
+  },
+  "free:C+B": {
+   "map": 0.2646,
+   "precision": 0.3895,
+   "recall": 0.3958,
+   "f1": 0.3927,
+   "docs": 250,
+   "codes_per_doc": 11.6
+  },
+  "free:C+B+A": {
+   "map": 0.3142,
+   "precision": 0.1121,
+   "recall": 0.5707,
+   "f1": 0.1874,
+   "docs": 250,
+   "codes_per_doc": 57.9
+  },
+  "two_stage:base": {
+   "map": 0.1855,
+   "precision": 0.5599,
+   "recall": 0.2104,
+   "f1": 0.3059,
+   "docs": 250,
+   "codes_per_doc": 4.3
+  },
+  "two_stage:A": {
+   "map": 0.2365,
+   "precision": 0.085,
+   "recall": 0.3737,
+   "f1": 0.1384,
+   "docs": 250,
+   "codes_per_doc": 50.0
+  },
+  "two_stage:B": {
+   "map": 0.2287,
+   "precision": 0.4168,
+   "recall": 0.2928,
+   "f1": 0.3439,
+   "docs": 250,
+   "codes_per_doc": 8.0
+  },
+  "two_stage:C": {
+   "map": 0.1855,
+   "precision": 0.5599,
+   "recall": 0.2104,
+   "f1": 0.3059,
+   "docs": 250,
+   "codes_per_doc": 4.3
+  },
+  "two_stage:C+B": {
+   "map": 0.2287,
+   "precision": 0.4168,
+   "recall": 0.2928,
+   "f1": 0.3439,
+   "docs": 250,
+   "codes_per_doc": 8.0
+  },
+  "two_stage:C+B+A": {
+   "map": 0.2695,
+   "precision": 0.0923,
+   "recall": 0.4324,
+   "f1": 0.1522,
+   "docs": 250,
+   "codes_per_doc": 53.2
+  }
+ },
+ "frozen": {
+  "map": "free:C+B+A",
+  "f1": "free:C"
+ },
+ "second_look_at_test": true,
+ "leaderboard": {
+  "by_map": {
+   "score": 0.3142,
+   "place": 11,
+   "of_teams": 22,
+   "next_above": "UDC-UA",
+   "best": "IXA-AAA",
+   "best_score": 0.593
+  },
+  "by_f1": {
+   "score": 0.3918,
+   "place": 9,
+   "of_teams": 22,
+   "next_above": "IMS",
+   "best": "IAM",
+   "best_score": 0.687
+  },
+  "map_ci": [
+   0.29,
+   0.3391
+  ]
+ },
+ "map_frozen_vs_free_base": {
+  "difference": 0.1085,
+  "ci": [
+   0.0899,
+   0.127
+  ]
+ },
+ "f1_frozen_vs_free_base": null
+}

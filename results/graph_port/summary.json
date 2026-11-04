@@ -1,0 +1,259 @@
+{
+ "I_uti": {
+  "pairs": 136,
+  "admissions": 136,
+  "scores": {
+   "reader": {
+    "n": 136,
+    "accuracy": 0.7941,
+    "balanced": 0.7226,
+    "precision": 0.7931,
+    "recall": 0.5111,
+    "f1": 0.6216,
+    "false_positive_share_of_yes": 0.2069
+   },
+   "record": {
+    "n": 136,
+    "accuracy": 0.8235,
+    "balanced": 0.7614,
+    "precision": 0.8387,
+    "recall": 0.5778,
+    "f1": 0.6842,
+    "false_positive_share_of_yes": 0.1613
+   },
+   "phase1": {
+    "n": 136,
+    "accuracy": 0.8015,
+    "balanced": 0.7337,
+    "precision": 0.8,
+    "recall": 0.5333,
+    "f1": 0.64,
+    "false_positive_share_of_yes": 0.2
+   },
+   "port": {
+    "n": 136,
+    "accuracy": 0.8235,
+    "balanced": 0.7614,
+    "precision": 0.8387,
+    "recall": 0.5778,
+    "f1": 0.6842,
+    "false_positive_share_of_yes": 0.1613
+   }
+  },
+  "weights": {
+   "reader": 1.111,
+   "note_window": 0.71,
+   "evidence_discharge": -0.492,
+   "record": 0.745,
+   "record_stay": 0.745,
+   "note_negated": -0.85,
+   "related": 0.0
+  },
+  "G1_port_minus_phase1": [
+   0.0277,
+   [
+    -0.0249,
+    0.0814
+   ],
+   false
+  ],
+  "G2_port_minus_records": [
+   0.0,
+   [
+    0.0,
+    0.0
+   ],
+   false
+  ],
+  "deferral": {
+   "share_deferred": 0.1691,
+   "precision_yes_p80": 0.8182,
+   "precision_deferred_if_yes": 0.8261
+  },
+  "B_label_free": "not identifiable: only two independent sources (note, records)"
+ },
+ "N_window": {
+  "pairs": 1430,
+  "admissions": 130,
+  "scores": {
+   "reader": {
+    "n": 1430,
+    "accuracy": 0.835,
+    "balanced": 0.8494,
+    "precision": 0.6947,
+    "recall": 0.8919,
+    "f1": 0.7811,
+    "false_positive_share_of_yes": 0.3053
+   },
+   "record": {
+    "n": 1430,
+    "accuracy": 0.9455,
+    "balanced": 0.9577,
+    "precision": 0.8621,
+    "recall": 0.9936,
+    "f1": 0.9232,
+    "false_positive_share_of_yes": 0.1379
+   },
+   "phase1": {
+    "n": 1430,
+    "accuracy": 0.9538,
+    "balanced": 0.9575,
+    "precision": 0.8996,
+    "recall": 0.9682,
+    "f1": 0.9327,
+    "false_positive_share_of_yes": 0.1004
+   },
+   "port": {
+    "n": 1430,
+    "accuracy": 0.9503,
+    "balanced": 0.9554,
+    "precision": 0.8893,
+    "recall": 0.9703,
+    "f1": 0.9281,
+    "false_positive_share_of_yes": 0.1107
+   }
+  },
+  "weights": {
+   "reader": 0.297,
+   "note_window": 0.621,
+   "evidence_discharge": 0.617,
+   "record": 4.062,
+   "record_stay": 1.654,
+   "note_negated": 0.27,
+   "related": 0.06,
+   "timeline": 0.862
+  },
+  "G1_port_minus_phase1": [
+   -0.0021,
+   [
+    -0.0062,
+    0.0017
+   ],
+   false
+  ],
+  "G2_port_minus_records": [
+   -0.0023,
+   [
+    -0.0105,
+    0.0056
+   ],
+   false
+  ],
+  "deferral": {
+   "share_deferred": 0.1098,
+   "precision_yes_p80": 0.9415,
+   "precision_deferred_if_yes": 0.6433
+  },
+  "B_label_free": "not identifiable: only two independent sources (note, records)"
+ },
+ "O_icu": {
+  "pairs": 312,
+  "admissions": 78,
+  "scores": {
+   "reader": {
+    "n": 312,
+    "accuracy": 0.9071,
+    "balanced": 0.8706,
+    "precision": 0.75,
+    "recall": 0.8095,
+    "f1": 0.7786,
+    "false_positive_share_of_yes": 0.25
+   },
+   "record": {
+    "n": 312,
+    "accuracy": 0.9487,
+    "balanced": 0.9619,
+    "precision": 0.8052,
+    "recall": 0.9841,
+    "f1": 0.8857,
+    "false_positive_share_of_yes": 0.1948
+   },
+   "phase1": {
+    "n": 312,
+    "accuracy": 0.9583,
+    "balanced": 0.968,
+    "precision": 0.8378,
+    "recall": 0.9841,
+    "f1": 0.9051,
+    "false_positive_share_of_yes": 0.1622
+   },
+   "port": {
+    "n": 312,
+    "accuracy": 0.9551,
+    "balanced": 0.9482,
+    "precision": 0.8551,
+    "recall": 0.9365,
+    "f1": 0.8939,
+    "false_positive_share_of_yes": 0.1449
+   }
+  },
+  "weights": {
+   "reader": 0.576,
+   "note_window": 0.539,
+   "evidence_discharge": -0.211,
+   "record": 1.913,
+   "record_stay": 1.913,
+   "note_negated": -0.55,
+   "related": 0.797
+  },
+  "G1_port_minus_phase1": [
+   -0.0198,
+   [
+    -0.0507,
+    0.0041
+   ],
+   false
+  ],
+  "G2_port_minus_records": [
+   -0.0138,
+   [
+    -0.0439,
+    0.012
+   ],
+   false
+  ],
+  "deferral": {
+   "share_deferred": 0.0962,
+   "precision_yes_p80": 0.9149,
+   "precision_deferred_if_yes": 0.6333
+  },
+  "B_label_free": {
+   "score": {
+    "n": 312,
+    "accuracy": 0.9359,
+    "balanced": 0.8946,
+    "precision": 0.8525,
+    "recall": 0.8254,
+    "f1": 0.8387,
+    "false_positive_share_of_yes": 0.1475
+   },
+   "records_or": {
+    "n": 312,
+    "accuracy": 0.9487,
+    "balanced": 0.9619,
+    "precision": 0.8052,
+    "recall": 0.9841,
+    "f1": 0.8857,
+    "false_positive_share_of_yes": 0.1948
+   },
+   "estimated_sensitivity": {
+    "note": 0.99,
+    "order": 0.99,
+    "billing": 0.31
+   },
+   "estimated_specificity": {
+    "note": 0.959,
+    "order": 0.935,
+    "billing": 0.99
+   },
+   "U1_minus_records": [
+    -0.0673,
+    [
+     -0.1085,
+     -0.0247
+    ],
+    false
+   ]
+  }
+ }
+}

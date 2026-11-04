@@ -1,0 +1,42 @@
+{
+ "decisions": {
+  "O_icu": {
+   "frozen": "records",
+   "minus_note": [
+    0.093,
+    0.061,
+    0.126
+   ],
+   "adds_value": true
+  },
+  "N_emar": {
+   "frozen": "records",
+   "minus_note": [
+    0.118,
+    0.104,
+    0.132
+   ],
+   "adds_value": true
+  },
+  "I_diabetes": {
+   "frozen": "or",
+   "minus_note": [
+    -0.189,
+    -0.271,
+    -0.102
+   ],
+   "adds_value": false
+  },
+  "I_uti": {
+   "frozen": "or",
+   "minus_note": [
+    0.037,
+    0.012,
+    0.067
+   ],
+   "adds_value": true
+  }
+ },
+ "latent_reliability_mae": 0.082,
+ "latent_reliability_useful": true
+}

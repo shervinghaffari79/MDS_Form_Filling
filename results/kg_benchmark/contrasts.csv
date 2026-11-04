@@ -1,0 +1,17 @@
+task,frozen,versus,difference,ci_low,ci_high
+O_icu,records,note,0.093,0.061,0.126
+O_icu,records,or,0.018,0.01,0.026
+O_icu,records,and,0.076,0.045,0.107
+O_icu,records,majority,0.073,0.043,0.104
+O_icu,records,latent,0.006,-0.006,0.02
+N_emar,records,note,0.118,0.104,0.132
+N_emar,records,or,0.039,0.031,0.048
+N_emar,records,and,0.079,0.066,0.092
+I_diabetes,or,note,-0.189,-0.271,-0.102
+I_diabetes,or,records,0.0,0.0,0.0
+I_diabetes,or,and,-0.189,-0.271,-0.102
+I_diabetes,or,majority,-0.189,-0.271,-0.102
+I_diabetes,or,latent,-0.189,-0.271,-0.102
+I_uti,or,note,0.037,0.012,0.067
+I_uti,or,records,0.029,0.002,0.058
+I_uti,or,and,0.066,0.029,0.105

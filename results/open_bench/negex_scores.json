@@ -1,0 +1,83 @@
+{
+ "arms": {
+  "status": {
+   "mentions_scored": 2376,
+   "negation_f1": 0.9764,
+   "temporality_macro_f1": 0.8201,
+   "temporality_f1_by_class": {
+    "Recent": 0.9527,
+    "Historical": 0.5778,
+    "Not particular": 0.9298
+   },
+   "experiencer_accuracy": 0.9975,
+   "non_patient_gold": 6
+  },
+  "direct": {
+   "mentions_scored": 2376,
+   "negation_f1": 0.9563,
+   "temporality_macro_f1": 0.7582,
+   "temporality_f1_by_class": {
+    "Recent": 0.9487,
+    "Historical": 0.676,
+    "Not particular": 0.65
+   },
+   "experiencer_accuracy": 0.9971,
+   "non_patient_gold": 6
+  },
+  "context": {
+   "mentions_scored": 2376,
+   "negation_f1": 0.929,
+   "temporality_macro_f1": 0.7975,
+   "temporality_f1_by_class": {
+    "Recent": 0.9555,
+    "Historical": 0.6286,
+    "Not particular": 0.8085
+   },
+   "experiencer_accuracy": 0.9958,
+   "non_patient_gold": 6
+  }
+ },
+ "contrasts": [
+  {
+   "status_minus": "direct",
+   "metric": "negation",
+   "difference": 0.0201,
+   "ci": [
+    0.0086,
+    0.0325
+   ],
+   "status_better": true
+  },
+  {
+   "status_minus": "direct",
+   "metric": "temporality",
+   "difference": 0.0619,
+   "ci": [
+    0.0324,
+    0.0935
+   ],
+   "status_better": true
+  },
+  {
+   "status_minus": "context",
+   "metric": "negation",
+   "difference": 0.0474,
+   "ci": [
+    0.0313,
+    0.063
+   ],
+   "status_better": true
+  },
+  {
+   "status_minus": "context",
+   "metric": "temporality",
+   "difference": 0.0226,
+   "ci": [
+    -0.0157,
+    0.0613
+   ],
+   "status_better": false
+  }
+ ],
+ "mentions_in_all_arms": 2376
+}

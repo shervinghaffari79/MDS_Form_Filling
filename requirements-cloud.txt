@@ -1,0 +1,22 @@
+# Minimal environment for the open-benchmark parts (no MIMIC, no Modal needed for scoring)
+numpy<2
+pandas
+pyarrow==16.1.0
+scipy
+scikit-learn
+sklearn-crfsuite
+spacy==3.7.5
+click
+typer
+pysbd
+conllu
+requests
+openai>=2.0
+# scispaCy (install without dependencies), then the model:
+#   pip install scispacy==0.5.4 --no-deps
+#   pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_md-0.5.4.tar.gz
+# optional, for the ConText baseline:
+#   medspacy==1.3.1
+# optional, only if running the Modal scripts:
+#   modal>=1.0
+# MIMIC-only scripts also need: duckdb, sentence-transformers

@@ -1,0 +1,430 @@
+{
+ "sanity_list_record_matches_earlier": 1.0,
+ "dev_admissions": 114,
+ "eval_admissions": 130,
+ "eval_pairs": 1430,
+ "true_pairs_by_key": {
+  "list": 472,
+  "atc": 486,
+  "llm": 485
+ },
+ "matrix_records_alone": {
+  "list": {
+   "list": 0.9577,
+   "atc": 0.8898,
+   "llm": 0.9454
+  },
+  "atc": {
+   "list": 0.8723,
+   "atc": 0.9646,
+   "llm": 0.8689
+  },
+  "llm": {
+   "list": 0.9483,
+   "atc": 0.8881,
+   "llm": 0.9546
+  }
+ },
+ "matrix_lg": {
+  "list": {
+   "list": 0.9575,
+   "atc": 0.9227,
+   "llm": 0.9452
+  },
+  "atc": {
+   "list": 0.9332,
+   "atc": 0.9632,
+   "llm": 0.9296
+  },
+  "llm": {
+   "list": 0.9523,
+   "atc": 0.9226,
+   "llm": 0.9539
+  }
+ },
+ "matrix_lg_plus_extractor": {
+  "list": {
+   "list": 0.9554,
+   "atc": 0.9227,
+   "llm": 0.9452
+  },
+  "atc": {
+   "list": 0.9343,
+   "atc": 0.9648,
+   "llm": 0.9296
+  },
+  "llm": {
+   "list": 0.9507,
+   "atc": 0.9247,
+   "llm": 0.9528
+  }
+ },
+ "R1_llm_minus_list_under_list_key": {
+  "difference": -0.0052,
+  "ci": [
+   -0.0099,
+   -0.0011
+  ],
+  "above_zero": false,
+  "replaceable": true
+ },
+ "R2_atc_minus_list_under_list_key": {
+  "difference": -0.0243,
+  "ci": [
+   -0.0351,
+   -0.0138
+  ],
+  "above_zero": false,
+  "replaceable": false
+ },
+ "R3_extractor_edge": {
+  "list": {
+   "difference": -0.0021,
+   "ci": [
+    -0.0052,
+    0.0011
+   ],
+   "above_zero": false,
+   "helps": false
+  },
+  "atc": {
+   "difference": 0.001,
+   "ci": [
+    0.0,
+    0.0026
+   ],
+   "above_zero": false,
+   "helps": false
+  },
+  "llm": {
+   "difference": -0.0016,
+   "ci": [
+    -0.0058,
+    0.0026
+   ],
+   "above_zero": false,
+   "helps": false
+  }
+ },
+ "agreement": {
+  "kappa_record_edge": {
+   "list_vs_llm": 0.9727,
+   "atc_vs_list": 0.7996,
+   "atc_vs_llm": 0.7984
+  },
+  "kappa_key": {
+   "list_vs_llm": 0.9817,
+   "atc_vs_list": 0.8011,
+   "atc_vs_llm": 0.8022
+  },
+  "positive_rate_record_edge": {
+   "list": 0.389,
+   "atc": 0.3912,
+   "llm": 0.402
+  }
+ },
+ "classification_disagreements": {
+  "strings": 117,
+  "of": 811,
+  "examples": [
+   {
+    "drug": "*nf* ertapenem sodium",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "acetaminophen",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": []
+   },
+   {
+    "drug": "acetaminophen (liquid)",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": []
+   },
+   {
+    "drug": "acetaminophen iv",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": []
+   },
+   {
+    "drug": "acetaminophen-caff-butalbital",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": []
+   },
+   {
+    "drug": "acetazolamide",
+    "list": [
+     "N_diuretic"
+    ],
+    "atc": [],
+    "llm": [
+     "N_diuretic"
+    ]
+   },
+   {
+    "drug": "acetazolamide sodium",
+    "list": [
+     "N_diuretic"
+    ],
+    "atc": [],
+    "llm": [
+     "N_diuretic"
+    ]
+   },
+   {
+    "drug": "amp",
+    "list": [],
+    "atc": [],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "ampicillin",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "ampicillin sodium",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "ampicillin-sulbactam",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "anagrelide",
+    "list": [],
+    "atc": [],
+    "llm": [
+     "N_antiplatelet"
+    ]
+   },
+   {
+    "drug": "aspirin",
+    "list": [
+     "N_antiplatelet"
+    ],
+    "atc": [
+     "N_antiplatelet",
+     "N_opioid"
+    ],
+    "llm": [
+     "N_antiplatelet"
+    ]
+   },
+   {
+    "drug": "aspirin (buffered)",
+    "list": [
+     "N_antiplatelet"
+    ],
+    "atc": [
+     "N_antiplatelet",
+     "N_opioid"
+    ],
+    "llm": [
+     "N_antiplatelet"
+    ]
+   },
+   {
+    "drug": "aspirin ec",
+    "list": [
+     "N_antiplatelet"
+    ],
+    "atc": [
+     "N_antiplatelet",
+     "N_opioid"
+    ],
+    "llm": [
+     "N_antiplatelet"
+    ]
+   },
+   {
+    "drug": "aztreonam",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "bupivacaine 0.1%|hydromorphone (dilaudid)",
+    "list": [
+     "N_opioid"
+    ],
+    "atc": [],
+    "llm": [
+     "N_opioid"
+    ]
+   },
+   {
+    "drug": "buprenorphine-naloxone (2mg-0.5mg)",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": [
+     "N_opioid"
+    ]
+   },
+   {
+    "drug": "buprenorphine-naloxone (8mg-2mg)",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": [
+     "N_opioid"
+    ]
+   },
+   {
+    "drug": "carbatrol",
+    "list": [],
+    "atc": [
+     "N_anticonvulsant"
+    ],
+    "llm": [
+     "N_anticonvulsant"
+    ]
+   },
+   {
+    "drug": "cefpodoxime proxetil",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "ceftazidime",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "celecoxib",
+    "list": [],
+    "atc": [
+     "N_opioid"
+    ],
+    "llm": []
+   },
+   {
+    "drug": "chlorothiazide",
+    "list": [],
+    "atc": [
+     "N_diuretic"
+    ],
+    "llm": [
+     "N_diuretic"
+    ]
+   },
+   {
+    "drug": "chlorothiazide sodium",
+    "list": [],
+    "atc": [
+     "N_diuretic"
+    ],
+    "llm": [
+     "N_diuretic"
+    ]
+   },
+   {
+    "drug": "cilostazol",
+    "list": [],
+    "atc": [
+     "N_antiplatelet"
+    ],
+    "llm": [
+     "N_antiplatelet"
+    ]
+   },
+   {
+    "drug": "clarithromycin",
+    "list": [],
+    "atc": [
+     "N_antibiotic"
+    ],
+    "llm": [
+     "N_antibiotic"
+    ]
+   },
+   {
+    "drug": "clobazam",
+    "list": [],
+    "atc": [
+     "N_antianxiety"
+    ],
+    "llm": [
+     "N_anticonvulsant"
+    ]
+   },
+   {
+    "drug": "clonazepam",
+    "list": [
+     "N_antianxiety"
+    ],
+    "atc": [
+     "N_anticonvulsant"
+    ],
+    "llm": [
+     "N_antianxiety",
+     "N_anticonvulsant"
+    ]
+   },
+   {
+    "drug": "codeine sulfate",
+    "list": [
+     "N_opioid"
+    ],
+    "atc": [],
+    "llm": [
+     "N_opioid"
+    ]
+   }
+  ]
+ }
+}

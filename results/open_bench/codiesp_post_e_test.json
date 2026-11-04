@@ -1,0 +1,237 @@
+{
+ "split": "test",
+ "graph": {
+  "cooccurrence_links": 1555,
+  "codes_with_links": 472
+ },
+ "versions": {
+  "free:base": {
+   "map": 0.2057,
+   "precision": 0.4924,
+   "recall": 0.2977,
+   "f1": 0.3711,
+   "docs": 250,
+   "codes_per_doc": 6.9
+  },
+  "free:A": {
+   "map": 0.2779,
+   "precision": 0.1101,
+   "recall": 0.5281,
+   "f1": 0.1823,
+   "docs": 250,
+   "codes_per_doc": 54.5
+  },
+  "free:B": {
+   "map": 0.2366,
+   "precision": 0.4068,
+   "recall": 0.3656,
+   "f1": 0.3851,
+   "docs": 250,
+   "codes_per_doc": 10.2
+  },
+  "free:C": {
+   "map": 0.2255,
+   "precision": 0.528,
+   "recall": 0.3114,
+   "f1": 0.3918,
+   "docs": 250,
+   "codes_per_doc": 6.7
+  },
+  "free:C+B": {
+   "map": 0.2646,
+   "precision": 0.3895,
+   "recall": 0.3958,
+   "f1": 0.3927,
+   "docs": 250,
+   "codes_per_doc": 11.6
+  },
+  "free:C+B+A": {
+   "map": 0.3142,
+   "precision": 0.1121,
+   "recall": 0.5707,
+   "f1": 0.1874,
+   "docs": 250,
+   "codes_per_doc": 57.9
+  },
+  "free:A(E)": {
+   "map": 0.3863,
+   "precision": 0.1593,
+   "recall": 0.7484,
+   "f1": 0.2627,
+   "docs": 250,
+   "codes_per_doc": 53.4
+  },
+  "free:C+B+A(E)": {
+   "map": 0.3872,
+   "precision": 0.1517,
+   "recall": 0.7495,
+   "f1": 0.2523,
+   "docs": 250,
+   "codes_per_doc": 56.2
+  },
+  "two_stage:base": {
+   "map": 0.1855,
+   "precision": 0.5599,
+   "recall": 0.2104,
+   "f1": 0.3059,
+   "docs": 250,
+   "codes_per_doc": 4.3
+  },
+  "two_stage:A": {
+   "map": 0.2365,
+   "precision": 0.085,
+   "recall": 0.3737,
+   "f1": 0.1384,
+   "docs": 250,
+   "codes_per_doc": 50.0
+  },
+  "two_stage:B": {
+   "map": 0.2287,
+   "precision": 0.4168,
+   "recall": 0.2928,
+   "f1": 0.3439,
+   "docs": 250,
+   "codes_per_doc": 8.0
+  },
+  "two_stage:C": {
+   "map": 0.1855,
+   "precision": 0.5599,
+   "recall": 0.2104,
+   "f1": 0.3059,
+   "docs": 250,
+   "codes_per_doc": 4.3
+  },
+  "two_stage:C+B": {
+   "map": 0.2287,
+   "precision": 0.4168,
+   "recall": 0.2928,
+   "f1": 0.3439,
+   "docs": 250,
+   "codes_per_doc": 8.0
+  },
+  "two_stage:C+B+A": {
+   "map": 0.2695,
+   "precision": 0.0923,
+   "recall": 0.4324,
+   "f1": 0.1522,
+   "docs": 250,
+   "codes_per_doc": 53.2
+  },
+  "two_stage:A(E)": {
+   "map": 0.3751,
+   "precision": 0.155,
+   "recall": 0.6854,
+   "f1": 0.2529,
+   "docs": 250,
+   "codes_per_doc": 50.3
+  },
+  "two_stage:C+B+A(E)": {
+   "map": 0.3743,
+   "precision": 0.1514,
+   "recall": 0.7044,
+   "f1": 0.2492,
+   "docs": 250,
+   "codes_per_doc": 52.9
+  },
+  "two_stage_e:base": {
+   "map": 0.294,
+   "precision": 0.6633,
+   "recall": 0.3438,
+   "f1": 0.4528,
+   "docs": 250,
+   "codes_per_doc": 5.9
+  },
+  "two_stage_e:A": {
+   "map": 0.3486,
+   "precision": 0.11,
+   "recall": 0.5018,
+   "f1": 0.1805,
+   "docs": 250,
+   "codes_per_doc": 51.8
+  },
+  "two_stage_e:B": {
+   "map": 0.3442,
+   "precision": 0.4718,
+   "recall": 0.43,
+   "f1": 0.4499,
+   "docs": 250,
+   "codes_per_doc": 10.4
+  },
+  "two_stage_e:C": {
+   "map": 0.294,
+   "precision": 0.6633,
+   "recall": 0.3438,
+   "f1": 0.4528,
+   "docs": 250,
+   "codes_per_doc": 5.9
+  },
+  "two_stage_e:C+B": {
+   "map": 0.3442,
+   "precision": 0.4718,
+   "recall": 0.43,
+   "f1": 0.4499,
+   "docs": 250,
+   "codes_per_doc": 10.4
+  },
+  "two_stage_e:C+B+A": {
+   "map": 0.3844,
+   "precision": 0.1141,
+   "recall": 0.5598,
+   "f1": 0.1896,
+   "docs": 250,
+   "codes_per_doc": 55.8
+  },
+  "two_stage_e:A(E)": {
+   "map": 0.4405,
+   "precision": 0.1551,
+   "recall": 0.6823,
+   "f1": 0.2528,
+   "docs": 250,
+   "codes_per_doc": 50.0
+  },
+  "two_stage_e:C+B+A(E)": {
+   "map": 0.4471,
+   "precision": 0.151,
+   "recall": 0.709,
+   "f1": 0.249,
+   "docs": 250,
+   "codes_per_doc": 53.4
+  }
+ },
+ "includes_index_E": true,
+ "frozen": {
+  "map": "two_stage_e:A(E)",
+  "f1": "two_stage_e:base"
+ },
+ "look_at_test": 3,
+ "leaderboard": {
+  "by_map": {
+   "score": 0.4405,
+   "place": 10,
+   "of_teams": 22,
+   "next_above": "IMS",
+   "best": "IXA-AAA",
+   "best_score": 0.593
+  },
+  "by_f1": {
+   "score": 0.4528,
+   "place": 9,
+   "of_teams": 22,
+   "next_above": "IMS",
+   "best": "IAM",
+   "best_score": 0.687
+  },
+  "map_ci": [
+   0.4185,
+   0.4625
+  ]
+ },
+ "map_frozen_vs_free_base": {
+  "difference": 0.2348,
+  "ci": [
+   0.2132,
+   0.256
+  ]
+ },
+ "f1_frozen_vs_free_base": null
+}

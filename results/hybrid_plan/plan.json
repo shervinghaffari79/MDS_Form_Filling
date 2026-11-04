@@ -1,0 +1,25 @@
+{
+ "sentence_numbering_matches_local_table": "500/500 notes",
+ "admissions": 244,
+ "pairs": 2684,
+ "mention_spans_all": 9694,
+ "mention_spans_mapping_to_an_MDS_class": 3488,
+ "distinct_sentences_with_a_class_mention": 3027,
+ "note_class_units_with_a_mention": 1016,
+ "mean_sentences_per_unit": 3.07,
+ "truly_administered_pairs": 915,
+ "truly_administered_reached_by_extractor": 755,
+ "ceiling_recall": 0.8251,
+ "not_administered_pairs_with_a_mention": 261,
+ "not_administered_pairs": 1769,
+ "verifier_calls_one_per_mention": 3488,
+ "verifier_calls_one_per_sentence_and_word": 3353,
+ "status_calls_one_per_note_class_unit": 1016,
+ "tokens_estimate": {
+  "verifier_per_mention": 1151040,
+  "verifier_per_sentence_word": 1106490,
+  "status_per_unit": 495960,
+  "old_route_status_calls_for_N": 2684,
+  "old_route_tokens_measured_per_call": 1065
+ }
+}

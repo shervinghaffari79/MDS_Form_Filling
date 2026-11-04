@@ -1,0 +1,644 @@
+{
+ "test_lines": 1634,
+ "novel_lines": 1136,
+ "gold_spans_test": 1799,
+ "all_lines": {
+  "bc5cdr": {
+   "lenient": {
+    "core": {
+     "precision": 0.6801,
+     "recall": 0.2894,
+     "f1": 0.406
+    },
+    "all": {
+     "precision": 0.6801,
+     "recall": 0.2257,
+     "f1": 0.3389
+    },
+    "by_type": {
+     "DRUG": 0.7067,
+     "ROUTE": 0.0,
+     "FREQUENCY": 0.0,
+     "DRUG USE": 0.0,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.0,
+     "STRENGTH": 0.0,
+     "DOSAGE": 0.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.3317,
+     "recall": 0.1411,
+     "f1": 0.198
+    },
+    "all": {
+     "precision": 0.3317,
+     "recall": 0.1101,
+     "f1": 0.1653
+    },
+    "by_type": {
+     "DRUG": 0.3446,
+     "ROUTE": 0.0,
+     "FREQUENCY": 0.0,
+     "DRUG USE": 0.0,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.0,
+     "STRENGTH": 0.0,
+     "DOSAGE": 0.0,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_pos": {
+   "lenient": {
+    "core": {
+     "precision": 0.9457,
+     "recall": 0.9301,
+     "f1": 0.9378
+    },
+    "all": {
+     "precision": 0.9435,
+     "recall": 0.9105,
+     "f1": 0.9267
+    },
+    "by_type": {
+     "DRUG": 0.9462,
+     "ROUTE": 0.9072,
+     "FREQUENCY": 0.9578,
+     "DRUG USE": 0.9248,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.8369,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.1818
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9297,
+     "recall": 0.9145,
+     "f1": 0.922
+    },
+    "all": {
+     "precision": 0.9217,
+     "recall": 0.8894,
+     "f1": 0.9052
+    },
+    "by_type": {
+     "DRUG": 0.9202,
+     "ROUTE": 0.8931,
+     "FREQUENCY": 0.9532,
+     "DRUG USE": 0.9023,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7518,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_pos_ner": {
+   "lenient": {
+    "core": {
+     "precision": 0.9444,
+     "recall": 0.9316,
+     "f1": 0.9379
+    },
+    "all": {
+     "precision": 0.9425,
+     "recall": 0.9105,
+     "f1": 0.9262
+    },
+    "by_type": {
+     "DRUG": 0.9508,
+     "ROUTE": 0.9053,
+     "FREQUENCY": 0.9544,
+     "DRUG USE": 0.9234,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.8116,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.2222
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9277,
+     "recall": 0.9152,
+     "f1": 0.9214
+    },
+    "all": {
+     "precision": 0.92,
+     "recall": 0.8888,
+     "f1": 0.9042
+    },
+    "by_type": {
+     "DRUG": 0.9229,
+     "ROUTE": 0.8889,
+     "FREQUENCY": 0.952,
+     "DRUG USE": 0.8935,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7536,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "llm": {
+   "lenient": {
+    "core": {
+     "precision": 0.9369,
+     "recall": 0.9522,
+     "f1": 0.9445
+    },
+    "all": {
+     "precision": 0.8723,
+     "recall": 0.9227,
+     "f1": 0.8968
+    },
+    "by_type": {
+     "DRUG": 0.9439,
+     "ROUTE": 0.9111,
+     "FREQUENCY": 0.9764,
+     "DRUG USE": 0.7619,
+     "DRUG STOP": 0.7077,
+     "ADHERENCE": 0.7832,
+     "STRENGTH": 0.8571,
+     "DOSAGE": 0.4,
+     "DURATION": 0.359
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9215,
+     "recall": 0.9366,
+     "f1": 0.929
+    },
+    "all": {
+     "precision": 0.8455,
+     "recall": 0.8944,
+     "f1": 0.8693
+    },
+    "by_type": {
+     "DRUG": 0.9132,
+     "ROUTE": 0.9111,
+     "FREQUENCY": 0.9652,
+     "DRUG USE": 0.7347,
+     "DRUG STOP": 0.5538,
+     "ADHERENCE": 0.5734,
+     "STRENGTH": 0.8571,
+     "DOSAGE": 0.4,
+     "DURATION": 0.3077
+    }
+   }
+  },
+  "crf_verified": {
+   "lenient": {
+    "core": {
+     "precision": 0.9817,
+     "recall": 0.9173,
+     "f1": 0.9484
+    },
+    "all": {
+     "precision": 0.978,
+     "recall": 0.816,
+     "f1": 0.8897
+    },
+    "by_type": {
+     "DRUG": 0.9501,
+     "ROUTE": 0.9387,
+     "FREQUENCY": 0.9554,
+     "DRUG USE": 0.598,
+     "DRUG STOP": 0.6667,
+     "ADHERENCE": 0.7107,
+     "STRENGTH": 0.4211,
+     "DOSAGE": 1.0,
+     "DURATION": 0.25
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9718,
+     "recall": 0.9081,
+     "f1": 0.9388
+    },
+    "all": {
+     "precision": 0.9594,
+     "recall": 0.8004,
+     "f1": 0.8727
+    },
+    "by_type": {
+     "DRUG": 0.9276,
+     "ROUTE": 0.9387,
+     "FREQUENCY": 0.9531,
+     "DRUG USE": 0.5628,
+     "DRUG STOP": 0.5556,
+     "ADHERENCE": 0.6446,
+     "STRENGTH": 0.4211,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_hybrid": {
+   "lenient": {
+    "core": {
+     "precision": 0.9817,
+     "recall": 0.9173,
+     "f1": 0.9484
+    },
+    "all": {
+     "precision": 0.9718,
+     "recall": 0.8994,
+     "f1": 0.9342
+    },
+    "by_type": {
+     "DRUG": 0.9501,
+     "ROUTE": 0.9387,
+     "FREQUENCY": 0.9554,
+     "DRUG USE": 0.9234,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.8116,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.2222
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9718,
+     "recall": 0.9081,
+     "f1": 0.9388
+    },
+    "all": {
+     "precision": 0.9544,
+     "recall": 0.8833,
+     "f1": 0.9174
+    },
+    "by_type": {
+     "DRUG": 0.9276,
+     "ROUTE": 0.9387,
+     "FREQUENCY": 0.9531,
+     "DRUG USE": 0.8935,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7536,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  }
+ },
+ "novel_lines_only": {
+  "bc5cdr": {
+   "lenient": {
+    "core": {
+     "precision": 0.7241,
+     "recall": 0.2925,
+     "f1": 0.4167
+    },
+    "all": {
+     "precision": 0.7241,
+     "recall": 0.2357,
+     "f1": 0.3556
+    },
+    "by_type": {
+     "DRUG": 0.7278,
+     "ROUTE": 0.0,
+     "FREQUENCY": 0.0,
+     "DRUG USE": 0.0,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.0,
+     "STRENGTH": 0.0,
+     "DOSAGE": 0.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.3672,
+     "recall": 0.1484,
+     "f1": 0.2113
+    },
+    "all": {
+     "precision": 0.3672,
+     "recall": 0.1195,
+     "f1": 0.1803
+    },
+    "by_type": {
+     "DRUG": 0.3691,
+     "ROUTE": 0.0,
+     "FREQUENCY": 0.0,
+     "DRUG USE": 0.0,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.0,
+     "STRENGTH": 0.0,
+     "DOSAGE": 0.0,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_pos": {
+   "lenient": {
+    "core": {
+     "precision": 0.9392,
+     "recall": 0.9187,
+     "f1": 0.9288
+    },
+    "all": {
+     "precision": 0.9336,
+     "recall": 0.8926,
+     "f1": 0.9127
+    },
+    "by_type": {
+     "DRUG": 0.9375,
+     "ROUTE": 0.8954,
+     "FREQUENCY": 0.951,
+     "DRUG USE": 0.8793,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.8321,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.922,
+     "recall": 0.9019,
+     "f1": 0.9119
+    },
+    "all": {
+     "precision": 0.9096,
+     "recall": 0.8697,
+     "f1": 0.8892
+    },
+    "by_type": {
+     "DRUG": 0.9095,
+     "ROUTE": 0.8815,
+     "FREQUENCY": 0.9455,
+     "DRUG USE": 0.8483,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7445,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_pos_ner": {
+   "lenient": {
+    "core": {
+     "precision": 0.9377,
+     "recall": 0.9204,
+     "f1": 0.9289
+    },
+    "all": {
+     "precision": 0.9323,
+     "recall": 0.8926,
+     "f1": 0.912
+    },
+    "by_type": {
+     "DRUG": 0.9428,
+     "ROUTE": 0.8932,
+     "FREQUENCY": 0.9469,
+     "DRUG USE": 0.8773,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.806,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9197,
+     "recall": 0.9028,
+     "f1": 0.9112
+    },
+    "all": {
+     "precision": 0.9076,
+     "recall": 0.869,
+     "f1": 0.8879
+    },
+    "by_type": {
+     "DRUG": 0.9126,
+     "ROUTE": 0.8766,
+     "FREQUENCY": 0.9441,
+     "DRUG USE": 0.8344,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7463,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "llm": {
+   "lenient": {
+    "core": {
+     "precision": 0.9317,
+     "recall": 0.9489,
+     "f1": 0.9402
+    },
+    "all": {
+     "precision": 0.8555,
+     "recall": 0.9237,
+     "f1": 0.8883
+    },
+    "by_type": {
+     "DRUG": 0.9393,
+     "ROUTE": 0.9073,
+     "FREQUENCY": 0.972,
+     "DRUG USE": 0.7038,
+     "DRUG STOP": 0.7188,
+     "ADHERENCE": 0.777,
+     "STRENGTH": 0.8571,
+     "DOSAGE": 0.4,
+     "DURATION": 0.3333
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.916,
+     "recall": 0.9329,
+     "f1": 0.9244
+    },
+    "all": {
+     "precision": 0.8274,
+     "recall": 0.8933,
+     "f1": 0.8591
+    },
+    "by_type": {
+     "DRUG": 0.91,
+     "ROUTE": 0.9073,
+     "FREQUENCY": 0.9587,
+     "DRUG USE": 0.6734,
+     "DRUG STOP": 0.5625,
+     "ADHERENCE": 0.5755,
+     "STRENGTH": 0.8571,
+     "DOSAGE": 0.4,
+     "DURATION": 0.2778
+    }
+   }
+  },
+  "crf_verified": {
+   "lenient": {
+    "core": {
+     "precision": 0.9791,
+     "recall": 0.9044,
+     "f1": 0.9403
+    },
+    "all": {
+     "precision": 0.9748,
+     "recall": 0.8359,
+     "f1": 0.9
+    },
+    "by_type": {
+     "DRUG": 0.9419,
+     "ROUTE": 0.9297,
+     "FREQUENCY": 0.9481,
+     "DRUG USE": 0.7299,
+     "DRUG STOP": 0.6667,
+     "ADHERENCE": 0.7009,
+     "STRENGTH": 0.4211,
+     "DOSAGE": 1.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9682,
+     "recall": 0.8944,
+     "f1": 0.9298
+    },
+    "all": {
+     "precision": 0.9551,
+     "recall": 0.819,
+     "f1": 0.8819
+    },
+    "by_type": {
+     "DRUG": 0.9179,
+     "ROUTE": 0.9297,
+     "FREQUENCY": 0.9453,
+     "DRUG USE": 0.6861,
+     "DRUG STOP": 0.5556,
+     "ADHERENCE": 0.6325,
+     "STRENGTH": 0.4211,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  },
+  "crf_hybrid": {
+   "lenient": {
+    "core": {
+     "precision": 0.9791,
+     "recall": 0.9044,
+     "f1": 0.9403
+    },
+    "all": {
+     "precision": 0.9659,
+     "recall": 0.8798,
+     "f1": 0.9208
+    },
+    "by_type": {
+     "DRUG": 0.9419,
+     "ROUTE": 0.9297,
+     "FREQUENCY": 0.9481,
+     "DRUG USE": 0.8773,
+     "DRUG STOP": 0.7027,
+     "ADHERENCE": 0.806,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 1.0,
+     "DURATION": 0.0
+    }
+   },
+   "strict": {
+    "core": {
+     "precision": 0.9682,
+     "recall": 0.8944,
+     "f1": 0.9298
+    },
+    "all": {
+     "precision": 0.9466,
+     "recall": 0.8623,
+     "f1": 0.9025
+    },
+    "by_type": {
+     "DRUG": 0.9179,
+     "ROUTE": 0.9297,
+     "FREQUENCY": 0.9453,
+     "DRUG USE": 0.8344,
+     "DRUG STOP": 0.5946,
+     "ADHERENCE": 0.7463,
+     "STRENGTH": 0.8889,
+     "DOSAGE": 0.5,
+     "DURATION": 0.0
+    }
+   }
+  }
+ },
+ "decisions": {
+  "N1_crf_minus_llm_core_f1": {
+   "difference": -0.0066,
+   "ci": [
+    -0.0199,
+    0.0062
+   ],
+   "matches": true
+  },
+  "N2_ner_feature_drug_f1": {
+   "difference": 0.0046,
+   "ci": [
+    -0.003,
+    0.0129
+   ],
+   "helps": false
+  },
+  "N3_verifier": {
+   "precision_gain": {
+    "difference": 0.0373,
+    "ci": [
+     0.0274,
+     0.0484
+    ]
+   },
+   "f1_change": {
+    "difference": 0.0105,
+    "ci": [
+     0.0045,
+     0.0171
+    ]
+   },
+   "helps": true
+  },
+  "H1_per_type_verifier": {
+   "core_precision_gain": {
+    "difference": 0.0373,
+    "ci": [
+     0.0274,
+     0.0484
+    ]
+   },
+   "core_f1_change": {
+    "difference": 0.0105,
+    "ci": [
+     0.0045,
+     0.0171
+    ]
+   },
+   "all_types_f1_change": {
+    "difference": 0.008,
+    "ci": [
+     0.0033,
+     0.0131
+    ]
+   },
+   "helps": true
+  }
+ }
+}

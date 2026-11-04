@@ -1,0 +1,54 @@
+{
+ "O_icu": {
+  "method": "records",
+  "reason": "best pilot balanced accuracy",
+  "pilot_pairs": 64,
+  "pilot_true": 19,
+  "pilot_scores": {
+   "note": 0.82,
+   "records": 0.956,
+   "or": 0.933,
+   "and": 0.842,
+   "majority": 0.857,
+   "latent": 0.925
+  }
+ },
+ "N_emar": {
+  "method": "records",
+  "reason": "best pilot balanced accuracy",
+  "pilot_pairs": 275,
+  "pilot_true": 117,
+  "pilot_scores": {
+   "note": 0.821,
+   "records": 0.948,
+   "or": 0.906,
+   "and": 0.863
+  }
+ },
+ "I_diabetes": {
+  "method": "or",
+  "reason": "fewer than 10 true pilot cases",
+  "pilot_pairs": 6,
+  "pilot_true": 4,
+  "pilot_scores": {
+   "note": 0.625,
+   "records": 0.5,
+   "or": 0.5,
+   "and": 0.625,
+   "majority": 0.625,
+   "latent": 0.625
+  }
+ },
+ "I_uti": {
+  "method": "or",
+  "reason": "best pilot balanced accuracy",
+  "pilot_pairs": 29,
+  "pilot_true": 15,
+  "pilot_scores": {
+   "note": 0.833,
+   "records": 0.831,
+   "or": 0.864,
+   "and": 0.8
+  }
+ }
+}

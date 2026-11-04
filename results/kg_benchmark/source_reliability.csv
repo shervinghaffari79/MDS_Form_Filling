@@ -1,0 +1,13 @@
+task,item,source,estimated_sensitivity,measured_sensitivity,estimated_specificity,measured_specificity,estimated_prevalence,measured_prevalence
+O_icu,O_invasive_vent,note,0.97,0.96,0.913,0.869,0.493,0.472
+O_icu,O_invasive_vent,order,0.971,0.987,0.964,0.94,0.493,0.472
+O_icu,O_invasive_vent,billing,0.407,0.413,0.99,0.988,0.493,0.472
+O_icu,O_noninvasive_vent,note,0.99,0.8,0.981,0.922,0.084,0.031
+O_icu,O_noninvasive_vent,order,0.673,0.8,0.959,0.929,0.084,0.031
+O_icu,O_noninvasive_vent,billing,0.223,0.4,0.99,0.994,0.084,0.031
+O_icu,O_transfusion,note,0.645,0.477,0.963,0.878,0.302,0.277
+O_icu,O_transfusion,order,0.99,0.932,0.905,0.852,0.302,0.277
+O_icu,O_transfusion,billing,0.039,0.0,0.99,0.983,0.302,0.277
+I_diabetes,I_diabetes,note,0.99,0.963,0.99,0.659,0.586,0.397
+I_diabetes,I_diabetes,billing,0.954,0.889,0.99,0.659,0.586,0.397
+I_diabetes,I_diabetes,prescription_for_diagnosis,0.975,1.0,0.355,0.268,0.586,0.397

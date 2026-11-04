@@ -1,0 +1,68 @@
+{
+ "mentions": 2376,
+ "fired": 742,
+ "fired_share": 0.3123,
+ "approx_tokens_hybrid": 337140,
+ "status_tokens": 1079575,
+ "scores": {
+  "context": {
+   "negation_f1": 0.929,
+   "temporality_macro_f1": 0.7975,
+   "experiencer_accuracy": 0.9958
+  },
+  "status": {
+   "negation_f1": 0.9764,
+   "temporality_macro_f1": 0.8201,
+   "experiencer_accuracy": 0.9975
+  },
+  "hybrid": {
+   "negation_f1": 0.9657,
+   "temporality_macro_f1": 0.7618,
+   "experiencer_accuracy": 0.9975
+  }
+ },
+ "gate": {
+  "gold_nondefault": 776,
+  "gold_nondefault_never_fired": 130,
+  "fired_but_gold_default": 96
+ },
+ "contrasts": {
+  "hybrid_minus_context": {
+   "negation_f1": {
+    "difference": 0.0367,
+    "ci": [
+     0.023,
+     0.0513
+    ]
+   },
+   "temporality_macro_f1": {
+    "difference": -0.0357,
+    "ci": [
+     -0.0551,
+     -0.0165
+    ]
+   }
+  },
+  "hybrid_minus_status": {
+   "negation_f1": {
+    "difference": -0.0107,
+    "ci": [
+     -0.0187,
+     -0.0034
+    ]
+   },
+   "temporality_macro_f1": {
+    "difference": -0.0583,
+    "ci": [
+     -0.0923,
+     -0.0253
+    ]
+   }
+  }
+ },
+ "decisions": {
+  "X1_hybrid_beats_context": false,
+  "X2_hybrid_matches_status": false,
+  "X3_cost_at_most_half": true
+ }
+}

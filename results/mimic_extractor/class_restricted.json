@@ -1,0 +1,428 @@
+{
+ "names": 305,
+ "lookup_failed": 0,
+ "names_with_atc": 261,
+ "names_in_an_mds_class": 95,
+ "last24": {
+  "admissions": 230,
+  "in_class_pairs": 757,
+  "all_pairs": 2067,
+  "pairs_without_atc_class": 316,
+  "extractor_recall": 0.9855,
+  "lexicon_recall": 0.9273,
+  "drug_lexicon_recall": 0.9273,
+  "K1_extractor_minus_lexicon": {
+   "difference": 0.0581,
+   "ci": [
+    0.0384,
+    0.0778
+   ]
+  },
+  "K1_extractor_minus_drug_lexicon": {
+   "difference": 0.0581,
+   "ci": [
+    0.0384,
+    0.0778
+   ]
+  },
+  "K1_passes": false,
+  "by_class": {
+   "N_antipsychotic": {
+    "pairs": 24,
+    "distinct_names": 7,
+    "extractor": 1.0,
+    "drug_lexicon": 1.0
+   },
+   "N_antianxiety": {
+    "pairs": 27,
+    "distinct_names": 6,
+    "extractor": 1.0,
+    "drug_lexicon": 0.8889
+   },
+   "N_antidepressant": {
+    "pairs": 90,
+    "distinct_names": 13,
+    "extractor": 0.9889,
+    "drug_lexicon": 0.9889
+   },
+   "N_hypnotic": {
+    "pairs": 14,
+    "distinct_names": 4,
+    "extractor": 0.8571,
+    "drug_lexicon": 0.9286
+   },
+   "N_anticoagulant": {
+    "pairs": 95,
+    "distinct_names": 4,
+    "extractor": 1.0,
+    "drug_lexicon": 1.0
+   },
+   "N_antiplatelet": {
+    "pairs": 132,
+    "distinct_names": 3,
+    "extractor": 1.0,
+    "drug_lexicon": 0.9848
+   },
+   "N_antibiotic": {
+    "pairs": 96,
+    "distinct_names": 23,
+    "extractor": 0.9375,
+    "drug_lexicon": 0.8958
+   },
+   "N_diuretic": {
+    "pairs": 117,
+    "distinct_names": 8,
+    "extractor": 1.0,
+    "drug_lexicon": 0.8547
+   },
+   "N_opioid": {
+    "pairs": 211,
+    "distinct_names": 6,
+    "extractor": 0.9905,
+    "drug_lexicon": 1.0
+   },
+   "N_hypoglycemic": {
+    "pairs": 38,
+    "distinct_names": 4,
+    "extractor": 1.0,
+    "drug_lexicon": 0.5
+   },
+   "N_anticonvulsant": {
+    "pairs": 27,
+    "distinct_names": 9,
+    "extractor": 1.0,
+    "drug_lexicon": 0.9259
+   }
+  },
+  "lexicon_misses_in_class": {
+   "pairs": 55,
+   "distinct_names": 16,
+   "top": [
+    [
+     "simvastatin",
+     19
+    ],
+    [
+     "potassium",
+     17
+    ],
+    [
+     "nystatin",
+     3
+    ],
+    [
+     "clobazam",
+     2
+    ],
+    [
+     "ceftazidime",
+     2
+    ],
+    [
+     "cilostazol",
+     2
+    ],
+    [
+     "fosfomycin",
+     1
+    ],
+    [
+     "primidone",
+     1
+    ],
+    [
+     "melatonin",
+     1
+    ],
+    [
+     "erythromycin",
+     1
+    ],
+    [
+     "ertapenem",
+     1
+    ],
+    [
+     "zonisamide",
+     1
+    ],
+    [
+     "ampicillin",
+     1
+    ],
+    [
+     "dextromethorphan",
+     1
+    ],
+    [
+     "hydroxyzine",
+     1
+    ],
+    [
+     "nafcillin",
+     1
+    ]
+   ]
+  },
+  "extractor_misses_in_class": {
+   "pairs": 11,
+   "top": [
+    [
+     "amoxicillin",
+     4
+    ],
+    [
+     "hydrocodone",
+     2
+    ],
+    [
+     "melatonin",
+     1
+    ],
+    [
+     "ramelteon",
+     1
+    ],
+    [
+     "dextromethorphan",
+     1
+    ],
+    [
+     "ciprofloxacin",
+     1
+    ],
+    [
+     "ceftriaxone",
+     1
+    ]
+   ]
+  }
+ },
+ "stay": {
+  "admissions": 240,
+  "in_class_pairs": 1090,
+  "all_pairs": 2807,
+  "pairs_without_atc_class": 466,
+  "extractor_recall": 0.9486,
+  "lexicon_recall": 0.9018,
+  "drug_lexicon_recall": 0.9018,
+  "K1_extractor_minus_lexicon": {
+   "difference": 0.0468,
+   "ci": [
+    0.0237,
+    0.0689
+   ]
+  },
+  "K1_extractor_minus_drug_lexicon": {
+   "difference": 0.0468,
+   "ci": [
+    0.0237,
+    0.0689
+   ]
+  },
+  "K1_passes": false,
+  "by_class": {
+   "N_antipsychotic": {
+    "pairs": 38,
+    "distinct_names": 8,
+    "extractor": 1.0,
+    "drug_lexicon": 0.9211
+   },
+   "N_antianxiety": {
+    "pairs": 41,
+    "distinct_names": 6,
+    "extractor": 1.0,
+    "drug_lexicon": 0.9268
+   },
+   "N_antidepressant": {
+    "pairs": 105,
+    "distinct_names": 13,
+    "extractor": 0.9905,
+    "drug_lexicon": 0.9905
+   },
+   "N_hypnotic": {
+    "pairs": 17,
+    "distinct_names": 5,
+    "extractor": 0.8824,
+    "drug_lexicon": 0.8235
+   },
+   "N_anticoagulant": {
+    "pairs": 101,
+    "distinct_names": 4,
+    "extractor": 1.0,
+    "drug_lexicon": 1.0
+   },
+   "N_antiplatelet": {
+    "pairs": 143,
+    "distinct_names": 3,
+    "extractor": 1.0,
+    "drug_lexicon": 0.986
+   },
+   "N_antibiotic": {
+    "pairs": 230,
+    "distinct_names": 24,
+    "extractor": 0.8435,
+    "drug_lexicon": 0.9217
+   },
+   "N_diuretic": {
+    "pairs": 175,
+    "distinct_names": 9,
+    "extractor": 0.9543,
+    "drug_lexicon": 0.72
+   },
+   "N_opioid": {
+    "pairs": 284,
+    "distinct_names": 8,
+    "extractor": 0.9789,
+    "drug_lexicon": 0.9859
+   },
+   "N_hypoglycemic": {
+    "pairs": 45,
+    "distinct_names": 5,
+    "extractor": 1.0,
+    "drug_lexicon": 0.5333
+   },
+   "N_anticonvulsant": {
+    "pairs": 35,
+    "distinct_names": 11,
+    "extractor": 0.9143,
+    "drug_lexicon": 0.9143
+   }
+  },
+  "lexicon_misses_in_class": {
+   "pairs": 107,
+   "distinct_names": 21,
+   "top": [
+    [
+     "potassium",
+     48
+    ],
+    [
+     "simvastatin",
+     21
+    ],
+    [
+     "nystatin",
+     5
+    ],
+    [
+     "ampicillin",
+     5
+    ],
+    [
+     "ibuprofen",
+     4
+    ],
+    [
+     "prochlorperazine",
+     3
+    ],
+    [
+     "ceftazidime",
+     3
+    ],
+    [
+     "midazolam",
+     2
+    ],
+    [
+     "clobazam",
+     2
+    ],
+    [
+     "nafcillin",
+     2
+    ],
+    [
+     "cilostazol",
+     2
+    ],
+    [
+     "fosfomycin",
+     1
+    ],
+    [
+     "primidone",
+     1
+    ],
+    [
+     "melatonin",
+     1
+    ],
+    [
+     "erythromycin",
+     1
+    ],
+    [
+     "ertapenem",
+     1
+    ],
+    [
+     "zonisamide",
+     1
+    ],
+    [
+     "triamterene",
+     1
+    ],
+    [
+     "dextromethorphan",
+     1
+    ],
+    [
+     "hydroxyzine",
+     1
+    ],
+    [
+     "phenobarbital",
+     1
+    ]
+   ]
+  },
+  "extractor_misses_in_class": {
+   "pairs": 56,
+   "top": [
+    [
+     "cefepime",
+     6
+    ],
+    [
+     "potassium",
+     6
+    ],
+    [
+     "piperacillin",
+     5
+    ],
+    [
+     "amoxicillin",
+     4
+    ],
+    [
+     "vancomycin",
+     3
+    ],
+    [
+     "hydrocodone",
+     3
+    ],
+    [
+     "cefazolin",
+     3
+    ],
+    [
+     "ciprofloxacin",
+     3
+    ],
+    [
+     "ceftriaxone",
+     3
+    ],
+    [
+     "valproate",
+     2
+    ]
+   ]
+  }
+ }
+}

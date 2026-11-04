@@ -1,0 +1,44 @@
+{
+ "dev": {
+  "candidate_codes": 1767,
+  "missing_descriptions": 50,
+  "docs": 250,
+  "gold_codes": 2677,
+  "gold_in_candidate_space": 0.8218,
+  "recall_at_50": {
+   "bm25": 0.2648,
+   "bge": 0.2869,
+   "biolord": 0.3515,
+   "ensemble": 0.3863
+  },
+  "ensemble_minus_best_single": {
+   "versus": "biolord",
+   "difference": 0.0356,
+   "ci": [
+    0.0174,
+    0.0544
+   ]
+  }
+ },
+ "test": {
+  "candidate_codes": 2194,
+  "missing_descriptions": 76,
+  "docs": 250,
+  "gold_codes": 2842,
+  "gold_in_candidate_space": 0.8582,
+  "recall_at_50": {
+   "bm25": 0.2417,
+   "bge": 0.2889,
+   "biolord": 0.3297,
+   "ensemble": 0.3737
+  },
+  "ensemble_minus_best_single": {
+   "versus": "biolord",
+   "difference": 0.0446,
+   "ci": [
+    0.0247,
+    0.0627
+   ]
+  }
+ }
+}

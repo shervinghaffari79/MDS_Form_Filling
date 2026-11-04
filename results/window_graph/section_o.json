@@ -1,0 +1,52 @@
+{
+ "iv": {
+  "tested": false,
+  "reason": "eMAR route is recorded for few administrations and almost never IV, so the truth is all negative",
+  "eMAR_rows_with_route": 0.412,
+  "eMAR_route_counts": {
+   "PO": 19927,
+   "NG": 328,
+   "IV": 5,
+   "PR": 2
+  },
+  "rates_by_sample": {
+   "pilot": {
+    "truth": 0.0,
+    "stay_records": 1.0,
+    "rx_active": 1.0,
+    "stay_note": 0.6667,
+    "note_discharge": 0.2083
+   },
+   "proxy": {
+    "truth": 0.0,
+    "stay_records": 1.0,
+    "rx_active": 0.9959,
+    "stay_note": 0.8074,
+    "note_discharge": 0.1885
+   }
+  }
+ },
+ "descriptive_proxy": {
+  "O_oxygen": {
+   "stay": 253,
+   "window": 253,
+   "share_in_window": 1.0
+  },
+  "O_dialysis": {
+   "stay": 12,
+   "window": 3,
+   "share_in_window": 0.25
+  },
+  "O_chemotherapy": {
+   "stay": 7,
+   "window": 2,
+   "share_in_window": 0.286
+  },
+  "O_tracheostomy": {
+   "stay": 2,
+   "window": 0,
+   "share_in_window": null,
+   "note": "procedure codes give the placement date only; ongoing care at discharge cannot be dated from codes"
+  }
+ }
+}
