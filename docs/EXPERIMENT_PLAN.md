@@ -59,6 +59,13 @@ meaning-preserving variation sensitivity and worst-case instability (arXiv 2605.
 self-consistency confidence (arXiv 2610.20417); per-fact assertion and temporality in a patient graph on MIMIC-IV (arXiv 2605.11143);
 ERASER comprehensiveness and sufficiency (DeYoung et al., ACL 2020).
 
+Phase 2 steps (rules in each script's docstring, written before its run):
+1. `p2_mimic_graph.py`: pilot of 100 proxy admissions, MDS 2.0 items; arms notes, notes+v, notes+v+t, records, graph.
+2. `p2_battery.py`: the battery on 30 of those admissions (up to 3 filled and 2 unfilled items each): mask, sufficiency, negate,
+   paraphrase, reorder, family-history and ruled-out distractors.
+3. `p2_reader_baseline.py`: the item-by-item reader on 20 admissions, with retrieval by encoder similarity to the item wording
+   (the earlier lexicon retrieval is a hand list and is not used), for cost, delay and agreement against the graph.
+
 ## Measured for every arm
 - Quality: the primary metric above, with 95% CI from paired resampling (notes, lines or mentions).
 - Cost: input and output tokens per item and per admission; dollars at the list price of the model used
