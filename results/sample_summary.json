@@ -1,0 +1,49 @@
+{
+  "cohort_admissions_with_ds_note": 42595,
+  "cohort_subjects": 26775,
+  "strata_population": {
+    "other": 23860,
+    "rare_proxy": 2915
+  },
+  "rare_items_used_for_stratification": [
+    "I_stroke",
+    "O_noninvasive_vent",
+    "O_dialysis",
+    "O_transfusion",
+    "O_chemotherapy",
+    "O_tracheostomy"
+  ],
+  "items_without_proxy": [
+    "O_oxygen",
+    "O_iv_medication"
+  ],
+  "proxy_prevalence": {
+    "I_heart_failure": 0.2674,
+    "I_diabetes": 0.3309,
+    "I_ckd": 0.2368,
+    "I_copd": 0.1503,
+    "I_dementia": 0.1119,
+    "I_depression": 0.1837,
+    "I_pneumonia": 0.0931,
+    "I_uti": 0.1805,
+    "I_stroke": 0.0452,
+    "I_afib": 0.2948,
+    "N_antipsychotic": 0.2191,
+    "N_antianxiety": 0.3193,
+    "N_antidepressant": 0.4427,
+    "N_hypnotic": 0.1041,
+    "N_anticoagulant": 0.9051,
+    "N_antibiotic": 0.7376,
+    "N_diuretic": 0.4859,
+    "N_opioid": 0.7016,
+    "N_antiplatelet": 0.4993,
+    "N_hypoglycemic": 0.4516,
+    "N_anticonvulsant": 0.2938,
+    "O_invasive_vent": 0.0629,
+    "O_noninvasive_vent": 0.0048,
+    "O_dialysis": 0.0323,
+    "O_transfusion": 0.0183,
+    "O_chemotherapy": 0.0083,
+    "O_tracheostomy": 0.0058
+  }
+}
