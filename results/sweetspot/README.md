@@ -242,3 +242,28 @@ Reading:
   NER on its own (equal to the graph then, below direct now). Small-sample smoke tests overstated both.
 - Same direction on both models: a second method that disagrees with the first is the strongest signal for what to check or hold
   back (gpt-6-luna: graph-reader agreement +0.027; Qwen: +0.05 to +0.06).
+
+# E11 and E11b: soft weighting of independent signals (cached gpt-6-luna outputs, CRF dev, 80 notes; no API, no test look)
+
+Signals per candidate value: share of the four methods that give it, soft encoder relevance of the item, NLI entailment probability,
+GLiNER score, and the graph's status share. The accept threshold was the only tuned quantity; 5-fold cross-validation over notes.
+Direct is 0.712 on this split.
+
+| Design | Dev macro-F1 | 5-fold CV | Folds beating direct |
+| --- | --- | --- | --- |
+| votes + status | 0.717 | 0.717 | 3 of 5 |
+| votes only | 0.713 | 0.713 | 2 of 5 |
+| votes + NER | 0.680 | 0.680 | 1 of 5 |
+| votes + encoder relevance | 0.660 | 0.653 | 1 of 5 |
+| votes + NLI | 0.615 | 0.584 | 0 of 5 |
+| all five signals, equal-weight mean everywhere | 0.625 | 0.625 | 0 of 5 |
+| E11b: accept on agreement, or on the mean of the four soft signals (best of 52 settings) | 0.687 | 0.687 | 1 of 5 |
+
+No design met the stability rule (at least 4 of 5 folds beating direct and a wide threshold plateau), in either run. Leave-one-out
+in the all-signal design: removing votes costs 0.050 and removing status costs 0.041; removing the encoder relevance gains 0.034 and
+removing NLI gains 0.025. In E11b the best setting uses the soft part as little as the grid allows (agreement 0.75, threshold 0.8),
+and every design with a soft part is below votes alone.
+
+Conclusion on gpt-6-luna: direct is already well calibrated here (164 wrong fills on dev), so the free signals have little to add;
+soft weighting does not help, and the equal-weight mean dilutes the useful signals. The gains seen with Qwen (E10) came from a model
+that over-fills (19 values per note against about 5 in the gold).
