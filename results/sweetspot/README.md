@@ -267,3 +267,36 @@ and every design with a soft part is below votes alone.
 Conclusion on gpt-6-luna: direct is already well calibrated here (164 wrong fills on dev), so the free signals have little to add;
 soft weighting does not help, and the equal-weight mean dilutes the useful signals. The gains seen with Qwen (E10) came from a model
 that over-fills (19 values per note against about 5 in the gold).
+
+# E12: the full benchmark on gpt-6-luna (CRF English; dev 80 notes picks, test 200 notes scored once, 4th look at the test split)
+
+Same script, arms and rules as E10 (Qwen), run on gpt-6-luna from the shared caches (direct, graph variants, reader and audit
+reused from E4 and E5; new calls only for form-guided NER, graph-guided direct, summary-then-fill and the item scopes). Test wall
+time 18 minutes.
+
+| English test, gpt-6-luna | Macro-F1 [95% CI] | vs direct [95% CI] | Values set where gold is unknown | Correct on documented items | Items set per note |
+| --- | --- | --- | --- | --- | --- |
+| **headline picked on dev:** tie-break(direct, disagreements with graph + audit checked by NLI) | 0.6665 [0.636, 0.697] | +0.004 [-0.001, 0.009] | 378 | 0.737 | 5.8 |
+| direct (whole form, one call) | 0.6627 [0.631, 0.693] | | 401 | 0.741 | 6.0 |
+| agree(direct, reader) | 0.662 | -0.001 [-0.007, 0.006] | 377 | 0.720 | 5.6 |
+| agree(form-guided NER, direct) | 0.661 | -0.002 [-0.015, 0.011] | 327 | 0.690 | 5.3 |
+| agree(direct, graph + audit) | 0.660 | -0.003 [-0.012, 0.007] | 363 | 0.704 | 5.5 |
+| form-blind summary, then fill (A3) | 0.641 | -0.022 [-0.041, -0.002] | 397 | 0.712 | 5.9 |
+| graph-guided direct (A2) | 0.617 | -0.046 [-0.065, -0.027] | 495 | 0.719 | 6.4 |
+| form-guided NER, then fill (A1) | 0.615 | -0.048 [-0.070, -0.026] | 652 | 0.770 | 7.5 |
+| graph + audit | 0.607 | -0.056 [-0.075, -0.037] | 607 | 0.758 | 7.2 |
+| graph + status gate by item scope | 0.580 | -0.083 | 355 | 0.586 | 5.1 |
+| graph | 0.578 | -0.085 [-0.110, -0.060] | 558 | 0.658 | 6.5 |
+| per-item reader | 0.521 | -0.142 [-0.166, -0.118] | 1,379 | 0.818 | 11.3 |
+
+Reading:
+- On gpt-6-luna nothing beats the direct prompt. The dev-picked headline ties it (+0.004, interval spanning 0), and every
+  graph-based single arm is below it. Agreement and tie-break combinations cut wrong fills (401 to 327 for the best) but lose as
+  many documented items, so they end level with direct.
+- The reason is calibration: gpt-6-luna sets 6.0 values per note when the gold has about 5, so there is little over-filling to
+  remove. Qwen3.8-27B (E10) sets 19 per note, and there the same combinations gained +0.03 to +0.06. Combination pays in
+  proportion to the base model's over-filling.
+- Form-blind summary, then fill (A3) is the strongest graph-family single arm here (0.641) and graph-guided direct (A2) costs only
+  444 generated tokens on top of the graph; neither beats direct. The status gate does not help (graph +0.002 with it).
+- Practical rule that fits both models: use the direct whole-form prompt as the decider; check on dev how many values per note it
+  sets against the expected number, and add a second method with agreement or disagreement checks only when it over-fills.
