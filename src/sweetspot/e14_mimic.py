@@ -13,7 +13,8 @@ Sub-graphs per admission (one connected component split by source):
   G = N+R, N+B, G+B; N-old and G-old with the Phase 2 rules; D the direct whole-form prompt (cites sentences)
 Consensus: vote(N+B, R, D) (an item is set when at least two sub-graphs set it), agree(D, G+B) (both), tie-break(D|G+B, NLI): D's
   items that G+B also sets, plus D's other items whose cited sentence the NLI model finds entails "The patient has <item>".
-Label-free tests (20 admissions, seed 31; up to 2 items each arm sets from note evidence, and 2 Section I items no arm sets):
+Label-free tests (12 admissions, seed 31; 1 item each arm sets from note evidence, and 2 Section I items no arm sets; cut from 20
+  admissions and 2 items before any result was seen, to fit the GPU budget):
   mask         remove the arm's cited sentences for the item          expected off   (comprehensiveness)
   sufficiency  keep only those sentences                              expected on    (sufficiency)
   negate       rewrite each cited sentence to deny the item (NLI: contradiction)       expected off
@@ -239,7 +240,7 @@ def main():
         pair[f"{a}~{b}"] = {"jaccard": round(both / either, 3) if either else None, "both": both, "either": either}
     # label-free battery
     rng = random.Random(31)
-    sample = sorted(rng.sample(range(len(keys)), 20))
+    sample = sorted(rng.sample(range(len(keys)), 12))
     own_arms = ["D", "N-old", "N+B", "vote(N+B,R,D)", "tie-break(D|G+B,NLI)"]
     gen = LLM("e14_mimic_rewrites", cache_dir=CACHE)
     specs, rew_q, rew_m, add_q, add_m = [], [], [], [], []
@@ -248,7 +249,7 @@ def main():
         g = base[n]
         for arm in own_arms:
             yes = sorted(c for c, cited in g[arm].items() if cited)
-            for c in rng.sample(yes, min(2, len(yes))):
+            for c in rng.sample(yes, min(1, len(yes))):
                 cited = g[arm][c]
                 specs.append((n, arm, c, cited))
                 for kind in ("negate", "paraphrase"):

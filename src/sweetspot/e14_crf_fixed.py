@@ -27,7 +27,7 @@ Disagreement checks with direct (no extra calls): tie-break(a|b, Z) keeps a's va
   one of the 3 sentences most similar to the item (measured values: the value occurs in the note)
 Choice (fixed before the run): the headline is the best proposed arm on dev by macro-F1 (proposed = everything except direct, reader,
   agree and graph-encoder), ties within 0.005 to the fewer generated tokens.
-Label-free battery on dev (30 notes, seed 141), the same pipelines on: reorder (lines reversed), paraphrase (whole note, kept only if
+Label-free battery on dev (20 notes, seed 141; cut from 30 before any result was seen, to fit the GPU budget), the same pipelines on: reorder (lines reversed), paraphrase (whole note, kept only if
   NLI finds two-way entailment), family (one appended sentence: the patient's mother has two items the model scoped as history);
   stability = share of (note, item) pairs set in either run with the same value in both. Validity: Kendall tau between pooled
   stability and labelled dev macro-F1 across all arms.
@@ -333,7 +333,7 @@ def stability(p0, p1):
 
 
 def battery(docs, opts, chk, scopes, encoder, base):
-    sub = random.Random(141).sample(docs, 30)
+    sub = random.Random(141).sample(docs, 20)
     rng = random.Random(141)
     history = sorted(i for i, s in scopes.items() if s == "history") or list(opts)
     gen = LLM("e14_rewrites")
