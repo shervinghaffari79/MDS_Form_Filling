@@ -1,0 +1,1348 @@
+{
+ "model": "Qwen/Qwen3.8-27B",
+ "dev": {
+  "direct": {
+   "macro_f1": 0.6034,
+   "ci": [
+    0.5366,
+    0.666
+   ],
+   "false_positives": 1624,
+   "accuracy_on_documented_items": 0.812,
+   "items_set_per_note": 24.71,
+   "generated_tokens_per_note": 676.0,
+   "prompt_tokens_per_note": 1961.7
+  },
+  "graph": {
+   "macro_f1": 0.567,
+   "ci": [
+    0.5033,
+    0.63
+   ],
+   "false_positives": 80,
+   "accuracy_on_documented_items": 0.3358,
+   "items_set_per_note": 2.91,
+   "generated_tokens_per_note": 2023.9,
+   "prompt_tokens_per_note": 2042.2,
+   "minus_direct": {
+    "difference": -0.0364,
+    "ci": [
+     -0.0941,
+     0.0233
+    ]
+   }
+  },
+  "graph-verify": {
+   "macro_f1": 0.5647,
+   "ci": [
+    0.5002,
+    0.6247
+   ],
+   "false_positives": 91,
+   "accuracy_on_documented_items": 0.3484,
+   "items_set_per_note": 3.11,
+   "generated_tokens_per_note": 1496.3,
+   "prompt_tokens_per_note": 1421.3,
+   "minus_direct": {
+    "difference": -0.0387,
+    "ci": [
+     -0.0963,
+     0.019
+    ]
+   }
+  },
+  "graph-status": {
+   "macro_f1": 0.5623,
+   "ci": [
+    0.4995,
+    0.6218
+   ],
+   "false_positives": 94,
+   "accuracy_on_documented_items": 0.3383,
+   "items_set_per_note": 3.1,
+   "generated_tokens_per_note": 2029.0,
+   "prompt_tokens_per_note": 2000.8,
+   "minus_direct": {
+    "difference": -0.0412,
+    "ci": [
+     -0.1007,
+     0.0189
+    ]
+   }
+  },
+  "graph-encoder": {
+   "macro_f1": 0.3544,
+   "ci": [
+    0.3135,
+    0.3989
+   ],
+   "false_positives": 671,
+   "accuracy_on_documented_items": 0.3509,
+   "items_set_per_note": 10.34,
+   "generated_tokens_per_note": 2063.2,
+   "prompt_tokens_per_note": 1773.0,
+   "minus_direct": {
+    "difference": -0.2491,
+    "ci": [
+     -0.3104,
+     -0.1907
+    ]
+   }
+  },
+  "graph+audit": {
+   "macro_f1": 0.5799,
+   "ci": [
+    0.5204,
+    0.6387
+   ],
+   "false_positives": 1407,
+   "accuracy_on_documented_items": 0.782,
+   "items_set_per_note": 21.88,
+   "generated_tokens_per_note": 2611.0,
+   "prompt_tokens_per_note": 4083.3,
+   "minus_direct": {
+    "difference": -0.0235,
+    "ci": [
+     -0.0699,
+     0.0226
+    ]
+   }
+  },
+  "A1": {
+   "macro_f1": 0.5384,
+   "ci": [
+    0.4935,
+    0.5849
+   ],
+   "false_positives": 705,
+   "accuracy_on_documented_items": 0.7744,
+   "items_set_per_note": 13.0,
+   "generated_tokens_per_note": 1610.6,
+   "prompt_tokens_per_note": 2167.1,
+   "minus_direct": {
+    "difference": -0.065,
+    "ci": [
+     -0.1253,
+     -0.0074
+    ]
+   }
+  },
+  "A2": {
+   "macro_f1": 0.5987,
+   "ci": [
+    0.546,
+    0.6505
+   ],
+   "false_positives": 1154,
+   "accuracy_on_documented_items": 0.7619,
+   "items_set_per_note": 18.56,
+   "generated_tokens_per_note": 510.3,
+   "prompt_tokens_per_note": 2125.8,
+   "minus_direct": {
+    "difference": -0.0047,
+    "ci": [
+     -0.0544,
+     0.0459
+    ]
+   }
+  },
+  "A3": {
+   "macro_f1": 0.5691,
+   "ci": [
+    0.5,
+    0.6328
+   ],
+   "false_positives": 1545,
+   "accuracy_on_documented_items": 0.6591,
+   "items_set_per_note": 23.07,
+   "generated_tokens_per_note": 1941.5,
+   "prompt_tokens_per_note": 2461.6,
+   "minus_direct": {
+    "difference": -0.0343,
+    "ci": [
+     -0.0856,
+     0.0208
+    ]
+   }
+  },
+  "graph+Z3": {
+   "macro_f1": 0.5609,
+   "ci": [
+    0.4956,
+    0.6256
+   ],
+   "false_positives": 51,
+   "accuracy_on_documented_items": 0.2957,
+   "items_set_per_note": 2.35,
+   "generated_tokens_per_note": 2023.9,
+   "prompt_tokens_per_note": 2042.2,
+   "minus_direct": {
+    "difference": -0.0425,
+    "ci": [
+     -0.1006,
+     0.0181
+    ]
+   }
+  },
+  "agree(direct,graph+audit)": {
+   "macro_f1": 0.6507,
+   "ci": [
+    0.5943,
+    0.7074
+   ],
+   "false_positives": 860,
+   "accuracy_on_documented_items": 0.7519,
+   "items_set_per_note": 14.79,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.0472,
+    "ci": [
+     0.0172,
+     0.0823
+    ]
+   }
+  },
+  "tie-break(direct|graph+audit,Z2)": {
+   "macro_f1": 0.6462,
+   "ci": [
+    0.5876,
+    0.7045
+   ],
+   "false_positives": 997,
+   "accuracy_on_documented_items": 0.7845,
+   "items_set_per_note": 16.7,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.0428,
+    "ci": [
+     0.0202,
+     0.0689
+    ]
+   }
+  },
+  "tie-break(direct|graph+audit,Z4)": {
+   "macro_f1": 0.6342,
+   "ci": [
+    0.5768,
+    0.692
+   ],
+   "false_positives": 950,
+   "accuracy_on_documented_items": 0.7794,
+   "items_set_per_note": 16.06,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.0307,
+    "ci": [
+     0.0101,
+     0.0526
+    ]
+   }
+  },
+  "agree(graph+audit,direct)": {
+   "macro_f1": 0.6507,
+   "ci": [
+    0.5943,
+    0.7074
+   ],
+   "false_positives": 860,
+   "accuracy_on_documented_items": 0.7519,
+   "items_set_per_note": 14.79,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.0472,
+    "ci": [
+     0.0172,
+     0.0823
+    ]
+   }
+  },
+  "tie-break(graph+audit|direct,Z2)": {
+   "macro_f1": 0.6364,
+   "ci": [
+    0.5812,
+    0.6942
+   ],
+   "false_positives": 983,
+   "accuracy_on_documented_items": 0.7669,
+   "items_set_per_note": 16.49,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.033,
+    "ci": [
+     0.0029,
+     0.0689
+    ]
+   }
+  },
+  "tie-break(graph+audit|direct,Z4)": {
+   "macro_f1": 0.64,
+   "ci": [
+    0.5832,
+    0.6971
+   ],
+   "false_positives": 904,
+   "accuracy_on_documented_items": 0.7594,
+   "items_set_per_note": 15.39,
+   "generated_tokens_per_note": 3287.1,
+   "prompt_tokens_per_note": 6045.0,
+   "minus_direct": {
+    "difference": 0.0366,
+    "ci": [
+     0.002,
+     0.0756
+    ]
+   }
+  },
+  "agree(A1,direct)": {
+   "macro_f1": 0.6946,
+   "ci": [
+    0.6438,
+    0.7426
+   ],
+   "false_positives": 178,
+   "accuracy_on_documented_items": 0.7068,
+   "items_set_per_note": 5.95,
+   "generated_tokens_per_note": 2286.7,
+   "prompt_tokens_per_note": 4128.9,
+   "minus_direct": {
+    "difference": 0.0911,
+    "ci": [
+     0.0528,
+     0.1316
+    ]
+   }
+  },
+  "tie-break(A1|direct,Z2)": {
+   "macro_f1": 0.6479,
+   "ci": [
+    0.5985,
+    0.6966
+   ],
+   "false_positives": 325,
+   "accuracy_on_documented_items": 0.7268,
+   "items_set_per_note": 7.97,
+   "generated_tokens_per_note": 2286.7,
+   "prompt_tokens_per_note": 4128.9,
+   "minus_direct": {
+    "difference": 0.0445,
+    "ci": [
+     -0.001,
+     0.0877
+    ]
+   }
+  },
+  "tie-break(A1|direct,Z4)": {
+   "macro_f1": 0.6622,
+   "ci": [
+    0.6112,
+    0.7137
+   ],
+   "false_positives": 242,
+   "accuracy_on_documented_items": 0.7268,
+   "items_set_per_note": 6.89,
+   "generated_tokens_per_note": 2286.7,
+   "prompt_tokens_per_note": 4128.9,
+   "minus_direct": {
+    "difference": 0.0588,
+    "ci": [
+     0.0153,
+     0.1022
+    ]
+   }
+  },
+  "agree(A2,direct)": {
+   "macro_f1": 0.6669,
+   "ci": [
+    0.6114,
+    0.7217
+   ],
+   "false_positives": 902,
+   "accuracy_on_documented_items": 0.7469,
+   "items_set_per_note": 15.31,
+   "generated_tokens_per_note": 1186.3,
+   "prompt_tokens_per_note": 4087.5,
+   "minus_direct": {
+    "difference": 0.0635,
+    "ci": [
+     0.0288,
+     0.1057
+    ]
+   }
+  },
+  "tie-break(A2|direct,Z2)": {
+   "macro_f1": 0.6493,
+   "ci": [
+    0.5929,
+    0.7049
+   ],
+   "false_positives": 961,
+   "accuracy_on_documented_items": 0.7594,
+   "items_set_per_note": 16.12,
+   "generated_tokens_per_note": 1186.3,
+   "prompt_tokens_per_note": 4087.5,
+   "minus_direct": {
+    "difference": 0.0459,
+    "ci": [
+     0.0095,
+     0.0868
+    ]
+   }
+  },
+  "tie-break(A2|direct,Z4)": {
+   "macro_f1": 0.6548,
+   "ci": [
+    0.5987,
+    0.7102
+   ],
+   "false_positives": 932,
+   "accuracy_on_documented_items": 0.7519,
+   "items_set_per_note": 15.71,
+   "generated_tokens_per_note": 1186.3,
+   "prompt_tokens_per_note": 4087.5,
+   "minus_direct": {
+    "difference": 0.0514,
+    "ci": [
+     0.0161,
+     0.091
+    ]
+   }
+  },
+  "agree(A3,direct)": {
+   "macro_f1": 0.6564,
+   "ci": [
+    0.5957,
+    0.7138
+   ],
+   "false_positives": 597,
+   "accuracy_on_documented_items": 0.6291,
+   "items_set_per_note": 10.79,
+   "generated_tokens_per_note": 2617.5,
+   "prompt_tokens_per_note": 4423.4,
+   "minus_direct": {
+    "difference": 0.053,
+    "ci": [
+     0.0209,
+     0.0907
+    ]
+   }
+  },
+  "tie-break(A3|direct,Z2)": {
+   "macro_f1": 0.6397,
+   "ci": [
+    0.5758,
+    0.6984
+   ],
+   "false_positives": 675,
+   "accuracy_on_documented_items": 0.6366,
+   "items_set_per_note": 11.85,
+   "generated_tokens_per_note": 2617.5,
+   "prompt_tokens_per_note": 4423.4,
+   "minus_direct": {
+    "difference": 0.0363,
+    "ci": [
+     0.0016,
+     0.0769
+    ]
+   }
+  },
+  "tie-break(A3|direct,Z4)": {
+   "macro_f1": 0.6385,
+   "ci": [
+    0.5755,
+    0.6964
+   ],
+   "false_positives": 696,
+   "accuracy_on_documented_items": 0.6391,
+   "items_set_per_note": 12.11,
+   "generated_tokens_per_note": 2617.5,
+   "prompt_tokens_per_note": 4423.4,
+   "minus_direct": {
+    "difference": 0.035,
+    "ci": [
+     -0.0025,
+     0.0762
+    ]
+   }
+  },
+  "agree(graph+Z3,direct)": {
+   "macro_f1": 0.5717,
+   "ci": [
+    0.5053,
+    0.6376
+   ],
+   "false_positives": 31,
+   "accuracy_on_documented_items": 0.2882,
+   "items_set_per_note": 1.95,
+   "generated_tokens_per_note": 2700.0,
+   "prompt_tokens_per_note": 4004.0,
+   "minus_direct": {
+    "difference": -0.0318,
+    "ci": [
+     -0.0913,
+     0.0282
+    ]
+   }
+  },
+  "tie-break(graph+Z3|direct,Z2)": {
+   "macro_f1": 0.5637,
+   "ci": [
+    0.4967,
+    0.6297
+   ],
+   "false_positives": 39,
+   "accuracy_on_documented_items": 0.2907,
+   "items_set_per_note": 2.17,
+   "generated_tokens_per_note": 2700.0,
+   "prompt_tokens_per_note": 4004.0,
+   "minus_direct": {
+    "difference": -0.0397,
+    "ci": [
+     -0.0991,
+     0.0204
+    ]
+   }
+  },
+  "tie-break(graph+Z3|direct,Z4)": {
+   "macro_f1": 0.5721,
+   "ci": [
+    0.507,
+    0.6367
+   ],
+   "false_positives": 37,
+   "accuracy_on_documented_items": 0.2907,
+   "items_set_per_note": 2.04,
+   "generated_tokens_per_note": 2700.0,
+   "prompt_tokens_per_note": 4004.0,
+   "minus_direct": {
+    "difference": -0.0314,
+    "ci": [
+     -0.0901,
+     0.0291
+    ]
+   }
+  }
+ },
+ "dev_info": {
+  "graph_info": {
+   "mentions_per_note": 18.0,
+   "kept_per_note": 16.4,
+   "distinct_concepts": 1246
+  },
+  "wall_seconds": 3188,
+  "scopes": {
+   "chronic pulmonary disease": "history",
+   "chronic respiratory failure": "history",
+   "chronic cardiac failure": "history",
+   "chronic renal failure": "history",
+   "chronic metabolic failure": "history",
+   "chronic rheumatologic disease": "history",
+   "active neoplasia": "current",
+   "chronic dialysis": "history",
+   "duration of the patient's consciousness recovery": "current",
+   "duration of the patient's unconsciousness": "current",
+   "first episod of epilepsy": "history",
+   "known history of epilepsy": "history",
+   "history of allergy": "history",
+   "history of recent trauma": "history",
+   "pregnancy": "current",
+   "history of drug abuse": "history",
+   "history of alcohol abuse": "history",
+   "anticoagulants or antiplatelet drug therapy": "current",
+   "presence of prodromal symptoms": "current",
+   "compliance with antiepileptic therapy": "current",
+   "tloc during effort": "current",
+   "tloc while supine": "current",
+   "antiepileptic therapy already in place": "current",
+   "drowsiness, confusion, disorientation as postcritical state": "current",
+   "stiffness during the episode": "current",
+   "drooling during the episode": "current",
+   "tonic-clonic seizures": "current",
+   "poly-pharmacological therapy": "current",
+   "pale skin during the episode": "current",
+   "eye deviation during the episode": "current",
+   "diffuse vascular disease": "history",
+   "neuropsychiatric disorders": "history",
+   "presence of pacemaker": "current",
+   "presence of defibrillator": "current",
+   "cardio-pulmonary resuscitation": "current",
+   "antihypertensive therapy": "current",
+   "cardiovascular diseases": "history",
+   "neurodegenerative diseases": "history",
+   "peripheral neuropathy": "history",
+   "immunosuppression": "current",
+   "palliative care": "current",
+   "situation description, like coughing, prolonged periods of straining, sudden abdominal pain, phlebotomy": "current",
+   "problematic family context": "current",
+   "need but absence of a caregiver": "current",
+   "homelessness": "current",
+   "living alone": "current",
+   "level of autonomy (mobility)": "current",
+   "level of consciousness": "current",
+   "respiratory rate": "current",
+   "body temperature": "current",
+   "heart rate": "current",
+   "blood pressure": "current",
+   "presence of respiratory distress": "current",
+   "carotid sinus massage": "current",
+   "supine-to-standing systolic blood pressure test": "current",
+   "blood in the stool": "current",
+   "chest pain": "current",
+   "head or other districts trauma": "current",
+   "tongue bite": "current",
+   "spo2": "current",
+   "agitation": "current",
+   "foreign body in the airways": "current",
+   "improvement of dyspnea": "current",
+   "presence of dyspnea": "current",
+   "dementia": "history",
+   "general condition deterioration": "current",
+   "ab ingestis pneumonia": "current",
+   "further seizures in the ed": "current",
+   "improvement of patient\u2019s conditions": "current",
+   "neurologist consultation": "current",
+   "ecg, any abnormality": "current",
+   "ecg monitoring, any abnormality": "current",
+   "eeg, any abnormality": "current",
+   "ph": "current",
+   "pa02": "current",
+   "pac02": "current",
+   "hc03-": "current",
+   "lactates": "current",
+   "hemoglobin": "current",
+   "platelets": "current",
+   "leukocytes": "current",
+   "c-reactive protein": "current",
+   "blood sodium": "current",
+   "blood potassium": "current",
+   "blood glucose": "current",
+   "creatinine": "current",
+   "transaminases": "current",
+   "inr": "current",
+   "troponin": "current",
+   "bnp or nt-pro-bnp": "current",
+   "d-dimer": "current",
+   "blood calcium": "current",
+   "serum creatinine kinase": "current",
+   "blood alcohol": "current",
+   "blood drug dosage": "current",
+   "urine drug test": "current",
+   "sars-cov-2 swab test": "current",
+   "thoracic ultrasound, any abnormalities": "current",
+   "chest rx, any abnormalities": "current",
+   "gastroscopy , any abnormalities": "current",
+   "brain ct scan, any abnormality": "current",
+   "brain mri, any abnormality": "current",
+   "cardiac ultrasound, any abnormality": "current",
+   "chest ct scan, any abnormality": "current",
+   "pulmonary scintigraphy, any abnormality": "current",
+   "abdomen ct scan, any abnormality": "current",
+   "compression ultrasound (cus), any abnormality": "current",
+   "performance of thoracentesis": "current",
+   "administration of diuretics": "current",
+   "administration of steroids": "current",
+   "administration of bronchodilators": "current",
+   "administration of oxygen/ventilation": "current",
+   "blood transfusions": "current",
+   "administration of fluids": "current",
+   "heart failure": "current",
+   "pneumonia": "current",
+   "copd exacerbation": "current",
+   "acute pulmonary edema": "current",
+   "asthma exacerbation": "current",
+   "respiratory failure": "current",
+   "intoxication": "current",
+   "covid 19": "current",
+   "influenza and various infections": "current",
+   "pneumothorax": "current",
+   "situational syncope": "current",
+   "epilepsy / epileptic seizure": "current",
+   "pulmonary embolism": "current",
+   "arrhythmia": "current",
+   "cardiac tamponade": "current",
+   "aortic dissection": "current",
+   "acute coronary syndrome": "current",
+   "hemorrhage": "current",
+   "severe anemia": "current",
+   "concussive head trauma": "current"
+  }
+ },
+ "headline_picked_on_dev": "tie-break(A1|direct,Z4)",
+ "test": {
+  "direct": {
+   "macro_f1": 0.5606,
+   "ci": [
+    0.5219,
+    0.5996
+   ],
+   "false_positives": 3030,
+   "accuracy_on_documented_items": 0.7683,
+   "items_set_per_note": 19.21,
+   "generated_tokens_per_note": 533.0,
+   "prompt_tokens_per_note": 1953.7
+  },
+  "graph": {
+   "macro_f1": 0.5512,
+   "ci": [
+    0.515,
+    0.5881
+   ],
+   "false_positives": 430,
+   "accuracy_on_documented_items": 0.4214,
+   "items_set_per_note": 4.61,
+   "generated_tokens_per_note": 2653.4,
+   "prompt_tokens_per_note": 2666.3,
+   "minus_direct": {
+    "difference": -0.0094,
+    "ci": [
+     -0.0446,
+     0.0264
+    ]
+   }
+  },
+  "graph-verify": {
+   "macro_f1": 0.5591,
+   "ci": [
+    0.5222,
+    0.5956
+   ],
+   "false_positives": 460,
+   "accuracy_on_documented_items": 0.4434,
+   "items_set_per_note": 4.86,
+   "generated_tokens_per_note": 1959.3,
+   "prompt_tokens_per_note": 1844.0,
+   "minus_direct": {
+    "difference": -0.0015,
+    "ci": [
+     -0.0357,
+     0.0324
+    ]
+   }
+  },
+  "graph-status": {
+   "macro_f1": 0.5561,
+   "ci": [
+    0.5198,
+    0.5919
+   ],
+   "false_positives": 375,
+   "accuracy_on_documented_items": 0.4224,
+   "items_set_per_note": 4.33,
+   "generated_tokens_per_note": 2643.9,
+   "prompt_tokens_per_note": 2602.4,
+   "minus_direct": {
+    "difference": -0.0045,
+    "ci": [
+     -0.0419,
+     0.0351
+    ]
+   }
+  },
+  "graph-encoder": {
+   "macro_f1": 0.3621,
+   "ci": [
+    0.3322,
+    0.3929
+   ],
+   "false_positives": 2217,
+   "accuracy_on_documented_items": 0.4843,
+   "items_set_per_note": 13.82,
+   "generated_tokens_per_note": 2726.4,
+   "prompt_tokens_per_note": 2371.7,
+   "minus_direct": {
+    "difference": -0.1985,
+    "ci": [
+     -0.2334,
+     -0.1641
+    ]
+   }
+  },
+  "graph+audit": {
+   "macro_f1": 0.549,
+   "ci": [
+    0.5147,
+    0.5837
+   ],
+   "false_positives": 2031,
+   "accuracy_on_documented_items": 0.7432,
+   "items_set_per_note": 14.21,
+   "generated_tokens_per_note": 3028.3,
+   "prompt_tokens_per_note": 4713.8,
+   "minus_direct": {
+    "difference": -0.0115,
+    "ci": [
+     -0.0394,
+     0.016
+    ]
+   }
+  },
+  "A1": {
+   "macro_f1": 0.5129,
+   "ci": [
+    0.4797,
+    0.5452
+   ],
+   "false_positives": 1468,
+   "accuracy_on_documented_items": 0.76,
+   "items_set_per_note": 11.4,
+   "generated_tokens_per_note": 1643.6,
+   "prompt_tokens_per_note": 2180.6,
+   "minus_direct": {
+    "difference": -0.0477,
+    "ci": [
+     -0.0769,
+     -0.0174
+    ]
+   }
+  },
+  "A2": {
+   "macro_f1": 0.5797,
+   "ci": [
+    0.5454,
+    0.6142
+   ],
+   "false_positives": 2345,
+   "accuracy_on_documented_items": 0.7159,
+   "items_set_per_note": 15.55,
+   "generated_tokens_per_note": 420.2,
+   "prompt_tokens_per_note": 2210.5,
+   "minus_direct": {
+    "difference": 0.0191,
+    "ci": [
+     -0.0089,
+     0.0482
+    ]
+   }
+  },
+  "A3": {
+   "macro_f1": 0.5282,
+   "ci": [
+    0.4845,
+    0.5714
+   ],
+   "false_positives": 4252,
+   "accuracy_on_documented_items": 0.6625,
+   "items_set_per_note": 25.04,
+   "generated_tokens_per_note": 2126.2,
+   "prompt_tokens_per_note": 2567.8,
+   "minus_direct": {
+    "difference": -0.0324,
+    "ci": [
+     -0.0648,
+     0.0001
+    ]
+   }
+  },
+  "graph+Z3": {
+   "macro_f1": 0.5466,
+   "ci": [
+    0.5104,
+    0.5848
+   ],
+   "false_positives": 264,
+   "accuracy_on_documented_items": 0.3574,
+   "items_set_per_note": 3.42,
+   "generated_tokens_per_note": 2653.4,
+   "prompt_tokens_per_note": 2666.3,
+   "minus_direct": {
+    "difference": -0.014,
+    "ci": [
+     -0.0519,
+     0.0234
+    ]
+   }
+  },
+  "agree(direct,graph+audit)": {
+   "macro_f1": 0.6113,
+   "ci": [
+    0.5797,
+    0.644
+   ],
+   "false_positives": 967,
+   "accuracy_on_documented_items": 0.7023,
+   "items_set_per_note": 8.51,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.0507,
+    "ci": [
+     0.0302,
+     0.0715
+    ]
+   }
+  },
+  "tie-break(direct|graph+audit,Z2)": {
+   "macro_f1": 0.6059,
+   "ci": [
+    0.5711,
+    0.6399
+   ],
+   "false_positives": 1272,
+   "accuracy_on_documented_items": 0.7453,
+   "items_set_per_note": 10.26,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.0453,
+    "ci": [
+     0.0318,
+     0.0594
+    ]
+   }
+  },
+  "tie-break(direct|graph+audit,Z4)": {
+   "macro_f1": 0.5906,
+   "ci": [
+    0.5577,
+    0.6241
+   ],
+   "false_positives": 1248,
+   "accuracy_on_documented_items": 0.7212,
+   "items_set_per_note": 10.04,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.03,
+    "ci": [
+     0.0165,
+     0.0431
+    ]
+   }
+  },
+  "agree(graph+audit,direct)": {
+   "macro_f1": 0.6113,
+   "ci": [
+    0.5797,
+    0.644
+   ],
+   "false_positives": 967,
+   "accuracy_on_documented_items": 0.7023,
+   "items_set_per_note": 8.51,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.0507,
+    "ci": [
+     0.0302,
+     0.0715
+    ]
+   }
+  },
+  "tie-break(graph+audit|direct,Z2)": {
+   "macro_f1": 0.5808,
+   "ci": [
+    0.5477,
+    0.6138
+   ],
+   "false_positives": 1172,
+   "accuracy_on_documented_items": 0.717,
+   "items_set_per_note": 9.76,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.0202,
+    "ci": [
+     -0.0032,
+     0.0435
+    ]
+   }
+  },
+  "tie-break(graph+audit|direct,Z4)": {
+   "macro_f1": 0.5952,
+   "ci": [
+    0.5635,
+    0.6297
+   ],
+   "false_positives": 1109,
+   "accuracy_on_documented_items": 0.717,
+   "items_set_per_note": 9.34,
+   "generated_tokens_per_note": 3561.3,
+   "prompt_tokens_per_note": 6667.4,
+   "minus_direct": {
+    "difference": 0.0347,
+    "ci": [
+     0.0115,
+     0.0583
+    ]
+   }
+  },
+  "agree(A1,direct)": {
+   "macro_f1": 0.6195,
+   "ci": [
+    0.5876,
+    0.6512
+   ],
+   "false_positives": 461,
+   "accuracy_on_documented_items": 0.673,
+   "items_set_per_note": 5.75,
+   "generated_tokens_per_note": 2176.6,
+   "prompt_tokens_per_note": 4134.3,
+   "minus_direct": {
+    "difference": 0.059,
+    "ci": [
+     0.0355,
+     0.083
+    ]
+   }
+  },
+  "tie-break(A1|direct,Z2)": {
+   "macro_f1": 0.5774,
+   "ci": [
+    0.5451,
+    0.6099
+   ],
+   "false_positives": 810,
+   "accuracy_on_documented_items": 0.7023,
+   "items_set_per_note": 7.79,
+   "generated_tokens_per_note": 2176.6,
+   "prompt_tokens_per_note": 4134.3,
+   "minus_direct": {
+    "difference": 0.0168,
+    "ci": [
+     -0.0098,
+     0.0437
+    ]
+   }
+  },
+  "tie-break(A1|direct,Z4)": {
+   "macro_f1": 0.5898,
+   "ci": [
+    0.5588,
+    0.623
+   ],
+   "false_positives": 618,
+   "accuracy_on_documented_items": 0.696,
+   "items_set_per_note": 6.73,
+   "generated_tokens_per_note": 2176.6,
+   "prompt_tokens_per_note": 4134.3,
+   "minus_direct": {
+    "difference": 0.0292,
+    "ci": [
+     0.0031,
+     0.056
+    ]
+   }
+  },
+  "agree(A2,direct)": {
+   "macro_f1": 0.6141,
+   "ci": [
+    0.5804,
+    0.6495
+   ],
+   "false_positives": 1483,
+   "accuracy_on_documented_items": 0.6824,
+   "items_set_per_note": 10.99,
+   "generated_tokens_per_note": 953.2,
+   "prompt_tokens_per_note": 4164.1,
+   "minus_direct": {
+    "difference": 0.0536,
+    "ci": [
+     0.0312,
+     0.0762
+    ]
+   }
+  },
+  "tie-break(A2|direct,Z2)": {
+   "macro_f1": 0.6041,
+   "ci": [
+    0.5701,
+    0.6387
+   ],
+   "false_positives": 1684,
+   "accuracy_on_documented_items": 0.695,
+   "items_set_per_note": 12.11,
+   "generated_tokens_per_note": 953.2,
+   "prompt_tokens_per_note": 4164.1,
+   "minus_direct": {
+    "difference": 0.0436,
+    "ci": [
+     0.0204,
+     0.0675
+    ]
+   }
+  },
+  "tie-break(A2|direct,Z4)": {
+   "macro_f1": 0.6036,
+   "ci": [
+    0.5693,
+    0.6386
+   ],
+   "false_positives": 1591,
+   "accuracy_on_documented_items": 0.6971,
+   "items_set_per_note": 11.65,
+   "generated_tokens_per_note": 953.2,
+   "prompt_tokens_per_note": 4164.1,
+   "minus_direct": {
+    "difference": 0.043,
+    "ci": [
+     0.0184,
+     0.07
+    ]
+   }
+  },
+  "agree(A3,direct)": {
+   "macro_f1": 0.5973,
+   "ci": [
+    0.5584,
+    0.6352
+   ],
+   "false_positives": 1555,
+   "accuracy_on_documented_items": 0.6205,
+   "items_set_per_note": 11.03,
+   "generated_tokens_per_note": 2659.2,
+   "prompt_tokens_per_note": 4521.5,
+   "minus_direct": {
+    "difference": 0.0368,
+    "ci": [
+     0.0126,
+     0.0619
+    ]
+   }
+  },
+  "tie-break(A3|direct,Z2)": {
+   "macro_f1": 0.5735,
+   "ci": [
+    0.5352,
+    0.6114
+   ],
+   "false_positives": 1782,
+   "accuracy_on_documented_items": 0.6352,
+   "items_set_per_note": 12.29,
+   "generated_tokens_per_note": 2659.2,
+   "prompt_tokens_per_note": 4521.5,
+   "minus_direct": {
+    "difference": 0.0129,
+    "ci": [
+     -0.0128,
+     0.0387
+    ]
+   }
+  },
+  "tie-break(A3|direct,Z4)": {
+   "macro_f1": 0.579,
+   "ci": [
+    0.5397,
+    0.6174
+   ],
+   "false_positives": 1842,
+   "accuracy_on_documented_items": 0.6321,
+   "items_set_per_note": 12.6,
+   "generated_tokens_per_note": 2659.2,
+   "prompt_tokens_per_note": 4521.5,
+   "minus_direct": {
+    "difference": 0.0185,
+    "ci": [
+     -0.0065,
+     0.0436
+    ]
+   }
+  },
+  "agree(graph+Z3,direct)": {
+   "macro_f1": 0.5633,
+   "ci": [
+    0.5278,
+    0.6007
+   ],
+   "false_positives": 110,
+   "accuracy_on_documented_items": 0.3438,
+   "items_set_per_note": 2.38,
+   "generated_tokens_per_note": 3186.4,
+   "prompt_tokens_per_note": 4620.0,
+   "minus_direct": {
+    "difference": 0.0027,
+    "ci": [
+     -0.032,
+     0.0379
+    ]
+   }
+  },
+  "tie-break(graph+Z3|direct,Z2)": {
+   "macro_f1": 0.5517,
+   "ci": [
+    0.5153,
+    0.5897
+   ],
+   "false_positives": 190,
+   "accuracy_on_documented_items": 0.3532,
+   "items_set_per_note": 3.0,
+   "generated_tokens_per_note": 3186.4,
+   "prompt_tokens_per_note": 4620.0,
+   "minus_direct": {
+    "difference": -0.0089,
+    "ci": [
+     -0.046,
+     0.0279
+    ]
+   }
+  },
+  "tie-break(graph+Z3|direct,Z4)": {
+   "macro_f1": 0.5599,
+   "ci": [
+    0.5243,
+    0.5981
+   ],
+   "false_positives": 122,
+   "accuracy_on_documented_items": 0.348,
+   "items_set_per_note": 2.52,
+   "generated_tokens_per_note": 3186.4,
+   "prompt_tokens_per_note": 4620.0,
+   "minus_direct": {
+    "difference": -0.0006,
+    "ci": [
+     -0.0362,
+     0.0365
+    ]
+   }
+  }
+ },
+ "test_info": {
+  "graph_info": {
+   "mentions_per_note": 23.4,
+   "kept_per_note": 21.2,
+   "distinct_concepts": 3580
+  },
+  "wall_seconds": 3714,
+  "scopes": {
+   "chronic pulmonary disease": "history",
+   "chronic respiratory failure": "history",
+   "chronic cardiac failure": "history",
+   "chronic renal failure": "history",
+   "chronic metabolic failure": "history",
+   "chronic rheumatologic disease": "history",
+   "active neoplasia": "current",
+   "chronic dialysis": "history",
+   "duration of the patient's consciousness recovery": "current",
+   "duration of the patient's unconsciousness": "current",
+   "first episod of epilepsy": "history",
+   "known history of epilepsy": "history",
+   "history of allergy": "history",
+   "history of recent trauma": "history",
+   "pregnancy": "current",
+   "history of drug abuse": "history",
+   "history of alcohol abuse": "history",
+   "anticoagulants or antiplatelet drug therapy": "current",
+   "presence of prodromal symptoms": "current",
+   "compliance with antiepileptic therapy": "current",
+   "tloc during effort": "current",
+   "tloc while supine": "current",
+   "antiepileptic therapy already in place": "current",
+   "drowsiness, confusion, disorientation as postcritical state": "current",
+   "stiffness during the episode": "current",
+   "drooling during the episode": "current",
+   "tonic-clonic seizures": "current",
+   "poly-pharmacological therapy": "current",
+   "pale skin during the episode": "current",
+   "eye deviation during the episode": "current",
+   "diffuse vascular disease": "history",
+   "neuropsychiatric disorders": "history",
+   "presence of pacemaker": "current",
+   "presence of defibrillator": "current",
+   "cardio-pulmonary resuscitation": "current",
+   "antihypertensive therapy": "current",
+   "cardiovascular diseases": "history",
+   "neurodegenerative diseases": "history",
+   "peripheral neuropathy": "history",
+   "immunosuppression": "current",
+   "palliative care": "current",
+   "situation description, like coughing, prolonged periods of straining, sudden abdominal pain, phlebotomy": "current",
+   "problematic family context": "current",
+   "need but absence of a caregiver": "current",
+   "homelessness": "current",
+   "living alone": "current",
+   "level of autonomy (mobility)": "current",
+   "level of consciousness": "current",
+   "respiratory rate": "current",
+   "body temperature": "current",
+   "heart rate": "current",
+   "blood pressure": "current",
+   "presence of respiratory distress": "current",
+   "carotid sinus massage": "current",
+   "supine-to-standing systolic blood pressure test": "current",
+   "blood in the stool": "current",
+   "chest pain": "current",
+   "head or other districts trauma": "current",
+   "tongue bite": "current",
+   "spo2": "current",
+   "agitation": "current",
+   "foreign body in the airways": "current",
+   "improvement of dyspnea": "current",
+   "presence of dyspnea": "current",
+   "dementia": "history",
+   "general condition deterioration": "current",
+   "ab ingestis pneumonia": "current",
+   "further seizures in the ed": "current",
+   "improvement of patient\u2019s conditions": "current",
+   "neurologist consultation": "current",
+   "ecg, any abnormality": "current",
+   "ecg monitoring, any abnormality": "current",
+   "eeg, any abnormality": "current",
+   "ph": "current",
+   "pa02": "current",
+   "pac02": "current",
+   "hc03-": "current",
+   "lactates": "current",
+   "hemoglobin": "current",
+   "platelets": "current",
+   "leukocytes": "current",
+   "c-reactive protein": "current",
+   "blood sodium": "current",
+   "blood potassium": "current",
+   "blood glucose": "current",
+   "creatinine": "current",
+   "transaminases": "current",
+   "inr": "current",
+   "troponin": "current",
+   "bnp or nt-pro-bnp": "current",
+   "d-dimer": "current",
+   "blood calcium": "current",
+   "serum creatinine kinase": "current",
+   "blood alcohol": "current",
+   "blood drug dosage": "current",
+   "urine drug test": "current",
+   "sars-cov-2 swab test": "current",
+   "thoracic ultrasound, any abnormalities": "current",
+   "chest rx, any abnormalities": "current",
+   "gastroscopy , any abnormalities": "current",
+   "brain ct scan, any abnormality": "current",
+   "brain mri, any abnormality": "current",
+   "cardiac ultrasound, any abnormality": "current",
+   "chest ct scan, any abnormality": "current",
+   "pulmonary scintigraphy, any abnormality": "current",
+   "abdomen ct scan, any abnormality": "current",
+   "compression ultrasound (cus), any abnormality": "current",
+   "performance of thoracentesis": "current",
+   "administration of diuretics": "current",
+   "administration of steroids": "current",
+   "administration of bronchodilators": "current",
+   "administration of oxygen/ventilation": "current",
+   "blood transfusions": "current",
+   "administration of fluids": "current",
+   "heart failure": "current",
+   "pneumonia": "current",
+   "copd exacerbation": "current",
+   "acute pulmonary edema": "current",
+   "asthma exacerbation": "current",
+   "respiratory failure": "current",
+   "intoxication": "current",
+   "covid 19": "current",
+   "influenza and various infections": "current",
+   "pneumothorax": "current",
+   "situational syncope": "current",
+   "epilepsy / epileptic seizure": "current",
+   "pulmonary embolism": "current",
+   "arrhythmia": "current",
+   "cardiac tamponade": "current",
+   "aortic dissection": "current",
+   "acute coronary syndrome": "current",
+   "hemorrhage": "current",
+   "severe anemia": "current",
+   "concussive head trauma": "current"
+  }
+ },
+ "test_looks": 3,
+ "reader_included": false
+}

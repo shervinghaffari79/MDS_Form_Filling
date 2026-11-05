@@ -203,3 +203,42 @@ Reading, with that caveat:
   give +0.05 to +0.08 on the two over-filling bases, in line with E8's small gain on gpt-6-luna.
 - Status gate with item scopes from one model call: +0.039 over the graph (0.551 to 0.590) at no loss in documented items.
 - Graph-guided direct and summary-then-fill did not beat direct (A2 -0.026, A3 -0.007), both within noise.
+
+# E10: full CRF benchmark and ablation on Qwen3.8-27B (vLLM on a Colab G4; dev 80 notes picks, English test 200 notes scored once)
+
+One open model for every arm, thinking off, greedy decoding, JSON schema enforced by the server. Scores are not comparable with the
+gpt-6-luna tables (direct 0.663 there). This is the third look at the English test split; all arms count as one look. The per-item
+reader was not run (26,800 test calls; it was the weaker method on gpt-6-luna). Test wall time 62 minutes for 200 notes at 64
+concurrent requests (about 1,000 generated tokens per second). Generated tokens per note count each arm's own calls plus the arms it
+is built from, except graph-guided direct (A2), whose graph evidence tokens (about 2,650) are not added to its 420.
+
+| English test, Qwen3.8-27B | Macro-F1 [95% CI] | vs direct [95% CI] | Values set where gold is unknown | Correct on documented items | Items set per note | Generated tokens per note |
+| --- | --- | --- | --- | --- | --- | --- |
+| agree(form-guided NER, direct), post hoc | **0.620** [0.588, 0.651] | +0.059 [0.036, 0.083] | 461 | 0.673 | 5.8 | 2,177 |
+| agree(graph-guided direct, direct), post hoc | 0.614 | +0.054 [0.031, 0.076] | 1,483 | 0.682 | 11.0 | 953 |
+| agree(direct, graph + audit), post hoc | 0.611 | +0.051 [0.030, 0.072] | 967 | 0.702 | 8.5 | 3,561 |
+| tie-break(direct, disagreements with graph + audit checked by NLI) | 0.606 | +0.045 [0.032, 0.059] | 1,272 | 0.745 | 10.3 | 3,561 |
+| **headline picked on dev:** tie-break(form-guided NER, disagreements with direct checked by GLiNER) | 0.590 | +0.029 [0.003, 0.056] | 618 | 0.696 | 6.7 | 2,177 |
+| direct (whole form, one call) | 0.561 [0.522, 0.600] | | 3,030 | 0.768 | 19.2 | 533 |
+| graph | 0.551 [0.515, 0.588] | -0.009 [-0.045, 0.026] | 430 | 0.421 | 4.6 | 2,653 |
+| graph + audit | 0.549 | -0.012 [-0.039, 0.016] | 2,031 | 0.743 | 14.2 | 3,028 |
+| graph + status gate by item scope | 0.547 | -0.014 [-0.052, 0.023] | 264 | 0.357 | 3.4 | 2,653 |
+| graph-guided direct (A2) | 0.580 | +0.019 [-0.009, 0.048] | 2,345 | 0.716 | 15.6 | 420 + graph |
+| form-blind summary, then fill (A3) | 0.528 | -0.032 [-0.065, 0.000] | 4,252 | 0.662 | 25.0 | 2,126 |
+| form-guided NER, then fill (A1) | 0.513 | -0.048 [-0.077, -0.017] | 1,468 | 0.760 | 11.4 | 1,644 |
+| graph with encoder membership | 0.362 | -0.199 [-0.233, -0.164] | 2,217 | 0.484 | 13.8 | 2,726 |
+
+Ablation of the graph (test, same model): model-decided membership over encoder membership +0.189; span verifier -0.008 and status
+record in the fill step +0.005 (both within noise); consistency audit -0.002 (it raises documented items 0.42 to 0.74 but adds 1,600
+wrong fills); status gate by item scope -0.005 (115 items current, 19 history).
+
+Reading:
+- Qwen over-fills badly when asked for the whole form: 19 values per note against about 5 in the gold. Everything that
+  removes unsupported values beats it. The two best families on test were agreement between two methods and checking only the
+  values where two methods disagree: +0.03 to +0.06 over direct, with every interval above 0.
+- The dev-picked headline kept its gain on test but shrunk: dev +0.059, test +0.029. The best test arms (plain agreement) were
+  not eligible for the dev pick by the rules fixed in advance, so their test ranking is a post-hoc observation to confirm.
+- Results from the 20-note E9 run that did not replicate on 280 notes: the status gate (+0.039 then, -0.005 now) and form-guided
+  NER on its own (equal to the graph then, below direct now). Small-sample smoke tests overstated both.
+- Same direction on both models: a second method that disagrees with the first is the strongest signal for what to check or hold
+  back (gpt-6-luna: graph-reader agreement +0.027; Qwen: +0.05 to +0.06).
