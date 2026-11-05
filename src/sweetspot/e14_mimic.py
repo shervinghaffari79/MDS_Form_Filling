@@ -238,6 +238,9 @@ def main():
         both = sum(len(set(g[a]) & set(g[b])) for g in base)
         either = sum(len(set(g[a]) | set(g[b])) for g in base)
         pair[f"{a}~{b}"] = {"jaccard": round(both / either, 3) if either else None, "both": both, "either": either}
+    OUT.write_text(json.dumps({"model": P.ext.model, "admissions": len(keys), "arms": summary, "pairwise_agreement": pair,
+                               "battery": "not finished", "wall_seconds": {"base_100": round(t_base)}}, indent=1))  # saved before the battery
+    (WORK / "e14_mimic_base.pkl").write_bytes(pickle.dumps({"keys": keys, "base": base}))
     # label-free battery
     rng = random.Random(31)
     sample = sorted(rng.sample(range(len(keys)), 12))

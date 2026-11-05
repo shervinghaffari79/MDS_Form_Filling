@@ -63,6 +63,8 @@ class LLM:
     def _call(self, name, system, prompt, schema):
         key = request_key(self.key_model, system, prompt, schema)
         if key in self.done:
+            if self.done[key].get("truncated"):
+                raise Truncated()
             return self.done[key]
         if BUDGET["spent"] >= BUDGET["limit"]:
             raise BudgetExceeded()
@@ -78,7 +80,13 @@ class LLM:
             model=self.model,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}],
             response_format={"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}}, **extra)
-        if reply.choices[0].finish_reason == "length":
+        if reply.choices[0].finish_reason == "length":  # recorded once, so a rerun does not regenerate the same cut-off reply
+            row = {"key": key, "truncated": True, "input_tokens": reply.usage.prompt_tokens, "output_tokens": reply.usage.completion_tokens,
+                   "seconds": round(time.time() - start, 3)}
+            with self.lock:
+                self.done[key] = row
+                with self.path.open("a") as handle:
+                    handle.write(json.dumps(row) + "\n")
             raise Truncated()
         row = {"key": key, "parsed": json.loads(reply.choices[0].message.content),
                "input_tokens": reply.usage.prompt_tokens, "output_tokens": reply.usage.completion_tokens,

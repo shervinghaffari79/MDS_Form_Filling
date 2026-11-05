@@ -390,6 +390,7 @@ def run_split(part):
     out = {"part": part, "notes": len(docs), "model": LLM("x").model, "wall_seconds_main": round(time.time() - t0), "graph_info": ginfo,
            "scopes": {s: sum(1 for v in scopes.values() if v == s) for s in ("current", "history", "any")}, "arms": tab,
            "per_note": {a: [round(x, 4) for x in v] for a, v in per.items()}}
+    (PARTS / f"{part}.json").write_text(json.dumps(out, indent=1))  # main results saved before the battery
     if part == "dev":
         t1 = time.time()
         out["battery"] = battery(docs, opts, chk, scopes, encoder, arms)
