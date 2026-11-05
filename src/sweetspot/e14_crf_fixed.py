@@ -310,7 +310,7 @@ def table(docs, arms, spend):
     per = {a: E.official_score(docs, p) for a, p in arms.items()}
     out = {}
     for a, p in arms.items():
-        rows = spend.get(a, [])
+        rows = [r for r in spend.get(a, []) if r]  # failed calls (None) cost nothing and have no counts
         fp = sum(1 for d in docs for i, g in d["gold"].items() if g == E.UNK and p[d["id"]].get(i, E.UNK) != E.UNK)
         out[a] = {"macro_f1": round(float(np.mean(per[a])), 4), "ci": E.ci(per[a]), "false_positives": fp,
                   "accuracy_on_documented_items": round(E.known_accuracy(docs, p), 4),
