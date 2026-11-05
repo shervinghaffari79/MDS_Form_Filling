@@ -130,6 +130,17 @@
    "tn": 0,
    "precision": 0.278,
    "recall": 1.0
+  },
+  "variant: every yes checked blind": {
+   "settled": {
+    "tp": 79,
+    "fp": 25,
+    "fn": 2,
+    "tn": 59,
+    "precision": 0.76,
+    "recall": 0.975
+   },
+   "escalated": 255
   }
  },
  "by_item": {
@@ -256,19 +267,19 @@
   "member": 87,
   "frame": 15,
   "scope": 1,
-  "blind": 168,
+  "blind": 402,
   "shown": 168
  },
- "api_spent_usd_this_run": 0.0,
+ "api_spent_usd_this_run": 0.0458,
  "cost_all_cached_rows": {
-  "calls": 439,
-  "input_tokens": 262393,
-  "output_tokens": 314048,
-  "usd": 0.1387,
-  "median_call_seconds": 3.124,
-  "p95_call_seconds": 14.828
+  "calls": 673,
+  "input_tokens": 376129,
+  "output_tokens": 414298,
+  "usd": 0.1845,
+  "median_call_seconds": 3.194,
+  "p95_call_seconds": 13.045
  },
- "wall_seconds": 469,
+ "wall_seconds": 538,
  "failures": {
   "member": {},
   "frame": {},
