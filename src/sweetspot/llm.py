@@ -211,7 +211,7 @@ class HFBackend:
     def __init__(self, name):
         import torch
         from transformers import pipeline
-        self.pipe = pipeline("image-text-to-text", model=name, torch_dtype=torch.bfloat16, device_map="auto")
+        self.pipe = pipeline("image-text-to-text", model=name, dtype=torch.bfloat16, device_map="auto")
         self.processor = self.pipe.processor
         self.processor.tokenizer.padding_side = "left"
         self.model = self.pipe.model
