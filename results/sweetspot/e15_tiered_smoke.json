@@ -66,6 +66,190 @@
    "recall": 0.65
   }
  },
+ "diagnosis": {
+  "tier-1 yes from note": {
+   "tp": 25,
+   "fp": 42,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.373,
+   "recall": 1.0
+  },
+  "tier-1 yes from record": {
+   "tp": 32,
+   "fp": 56,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.364,
+   "recall": 1.0
+  },
+  "tier-1 yes from note and record": {
+   "tp": 33,
+   "fp": 46,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.418,
+   "recall": 1.0
+  },
+  "tier-1 yes, record only, with diagnosis code": {
+   "tp": 8,
+   "fp": 5,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.615,
+   "recall": 1.0
+  },
+  "tier-1 yes, record only, with eMAR administration": {
+   "tp": 14,
+   "fp": 8,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.636,
+   "recall": 1.0
+  },
+  "tier-1 yes, record only, with procedure code": {
+   "tp": 6,
+   "fp": 29,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.171,
+   "recall": 1.0
+  },
+  "tier-1 yes, record only, with ICU input event": {
+   "tp": 4,
+   "fp": 11,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.267,
+   "recall": 1.0
+  },
+  "tier-1 yes, record only, with ICU procedure event": {
+   "tp": 5,
+   "fp": 13,
+   "fn": 0,
+   "tn": 0,
+   "precision": 0.278,
+   "recall": 1.0
+  }
+ },
+ "by_item": {
+  "I_heart_failure": {
+   "draft_yes": 13,
+   "proxy_yes": 5
+  },
+  "I_diabetes": {
+   "draft_yes": 10,
+   "proxy_yes": 3
+  },
+  "I_ckd": {
+   "draft_yes": 9,
+   "proxy_yes": 3
+  },
+  "I_copd": {
+   "draft_yes": 10,
+   "proxy_yes": 3
+  },
+  "I_dementia": {
+   "draft_yes": 8,
+   "proxy_yes": 3
+  },
+  "I_depression": {
+   "draft_yes": 7,
+   "proxy_yes": 0
+  },
+  "I_pneumonia": {
+   "draft_yes": 10,
+   "proxy_yes": 1
+  },
+  "I_uti": {
+   "draft_yes": 12,
+   "proxy_yes": 3
+  },
+  "I_stroke": {
+   "draft_yes": 6,
+   "proxy_yes": 1
+  },
+  "I_afib": {
+   "draft_yes": 10,
+   "proxy_yes": 3
+  },
+  "N_antipsychotic": {
+   "draft_yes": 10,
+   "proxy_yes": 5
+  },
+  "N_antianxiety": {
+   "draft_yes": 10,
+   "proxy_yes": 7
+  },
+  "N_antidepressant": {
+   "draft_yes": 9,
+   "proxy_yes": 4
+  },
+  "N_hypnotic": {
+   "draft_yes": 10,
+   "proxy_yes": 3
+  },
+  "N_anticoagulant": {
+   "draft_yes": 10,
+   "proxy_yes": 13
+  },
+  "N_antibiotic": {
+   "draft_yes": 13,
+   "proxy_yes": 11
+  },
+  "N_diuretic": {
+   "draft_yes": 11,
+   "proxy_yes": 7
+  },
+  "N_opioid": {
+   "draft_yes": 7,
+   "proxy_yes": 11
+  },
+  "N_antiplatelet": {
+   "draft_yes": 9,
+   "proxy_yes": 8
+  },
+  "N_hypoglycemic": {
+   "draft_yes": 7,
+   "proxy_yes": 6
+  },
+  "N_anticonvulsant": {
+   "draft_yes": 9,
+   "proxy_yes": 5
+  },
+  "O_chemotherapy": {
+   "draft_yes": 3,
+   "proxy_yes": 0
+  },
+  "O_oxygen": {
+   "draft_yes": 12,
+   "proxy_yes": 0
+  },
+  "O_tracheostomy": {
+   "draft_yes": 7,
+   "proxy_yes": 0
+  },
+  "O_invasive_vent": {
+   "draft_yes": 5,
+   "proxy_yes": 3
+  },
+  "O_noninvasive_vent": {
+   "draft_yes": 4,
+   "proxy_yes": 0
+  },
+  "O_iv_medication": {
+   "draft_yes": 13,
+   "proxy_yes": 0
+  },
+  "O_transfusion": {
+   "draft_yes": 8,
+   "proxy_yes": 1
+  },
+  "O_dialysis": {
+   "draft_yes": 9,
+   "proxy_yes": 1
+  }
+ },
  "mentions_per_admission": 409.2,
  "distinct_concepts": 3472,
  "llm_calls": {
@@ -75,7 +259,7 @@
   "blind": 168,
   "shown": 168
  },
- "api_spent_usd_this_run": 0.1387,
+ "api_spent_usd_this_run": 0.0,
  "cost_all_cached_rows": {
   "calls": 439,
   "input_tokens": 262393,
@@ -84,7 +268,7 @@
   "median_call_seconds": 3.124,
   "p95_call_seconds": 14.828
  },
- "wall_seconds": 746,
+ "wall_seconds": 469,
  "failures": {
   "member": {},
   "frame": {},
