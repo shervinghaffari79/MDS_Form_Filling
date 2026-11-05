@@ -102,3 +102,45 @@ Each method is perturbed on its own cited evidence; share of cases where the exp
   not use the records.
 - Open: neither method's accuracy is known without signed MDS forms; the look-back windows are counted from hospital discharge,
   not from a nursing-home assessment date.
+
+# Labelled form-filling benchmark: CL4Health 2026 CRF (E4 to E7)
+
+134-item dyspnoea CRF on emergency-department notes; official per-note macro-F1 (our transcription matches the official scorer on
+dev). Development picks; each test split is scored a fixed number of times (English test: 2 looks, E4 and E5; Italian: 1).
+Leaderboard placements compare different models on the same test set and metric, so they are indicative only.
+
+| English test (200 notes) | Macro-F1 [95% CI] | Correct on documented items | USD per note | Median s per note |
+| --- | --- | --- | --- | --- |
+| Direct whole-form prompt | **0.663** [0.631, 0.693] | 0.741 | **0.0005** | **4.9** |
+| Graph + audit, kept where the reader agrees (E5, picked on dev) | 0.635 [0.601, 0.664] | 0.731 | 0.0100 | about 35 |
+| Graph + consistency audit (E4 headline, picked on dev) | 0.607 [0.574, 0.637] | 0.758 | 0.0030 | 35 |
+| Graph + path verifier | 0.587 [0.554, 0.618] | 0.649 | 0.0026 | |
+| Graph | 0.578 [0.544, 0.609] | 0.658 | 0.0024 | 28 |
+| Graph without verifier | 0.571 | 0.659 | 0.0019 | 22 |
+| Graph without status record in the fill step | 0.572 | 0.657 | 0.0023 | 28 |
+| Graph with encoder membership | 0.522 | 0.534 | 0.0021 | 31 |
+| Per-item reader (134 calls per note) | 0.521 | **0.818** | 0.0070 | 4.4 |
+| All unknown | 0.407 | 0 | 0 | 0 |
+
+Published English leaderboard: Aurum 0.683, DocUA 0.628, Gladiators 0.597, MdL 0.571 (best local model), organisers' baseline
+0.470. Direct would place 2nd and graph + audit 3rd.
+
+Ablation (English test, paired 95% CI): model membership vs encoder +0.055 [0.028, 0.082]; consistency audit +0.030 [0.011, 0.048];
+span verifier +0.007 [-0.001, 0.016]; status record in the fill step +0.005 [-0.003, 0.015]; path verifier -0.020 [-0.038, -0.003];
+graph-reader agreement +0.027 [0.016, 0.038]; direct minus best graph +0.056 [0.037, 0.075].
+
+Why the graph loses here: notes are short single documents with no records, so its strengths (records, long notes, look-back
+windows) do not apply, while extraction and membership can drop information before the form is filled. The reader is the most
+accurate on documented items but fills too many items that should stay unknown, which macro-F1 penalises.
+
+Selective prediction (E5): values all three methods agree on are 82% of fills at precision 0.63; values only two agree on are 18% at
+precision 0.17. Agreement is a strong routing signal for reviewer triage.
+
+Label-free battery on a form task (E6, 50 test notes, six arms): stability ranks the arms like labelled macro-F1 with Kendall tau
+0.73 pooled (paraphrase 0.73, family-history distractor 0.60, line reordering 0.47). Weaker than on NegEx (1.0); reordering is the
+least trustworthy test.
+
+Generalisation with unchanged code (E7): Italian test, direct 0.669 [0.637, 0.700] and graph + audit 0.622 [0.592, 0.652] (Italian
+leaderboard: Aurum 0.672, Polimi 0.635, DocUA 0.570). MDS 3.0 item set on the same 100 MIMIC admissions: 9.9 items per admission;
+the same clinical answer as MDS 2.0 on 23 mapped items with mean agreement 0.974 (minimum 0.86, where the two forms define the
+items differently: non-invasive ventilation, Alzheimer's versus other dementia).
