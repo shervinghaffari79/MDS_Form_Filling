@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 # USD per million tokens, standard tier, as listed on developers.openai.com/api/docs/pricing (checked 2026-11-04).
-PRICES = {"gpt-6-luna": (0.10, 0.50)}
+PRICES = {"gpt-6-luna": (0.10, 0.50), "gpt-5-nano": (0.05, 0.40)}  # USD per million input / output tokens
 CACHE_DIR = Path(os.environ.get("SWEETSPOT_CACHE", "/home/user/cache"))
 DEFAULT_MODEL = os.environ.get("MDS_LLM_MODEL", "gpt-6-luna")
 # Hard cap on new spending in this process (USD), from SWEETSPOT_MAX_USD; cached replies are free and never count.
@@ -35,6 +35,9 @@ def request_key(model, system, prompt, schema):
 class LLM:
     def __init__(self, cache_name, model=DEFAULT_MODEL, workers=16, cache_dir=None):
         self.model, self.workers = model, int(os.environ.get("SWEETSPOT_WORKERS", workers))
+        # gpt-5 models reason before answering; the effort level changes replies, so it is part of the cache key
+        self.effort = os.environ.get("SWEETSPOT_REASONING", "low") if model.startswith("gpt-5") else None
+        self.key_model = f"{model}@{self.effort}" if self.effort else model
         folder = Path(cache_dir) if cache_dir else CACHE_DIR  # MIMIC-derived replies are kept under /home/user/mimic
         folder.mkdir(parents=True, exist_ok=True)
         self.path = folder / f"{cache_name}.jsonl"
@@ -54,7 +57,7 @@ class LLM:
         return self._client
 
     def _call(self, name, system, prompt, schema):
-        key = request_key(self.model, system, prompt, schema)
+        key = request_key(self.key_model, system, prompt, schema)
         if key in self.done:
             return self.done[key]
         if BUDGET["spent"] >= BUDGET["limit"]:
@@ -65,6 +68,8 @@ class LLM:
             extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": 4096}
         else:
             extra = {"store": False}
+            if self.effort:
+                extra["reasoning_effort"] = self.effort
         reply = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}],
