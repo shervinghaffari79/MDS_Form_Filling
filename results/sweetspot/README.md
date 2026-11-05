@@ -144,3 +144,32 @@ Generalisation with unchanged code (E7): Italian test, direct 0.669 [0.637, 0.70
 leaderboard: Aurum 0.672, Polimi 0.635, DocUA 0.570). MDS 3.0 item set on the same 100 MIMIC admissions: 9.9 items per admission;
 the same clinical answer as MDS 2.0 on 23 mapped items with mean agreement 0.974 (minimum 0.86, where the two forms define the
 items differently: non-invasive ventilation, Alzheimer's versus other dementia).
+
+# E8 smoke tests (CRF dev split only; no test look)
+
+The OpenAI credits ran out at the start of E8: every new call returned 429 "no credits remaining", so the paid ideas (form-guided
+NER, graph-guided direct, form-blind summary then fill) were **not run** and their rows in `e8_smoke.json` are flagged `not_run`.
+The item-scope call also failed, so the status gate (Z3) ran with scope "any" for every item. Everything below used cached
+outputs and local models only (BGE-small encoder, DeBERTa NLI, GLiNER-BioMed).
+
+Hard gates on every filled value (`e8_smoke.json`, 80 notes) cut false positives but remove far more correct values, and all lose:
+| Gate on direct (dev macro-F1 0.712) | Macro-F1 | Values set where gold is unknown | Correct on documented items |
+| --- | --- | --- | --- |
+| none | 0.712 | 164 | 0.759 |
+| Z1 encoder relevance, top 20 items | 0.604 | 83 | 0.446 |
+| Z2 NLI abstention verifier | 0.615 | 95 | 0.449 |
+| Z4 GLiNER consistency | 0.596 | 66 | 0.351 |
+The same pattern holds for graph and graph + audit (losses of 0.08 to 0.16).
+
+Checks applied only where two methods disagree (`e8b_disagreement_gate.py`, 80 notes, no API):
+| Arm | Macro-F1 | Minus direct [95% CI] |
+| --- | --- | --- |
+| direct | 0.712 | |
+| agree(direct, graph + audit) | 0.713 | +0.001 [-0.008, 0.010] |
+| direct, disagreements with graph + audit checked by NLI | 0.715 | +0.004 [0.001, 0.007] |
+| direct, disagreements with the reader checked by NLI | 0.716 | +0.004 [0.001, 0.009] |
+| direct, disagreements with the reader checked by GLiNER | 0.719 | +0.007 [-0.002, 0.017] |
+| graph + audit, disagreements with direct checked by GLiNER | 0.704 | -0.008 [-0.027, 0.007] (from -0.023) |
+
+Reading: encoder-only checks are useful as tie-breakers where methods disagree, not as gates. Gains on top of direct are small
+(+0.004 to +0.007); a GLiNER tie-break closes about two thirds of graph + audit's gap to direct. These are dev-split smoke results.

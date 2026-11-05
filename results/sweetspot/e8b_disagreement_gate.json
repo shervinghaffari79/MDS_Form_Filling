@@ -1,0 +1,244 @@
+{
+ "split": "development",
+ "notes": 80,
+ "api_calls": 0,
+ "arms": {
+  "direct": {
+   "macro_f1": 0.7118,
+   "false_positives": 164,
+   "accuracy_on_documented_items": 0.7594,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "graph+audit": {
+   "macro_f1": 0.6887,
+   "false_positives": 226,
+   "accuracy_on_documented_items": 0.8045,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0231,
+    "ci": [
+     -0.0496,
+     0.0017
+    ]
+   }
+  },
+  "reader": {
+   "macro_f1": 0.5421,
+   "false_positives": 607,
+   "accuracy_on_documented_items": 0.8697,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.1698,
+    "ci": [
+     -0.2151,
+     -0.1272
+    ]
+   }
+  },
+  "agree(graph+audit,direct)": {
+   "macro_f1": 0.7126,
+   "false_positives": 145,
+   "accuracy_on_documented_items": 0.7368,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0008,
+    "ci": [
+     -0.0083,
+     0.0098
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0239,
+    "ci": [
+     0.001,
+     0.0493
+    ]
+   }
+  },
+  "graph+audit, disagreements checked by Z2 vs direct": {
+   "macro_f1": 0.6933,
+   "false_positives": 184,
+   "accuracy_on_documented_items": 0.7669,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0185,
+    "ci": [
+     -0.0353,
+     -0.0029
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0046,
+    "ci": [
+     -0.0132,
+     0.0248
+    ]
+   }
+  },
+  "graph+audit, disagreements checked by Z4 vs direct": {
+   "macro_f1": 0.7041,
+   "false_positives": 168,
+   "accuracy_on_documented_items": 0.7544,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0077,
+    "ci": [
+     -0.0267,
+     0.0074
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0154,
+    "ci": [
+     -0.0026,
+     0.0333
+    ]
+   }
+  },
+  "agree(direct,graph+audit)": {
+   "macro_f1": 0.7126,
+   "false_positives": 145,
+   "accuracy_on_documented_items": 0.7368,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0008,
+    "ci": [
+     -0.0083,
+     0.0098
+    ]
+   }
+  },
+  "direct, disagreements checked by Z2 vs graph+audit": {
+   "macro_f1": 0.7154,
+   "false_positives": 154,
+   "accuracy_on_documented_items": 0.7594,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0036,
+    "ci": [
+     0.0009,
+     0.0074
+    ]
+   }
+  },
+  "direct, disagreements checked by Z4 vs graph+audit": {
+   "macro_f1": 0.7121,
+   "false_positives": 148,
+   "accuracy_on_documented_items": 0.7368,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0003,
+    "ci": [
+     -0.0087,
+     0.009
+    ]
+   }
+  },
+  "agree(direct,reader)": {
+   "macro_f1": 0.7143,
+   "false_positives": 149,
+   "accuracy_on_documented_items": 0.7469,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0025,
+    "ci": [
+     -0.0107,
+     0.0146
+    ]
+   }
+  },
+  "direct, disagreements checked by Z2 vs reader": {
+   "macro_f1": 0.7158,
+   "false_positives": 156,
+   "accuracy_on_documented_items": 0.7544,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.004,
+    "ci": [
+     0.0007,
+     0.0086
+    ]
+   }
+  },
+  "direct, disagreements checked by Z4 vs reader": {
+   "macro_f1": 0.7187,
+   "false_positives": 150,
+   "accuracy_on_documented_items": 0.7519,
+   "notes": 80,
+   "minus_direct": {
+    "difference": 0.0069,
+    "ci": [
+     -0.0022,
+     0.017
+    ]
+   }
+  },
+  "agree(graph+audit,reader)": {
+   "macro_f1": 0.7084,
+   "false_positives": 198,
+   "accuracy_on_documented_items": 0.787,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0034,
+    "ci": [
+     -0.029,
+     0.0201
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0197,
+    "ci": [
+     0.0056,
+     0.0354
+    ]
+   }
+  },
+  "graph+audit, disagreements checked by Z2 vs reader": {
+   "macro_f1": 0.6982,
+   "false_positives": 210,
+   "accuracy_on_documented_items": 0.797,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0136,
+    "ci": [
+     -0.0371,
+     0.009
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0095,
+    "ci": [
+     0.0024,
+     0.019
+    ]
+   }
+  },
+  "graph+audit, disagreements checked by Z4 vs reader": {
+   "macro_f1": 0.7054,
+   "false_positives": 202,
+   "accuracy_on_documented_items": 0.792,
+   "notes": 80,
+   "minus_direct": {
+    "difference": -0.0064,
+    "ci": [
+     -0.0323,
+     0.018
+    ]
+   },
+   "minus_graph+audit": {
+    "difference": 0.0167,
+    "ci": [
+     0.0063,
+     0.0279
+    ]
+   }
+  }
+ }
+}
