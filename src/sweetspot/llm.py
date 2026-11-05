@@ -34,7 +34,7 @@ def request_key(model, system, prompt, schema):
 
 class LLM:
     def __init__(self, cache_name, model=DEFAULT_MODEL, workers=16, cache_dir=None):
-        self.model, self.workers = model, workers
+        self.model, self.workers = model, int(os.environ.get("SWEETSPOT_WORKERS", workers))
         folder = Path(cache_dir) if cache_dir else CACHE_DIR  # MIMIC-derived replies are kept under /home/user/mimic
         folder.mkdir(parents=True, exist_ok=True)
         self.path = folder / f"{cache_name}.jsonl"
@@ -60,10 +60,15 @@ class LLM:
         if BUDGET["spent"] >= BUDGET["limit"]:
             raise BudgetExceeded()
         start = time.time()
+        extra = {}
+        if "/" in self.model:  # an open model behind a vLLM server (OPENAI_BASE_URL): thinking off, greedy decoding
+            extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": 4096}
+        else:
+            extra = {"store": False}
         reply = self.client.chat.completions.create(
-            model=self.model, store=False,
+            model=self.model,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}],
-            response_format={"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}})
+            response_format={"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}}, **extra)
         row = {"key": key, "parsed": json.loads(reply.choices[0].message.content),
                "input_tokens": reply.usage.prompt_tokens, "output_tokens": reply.usage.completion_tokens,
                "seconds": round(time.time() - start, 3)}
@@ -78,7 +83,7 @@ class LLM:
 
     def run(self, requests):
         """requests: list of dicts with name, system, prompt, schema. Returns rows in the same order (None on failure)."""
-        if "/" in self.model:  # a Hugging Face repo id: run locally with transformers (see HFBackend)
+        if "/" in self.model and os.environ.get("SWEETSPOT_BACKEND") == "hf":  # in-process transformers (see HFBackend)
             return self._run_hf(requests)
         failures = {}
 
