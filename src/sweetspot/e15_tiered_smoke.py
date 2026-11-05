@@ -27,9 +27,12 @@ Tier 2 (blind LLM): the item definition and the evidence pack (narrow and wide m
 Anchoring test: the same packs are also shown with the draft ("A first pass answered: ..."); agreement with the draft is compared.
 Reference: the table proxy labels (diagnosis codes and drug-name lists over the stay). They share sources with the record edges, so
   they are reported for the note-only draft as well; they are a weak, noisy reference, not accuracy.
+Variant added after the first run (E15_BLIND_ALL=1): tier 1 settles only no answers; every yes draft also goes to the blind LLM and
+  is accepted only if it answers yes, otherwise escalated. The first run showed tier-1 yes precision about 0.42 against the proxies.
 Output: results/sweetspot/e15_tiered_smoke.json (counts only); spending is capped by SWEETSPOT_MAX_USD.
 """
 import json
+import os
 import pickle
 import random
 import re
@@ -51,6 +54,7 @@ from sweetspot.llm import LLM, cost, spent_usd  # noqa: E402
 PRIVATE, WORK, CACHE = Path("/home/user/mimic/pilot_private"), Path("/home/user/mimic/sweetspot"), "/home/user/mimic/cache"
 OUT = ROOT / "results/sweetspot/e15_tiered_smoke.json"
 MODEL = "gpt-5-nano"
+BLIND_ALL = os.environ.get("E15_BLIND_ALL") == "1"  # variant added after the first run: every yes draft also goes to the blind LLM
 DEF = {i.id: i.definition for i in PILOT}
 ITEMS = [{"id": k, "label": f.label, "section": k[0], "definition": DEF.get(k, f.label),
           "window": 7 if k.startswith("N") else 14 if k.startswith("O") else None} for k, f in MDS_FIELDS.items()]
@@ -186,14 +190,19 @@ def main():
                     ok_note = any(int(l) == ent and m["confidence"] >= 0.9 for l, m in zip(lab, good))
                 if ok_note or ok_rec:
                     tier, final = 1, "yes"
+                src = "note and record" if ok_note and ok_rec else "note" if ok_note else "record" if ok_rec else None
+                rec_src = sorted({r["source"] for r in rec_yes})
             else:
                 near = [m for m, s in zip(v["mentions"], vec @ item_vec[IDS.index(c)]) if s >= 0.6] if len(vec) else []
                 if not linked and not recs and not near:
                     tier, final = (1, "no") if covered else (3, "unknown")
             pack = [m for m in linked] + ([m for m in near if m not in linked] if draft == "no" else [])
+            if draft != "yes":
+                src, rec_src = None, []
             decisions[(k, c)] = {"draft": draft, "note_draft": note_draft, "tier": tier, "final": final, "covered": covered,
+                                 "t1_yes_source": src if tier == 1 and final == "yes" else None, "record_sources": rec_src,
                                  "pack_mentions": len(pack), "pack_records": len(recs)}
-            if tier is None:
+            if tier is None or (BLIND_ALL and draft == "yes"):
                 sids = sorted({m["sentence"] for m in pack})[:25]
                 lines = [f"[{s}] ({v['sec'][s]}) {v['text'][s]}" for s in sids]
                 rl = [f"- {r['source']}: {r['text']}" + (f", {r['days_before_ard']} days before the ARD" if r["days_before_ard"] is not None else ", date not recorded")
@@ -206,10 +215,15 @@ def main():
                 blind_q.append({"name": "answer", "system": SYSTEM, "schema": ANSWER, "prompt": base})
                 blind_meta.append(((k, c), base))
     blind = llm["blind"].run(blind_q)
-    shown = llm["shown"].run([{"name": "answer", "system": SYSTEM, "schema": ANSWER,
-                                "prompt": f"A first pass answered: {decisions[kc]['draft']}.\n\n" + b} for kc, b in blind_meta])
-    anchor = {"items": len(blind_meta), "blind_agrees_with_draft": 0, "shown_agrees_with_draft": 0}
-    for (kc, _), rb, rs in zip(blind_meta, blind, shown):
+    t2 = [n for n, (kc, _) in enumerate(blind_meta) if decisions[kc]["tier"] is None]
+    shown = dict(zip(t2, llm["shown"].run([{"name": "answer", "system": SYSTEM, "schema": ANSWER,
+                                             "prompt": f"A first pass answered: {decisions[blind_meta[n][0]]['draft']}.\n\n" + blind_meta[n][1]} for n in t2])))
+    for (kc, _), rb in zip(blind_meta, blind):
+        if decisions[kc]["tier"] is not None:  # a tier-1 yes also checked blind (variant: every yes draft goes to the blind LLM)
+            decisions[kc]["blind_all"] = rb["parsed"]["answer"] if rb else None
+    anchor = {"items": len(t2), "blind_agrees_with_draft": 0, "shown_agrees_with_draft": 0}
+    for n in t2:
+        (kc, _), rb, rs = blind_meta[n], blind[n], shown[n]
         d = decisions[kc]
         d["blind"] = rb["parsed"]["answer"] if rb else None
         d["shown"] = rs["parsed"]["answer"] if rs else None
@@ -235,6 +249,21 @@ def main():
         prec = tp / (tp + fp) if tp + fp else None
         rec = tp / (tp + fn) if tp + fn else None
         return {"tp": tp, "fp": fp, "fn": fn, "tn": tn, "precision": round(prec, 3) if prec is not None else None, "recall": round(rec, 3) if rec is not None else None}
+    diag = {f"tier-1 yes from {s_}": vs_proxy("final", lambda d, s_=s_: d["t1_yes_source"] == s_) for s_ in ("note", "record", "note and record")}
+    for rs in ("diagnosis code", "eMAR administration", "procedure code", "ICU input event", "ICU procedure event"):
+        diag[f"tier-1 yes, record only, with {rs}"] = vs_proxy("final", lambda d, rs=rs: d["t1_yes_source"] == "record" and rs in d["record_sources"])
+    by_item = {c: {"draft_yes": sum(decisions[(k, c)]["draft"] == "yes" for k in keys),
+                   "proxy_yes": int(sum(int(proxy.loc[k, c]) == 1 for k in keys if k in proxy.index)) if c in proxy.columns else None} for c in IDS}
+    if BLIND_ALL:
+        def variant(d):  # tier 1 settles only no; every yes needs the blind LLM to agree
+            if d["tier"] == 1 and d["final"] == "yes":
+                return "yes" if d.get("blind_all") == "yes" else "escalated"
+            return d["final"]
+        for d in decisions.values():
+            d["variant"] = variant(d)
+        diag["variant: every yes checked blind"] = {"settled": vs_proxy("variant", lambda d: d["variant"] in ("yes", "no")),
+                                                   "escalated": sum(d["variant"] == "escalated" for d in decisions.values())}
+    pickle.dump(decisions, open(WORK / "e15_decisions.pkl", "wb"))
     rows = [r for x in llm.values() for r in x.done.values()]
     out = {"model": MODEL, "admissions": len(keys), "items": len(ITEMS), "decisions": len(decisions), "tiers": tiers, "final_answers": finals,
            "drafts": {"yes": sum(d["draft"] == "yes" for d in decisions.values()), "no": sum(d["draft"] == "no" for d in decisions.values())},
@@ -244,6 +273,7 @@ def main():
                                "final, settled items only": vs_proxy("final", lambda d: d["final"] in ("yes", "no")),
                                "blind answer, items sent to tier 2": vs_proxy("blind", lambda d: d.get("blind") is not None),
                                "shown-draft answer, same items": vs_proxy("shown", lambda d: d.get("shown") is not None)},
+           "diagnosis": diag, "by_item": by_item,
            "mentions_per_admission": round(float(np.mean([len(v["mentions"]) for v in adms.values()])), 1),
            "distinct_concepts": len(concepts), "llm_calls": {n: len(x.done) for n, x in llm.items()},
            "api_spent_usd_this_run": round(spent_usd(), 4), "cost_all_cached_rows": cost(rows, MODEL), "wall_seconds": round(time.time() - t0),

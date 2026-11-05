@@ -32,6 +32,10 @@ def request_key(model, system, prompt, schema):
     return hashlib.sha256(blob.encode()).hexdigest()[:32]
 
 
+class Truncated(Exception):
+    """The reply hit the output-token cap; with greedy decoding a retry would be cut off the same way, so it is not retried."""
+
+
 class LLM:
     def __init__(self, cache_name, model=DEFAULT_MODEL, workers=16, cache_dir=None):
         self.model, self.workers = model, int(os.environ.get("SWEETSPOT_WORKERS", workers))
@@ -65,7 +69,7 @@ class LLM:
         start = time.time()
         extra = {}
         if "/" in self.model:  # an open model behind a vLLM server (OPENAI_BASE_URL): thinking off, greedy decoding
-            extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": 4096}
+            extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": int(os.environ.get("SWEETSPOT_MAX_TOKENS", 4096))}
         else:
             extra = {"store": False}
             if self.effort:
@@ -74,6 +78,8 @@ class LLM:
             model=self.model,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": prompt}],
             response_format={"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}}, **extra)
+        if reply.choices[0].finish_reason == "length":
+            raise Truncated()
         row = {"key": key, "parsed": json.loads(reply.choices[0].message.content),
                "input_tokens": reply.usage.prompt_tokens, "output_tokens": reply.usage.completion_tokens,
                "seconds": round(time.time() - start, 3)}
@@ -98,6 +104,10 @@ class LLM:
                     return self._call(r["name"], r["system"], r["prompt"], r["schema"])
                 except BudgetExceeded:
                     failures["budget"] = failures.get("budget", 0) + 1
+                    return None
+                except Truncated:
+                    with self.lock:
+                        failures["truncated"] = failures.get("truncated", 0) + 1
                     return None
                 except Exception as error:  # noqa: BLE001 - counted and reported
                     last = type(error).__name__
