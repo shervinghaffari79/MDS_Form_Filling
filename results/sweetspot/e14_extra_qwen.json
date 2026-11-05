@@ -1,0 +1,320 @@
+{
+ "model": "Qwen/Qwen3.8-27B",
+ "mimic_reader": {
+  "admissions": 20,
+  "calls": 1560,
+  "yes_per_admission": 12.4,
+  "generated_tokens": 31067,
+  "prompt_tokens": 1191997,
+  "failures": {}
+ },
+ "crf": {
+  "development": {
+   "notes": 80,
+   "arms": {
+    "direct": {
+     "macro_f1": 0.598,
+     "ci": [
+      0.5309,
+      0.6608
+     ],
+     "false_positives": 1757,
+     "accuracy_on_documented_items": 0.817,
+     "items_set_per_note": 26.39,
+     "generated_tokens_per_note": 729.7,
+     "prompt_tokens_per_note": 1961.7
+    },
+    "graph": {
+     "macro_f1": 0.5696,
+     "ci": [
+      0.5068,
+      0.6314
+     ],
+     "false_positives": 120,
+     "accuracy_on_documented_items": 0.386,
+     "items_set_per_note": 3.65,
+     "generated_tokens_per_note": 2158.9,
+     "prompt_tokens_per_note": 2151.8,
+     "minus_direct": {
+      "difference": -0.0284,
+      "ci": [
+       -0.0716,
+       0.0163
+      ]
+     }
+    },
+    "graph+path": {
+     "macro_f1": 0.5793,
+     "ci": [
+      0.5169,
+      0.6413
+     ],
+     "false_positives": 94,
+     "accuracy_on_documented_items": 0.386,
+     "items_set_per_note": 3.33,
+     "generated_tokens_per_note": 2263.4,
+     "prompt_tokens_per_note": 2537.8,
+     "minus_direct": {
+      "difference": -0.0187,
+      "ci": [
+       -0.0616,
+       0.0267
+      ]
+     }
+    },
+    "graph-verify+path": {
+     "macro_f1": 0.5872,
+     "ci": [
+      0.5245,
+      0.648
+     ],
+     "false_positives": 105,
+     "accuracy_on_documented_items": 0.396,
+     "items_set_per_note": 3.51,
+     "generated_tokens_per_note": 1706.5,
+     "prompt_tokens_per_note": 1888.0,
+     "minus_direct": {
+      "difference": -0.0108,
+      "ci": [
+       -0.0559,
+       0.037
+      ]
+     }
+    },
+    "reader": {
+     "macro_f1": 0.3414,
+     "ci": [
+      0.3061,
+      0.3776
+     ],
+     "false_positives": 4046,
+     "accuracy_on_documented_items": 0.8947,
+     "items_set_per_note": 55.42,
+     "generated_tokens_per_note": 1583.8,
+     "prompt_tokens_per_note": 44546.8,
+     "minus_direct": {
+      "difference": -0.2566,
+      "ci": [
+       -0.3161,
+       -0.1988
+      ]
+     }
+    },
+    "agree(graph,reader)": {
+     "macro_f1": 0.5868,
+     "ci": [
+      0.5218,
+      0.6496
+     ],
+     "false_positives": 91,
+     "accuracy_on_documented_items": 0.3709,
+     "items_set_per_note": 3.11,
+     "generated_tokens_per_note": 3742.6,
+     "prompt_tokens_per_note": 46698.7,
+     "minus_direct": {
+      "difference": -0.0112,
+      "ci": [
+       -0.0562,
+       0.0362
+      ]
+     }
+    },
+    "graph_first": {
+     "macro_f1": 0.3329,
+     "ci": [
+      0.2985,
+      0.3671
+     ],
+     "false_positives": 4070,
+     "accuracy_on_documented_items": 0.8947,
+     "items_set_per_note": 55.77,
+     "generated_tokens_per_note": 3742.6,
+     "prompt_tokens_per_note": 46698.7,
+     "minus_direct": {
+      "difference": -0.265,
+      "ci": [
+       -0.326,
+       -0.2084
+      ]
+     }
+    },
+    "reader_first": {
+     "macro_f1": 0.3432,
+     "ci": [
+      0.3061,
+      0.3806
+     ],
+     "false_positives": 4070,
+     "accuracy_on_documented_items": 0.9048,
+     "items_set_per_note": 55.77,
+     "generated_tokens_per_note": 3742.6,
+     "prompt_tokens_per_note": 46698.7,
+     "minus_direct": {
+      "difference": -0.2548,
+      "ci": [
+       -0.3152,
+       -0.197
+      ]
+     }
+    },
+    "tie-break(reader|direct,Z4)": {
+     "macro_f1": 0.5147,
+     "ci": [
+      0.4677,
+      0.5637
+     ],
+     "false_positives": 1391,
+     "accuracy_on_documented_items": 0.8296,
+     "items_set_per_note": 21.81,
+     "generated_tokens_per_note": 2313.5,
+     "prompt_tokens_per_note": 46508.6,
+     "minus_direct": {
+      "difference": -0.0832,
+      "ci": [
+       -0.1297,
+       -0.0371
+      ]
+     }
+    },
+    "tie-break(direct|reader,Z4)": {
+     "macro_f1": 0.6466,
+     "ci": [
+      0.5853,
+      0.7047
+     ],
+     "false_positives": 1142,
+     "accuracy_on_documented_items": 0.7995,
+     "items_set_per_note": 18.55,
+     "generated_tokens_per_note": 2313.5,
+     "prompt_tokens_per_note": 46508.6,
+     "minus_direct": {
+      "difference": 0.0487,
+      "ci": [
+       0.031,
+       0.0676
+      ]
+     }
+    }
+   },
+   "selective_prediction_tiers": {
+    "graph": {
+     "1": {
+      "values": 31,
+      "precision": 0.0645
+     },
+     "2": {
+      "values": 46,
+      "precision": 0.1739
+     },
+     "3": {
+      "values": 215,
+      "precision": 0.6698
+     }
+    },
+    "reader": {
+     "1": {
+      "values": 3017,
+      "precision": 0.0116
+     },
+     "2": {
+      "values": 1202,
+      "precision": 0.1481
+     },
+     "3": {
+      "values": 215,
+      "precision": 0.6698
+     }
+    },
+    "direct": {
+     "1": {
+      "values": 716,
+      "precision": 0.0056
+     },
+     "2": {
+      "values": 1180,
+      "precision": 0.1508
+     },
+     "3": {
+      "values": 215,
+      "precision": 0.6698
+     }
+    }
+   }
+  },
+  "test": {
+   "notes": 200,
+   "arms": {
+    "direct": {
+     "macro_f1": 0.5619,
+     "ci": [
+      0.5244,
+      0.6
+     ],
+     "false_positives": 3086,
+     "accuracy_on_documented_items": 0.7652,
+     "items_set_per_note": 19.47,
+     "generated_tokens_per_note": 536.7,
+     "prompt_tokens_per_note": 1953.7
+    },
+    "graph": {
+     "macro_f1": 0.5673,
+     "ci": [
+      0.5317,
+      0.6042
+     ],
+     "false_positives": 390,
+     "accuracy_on_documented_items": 0.4769,
+     "items_set_per_note": 4.66,
+     "generated_tokens_per_note": 2667.4,
+     "prompt_tokens_per_note": 2603.3,
+     "minus_direct": {
+      "difference": 0.0054,
+      "ci": [
+       -0.0284,
+       0.0412
+      ]
+     }
+    },
+    "graph+path": {
+     "macro_f1": 0.5764,
+     "ci": [
+      0.54,
+      0.6132
+     ],
+     "false_positives": 311,
+     "accuracy_on_documented_items": 0.4769,
+     "items_set_per_note": 4.25,
+     "generated_tokens_per_note": 2797.5,
+     "prompt_tokens_per_note": 3114.0,
+     "minus_direct": {
+      "difference": 0.0145,
+      "ci": [
+       -0.0202,
+       0.05
+      ]
+     }
+    },
+    "graph-verify+path": {
+     "macro_f1": 0.5891,
+     "ci": [
+      0.5542,
+      0.624
+     ],
+     "false_positives": 333,
+     "accuracy_on_documented_items": 0.4979,
+     "items_set_per_note": 4.46,
+     "generated_tokens_per_note": 2113.5,
+     "prompt_tokens_per_note": 2311.0,
+     "minus_direct": {
+      "difference": 0.0272,
+      "ci": [
+       -0.007,
+       0.0613
+      ]
+     }
+    }
+   },
+   "selective_prediction_tiers": null
+  }
+ }
+}
