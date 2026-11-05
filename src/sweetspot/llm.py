@@ -50,7 +50,7 @@ class LLM:
         if self._client is None:
             from openai import OpenAI
             # Bounded per-call wait; retries are handled in run() so a stuck call cannot hold a worker for the client's 10-minute default.
-            self._client = OpenAI(timeout=120, max_retries=0)
+            self._client = OpenAI(timeout=float(os.environ.get("SWEETSPOT_TIMEOUT", 120)), max_retries=0)
         return self._client
 
     def _call(self, name, system, prompt, schema):
