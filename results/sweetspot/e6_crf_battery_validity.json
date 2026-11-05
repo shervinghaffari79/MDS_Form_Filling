@@ -1,0 +1,117 @@
+{
+ "notes": 50,
+ "labelled_macro_f1_original": {
+  "direct": 0.6575,
+  "graph": 0.6231,
+  "graph-verify": 0.6042,
+  "graph-status": 0.6214,
+  "graph-encoder": 0.5151,
+  "graph+audit": 0.6295
+ },
+ "stability_pooled": {
+  "direct": 0.7928,
+  "graph": 0.7823,
+  "graph-verify": 0.7805,
+  "graph-status": 0.7766,
+  "graph-encoder": 0.736,
+  "graph+audit": 0.7929
+ },
+ "by_perturbation": {
+  "reorder": {
+   "notes": 50,
+   "direct": {
+    "stability": 0.75,
+    "macro_f1_perturbed": 0.6566
+   },
+   "graph": {
+    "stability": 0.7954,
+    "macro_f1_perturbed": 0.6105
+   },
+   "graph-verify": {
+    "stability": 0.7839,
+    "macro_f1_perturbed": 0.6132
+   },
+   "graph-status": {
+    "stability": 0.7888,
+    "macro_f1_perturbed": 0.6105
+   },
+   "graph-encoder": {
+    "stability": 0.7492,
+    "macro_f1_perturbed": 0.5216
+   },
+   "graph+audit": {
+    "stability": 0.8152,
+    "macro_f1_perturbed": 0.6065
+   }
+  },
+  "paraphrase": {
+   "notes": 50,
+   "direct": {
+    "stability": 0.8285,
+    "macro_f1_perturbed": 0.6613
+   },
+   "graph": {
+    "stability": 0.7639,
+    "macro_f1_perturbed": 0.5984
+   },
+   "graph-verify": {
+    "stability": 0.7705,
+    "macro_f1_perturbed": 0.5966
+   },
+   "graph-status": {
+    "stability": 0.7622,
+    "macro_f1_perturbed": 0.5921
+   },
+   "graph-encoder": {
+    "stability": 0.7295,
+    "macro_f1_perturbed": 0.5112
+   },
+   "graph+audit": {
+    "stability": 0.7812,
+    "macro_f1_perturbed": 0.6115
+   }
+  },
+  "family": {
+   "notes": 50,
+   "direct": {
+    "stability": 0.8,
+    "macro_f1_perturbed": 0.6609
+   },
+   "graph": {
+    "stability": 0.7876,
+    "macro_f1_perturbed": 0.6382
+   },
+   "graph-verify": {
+    "stability": 0.7871,
+    "macro_f1_perturbed": 0.6381
+   },
+   "graph-status": {
+    "stability": 0.7788,
+    "macro_f1_perturbed": 0.6305
+   },
+   "graph-encoder": {
+    "stability": 0.7295,
+    "macro_f1_perturbed": 0.5528
+   },
+   "graph+audit": {
+    "stability": 0.7821,
+    "macro_f1_perturbed": 0.6571
+   }
+  }
+ },
+ "D4_crf_kendall_tau": {
+  "reorder": 0.4666666666666667,
+  "paraphrase": 0.7333333333333333,
+  "family": 0.6,
+  "pooled": 0.7333333333333333
+ },
+ "paraphrases_accepted": 50,
+ "cost": {
+  "calls": 3809,
+  "input_tokens": 3671976,
+  "output_tokens": 4119855,
+  "usd": 2.4271,
+  "median_call_seconds": 7.541,
+  "p95_call_seconds": 30.028
+ }
+}
