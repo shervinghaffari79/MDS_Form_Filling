@@ -62,16 +62,19 @@ class LLM:
 
     def _call(self, name, system, prompt, schema):
         key = request_key(self.key_model, system, prompt, schema)
+        cap = int(os.environ.get("SWEETSPOT_MAX_TOKENS", 4096))
         if key in self.done:
-            if self.done[key].get("truncated"):
+            hit = self.done[key]
+            if not hit.get("truncated"):
+                return hit
+            if hit["output_tokens"] >= cap - 16:  # cut off at this cap (or a higher one) before: a retry would end the same way
                 raise Truncated()
-            return self.done[key]
         if BUDGET["spent"] >= BUDGET["limit"]:
             raise BudgetExceeded()
         start = time.time()
         extra = {}
         if "/" in self.model:  # an open model behind a vLLM server (OPENAI_BASE_URL): thinking off, greedy decoding
-            extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": int(os.environ.get("SWEETSPOT_MAX_TOKENS", 4096))}
+            extra = {"extra_body": {"chat_template_kwargs": {"enable_thinking": False}}, "temperature": 0, "max_tokens": cap}
         else:
             extra = {"store": False}
             if self.effort:

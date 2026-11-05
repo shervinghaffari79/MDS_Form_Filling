@@ -24,6 +24,8 @@ Label-free tests (12 admissions, seed 31; 1 item each arm sets from note evidenc
   ruled_out    a sentence saying the item was considered and ruled out expected off
   Arms with citations are tested on their own cases; every arm (records included) is rerun on every perturbed note. 95% CI by
   resampling admissions. Also: items per admission, agreement between sub-graphs, generated tokens and wall time.
+Output cap: Qwen writes long mention lists for 60-sentence chunks, and 99 of the first 361 extraction calls hit the 4,096-token cap;
+  MIMIC therefore runs with an 8,192-token cap (SWEETSPOT_MAX_TOKENS), and the calls cut off at 4,096 are made again.
 Cache and private intermediate files stay under /home/user/mimic; the JSON output holds counts only.
 """
 import json
