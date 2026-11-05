@@ -21,9 +21,10 @@ from sweetspot.e15_status_heads import ENCODER, Encoder  # noqa: E402
 from sweetspot.llm import LLM  # noqa: E402
 
 OUT = ROOT / "results/sweetspot/e15_finetune_heads.json"
+SAVE = Path("/home/user/cache/e15_ft_shared")  # the shared model, reused by the tiered design (E15b v2)
 
 
-def train(labels, rows, texts, classes):
+def train(labels, rows, texts, classes, save=None):
     import torch
     from transformers import AutoModel, AutoTokenizer
     torch.manual_seed(0)
@@ -49,6 +50,11 @@ def train(labels, rows, texts, classes):
             loss.backward()
             opt.step()
     enc.eval()
+    if save:
+        save.mkdir(parents=True, exist_ok=True)
+        enc.save_pretrained(save)
+        tok.save_pretrained(save)
+        torch.save({"heads": heads.state_dict(), "classes": classes, "labels": labels}, save / "heads.pt")
 
     def predict(texts_):
         out = {lab: [] for lab in labels}
@@ -105,7 +111,7 @@ def main():
     for name, groups in (("shared encoder, 3 heads", [list(E2.LABELS)]), ("separate encoders", [[lab] for lab in E2.LABELS])):
         preds = {kind: {i["id"]: {} for i in its} for kind, its in variants.items()}
         for labels in groups:
-            pr = train(labels, train_rows, tr_texts, classes)
+            pr = train(labels, train_rows, tr_texts, classes, SAVE if len(labels) == 3 else None)
             for kind, its in variants.items():
                 got = pr([mark(i["sentence"], i["concept"]) for i in its])
                 for lab in labels:
