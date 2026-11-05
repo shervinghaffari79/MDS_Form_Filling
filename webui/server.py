@@ -24,6 +24,7 @@ class Store:
         self.data = json.loads(Path(data_path).read_text())
         self.by_key = {a["key"]: a for a in self.data["admissions"]}
         self.codes = {i["code"] for a in self.data["admissions"] for i in a["items"]}
+        self.review = {a["key"]: sum(i.get("agreement") in ("graph_only", "direct_only") for i in a["items"]) for a in self.data["admissions"]}
         self.lock = threading.Lock()
         self.db = sqlite3.connect(db_path, check_same_thread=False)
         self.db.executescript("""
@@ -81,7 +82,8 @@ def make_handler(store):
                 anyone = dict(store.query("SELECT note_key, COUNT(DISTINCT reviewer) FROM done GROUP BY note_key"))
                 return self.send_json([{"key": a["key"], "items": len(a["items"]), "labelled": counts.get(a["key"], 0),
                                         "done": a["key"] in done, "done_by": anyone.get(a["key"], 0),
-                                        "suggested": sum(i["graph"]["answer"] for i in a["items"])} for a in store.data["admissions"]])
+                                        "suggested": sum(i["graph"]["answer"] for i in a["items"]),
+                                        "needs_review": store.review[a["key"]]} for a in store.data["admissions"]])
             if u.path.startswith("/api/admissions/"):
                 a = store.by_key.get(u.path.rsplit("/", 1)[-1])
                 return self.send_json(a) if a else self.send_json({"error": "not found"}, 404)

@@ -12,7 +12,7 @@ Arms
   A1 form-guided NER           extractor sees the item names (normal and negative findings included, time anchors); usual fill
   A2 graph-guided direct       whole-form call plus the graph's evidence as hints
   A3 summary then fill         form-blind fact summary, then fill from the summary alone
-  reader                       one call per note and item; run on the test split only, as a reference (--with-reader)
+  reader                       one call per note and item (--with-reader): for Qwen test only; for gpt-6-luna on both splits from the cache
 Combinations built from the arms' outputs (no extra model calls):
   agree(a, b)                  values both arms give
   tie-break(a | b, Z2)         values arm a gives, kept where arm b gives the same value or the NLI abstention verifier (Z2) entails
@@ -39,7 +39,8 @@ from sweetspot import e4_crf_benchmark as E  # noqa: E402
 from sweetspot import e8_smoke as S  # noqa: E402
 from sweetspot.llm import LLM  # noqa: E402
 
-OUT = ROOT / "results/sweetspot/e10_qwen_benchmark.json"
+OUT = ROOT / (sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else "results/sweetspot/e10_qwen_benchmark.json")
+LOOKS = int(sys.argv[sys.argv.index("--looks") + 1]) if "--looks" in sys.argv else 3
 
 
 def tokens(rows):
@@ -67,7 +68,7 @@ def run_split(split, opts, encoder, with_reader, scopes_cache={}):
     docs = E.load(split)
     t_start = time.time()
     arms, spend = {}, {}
-    dl = LLM(f"e10_{split}_direct")
+    dl = LLM("e4_direct")  # same cache as E4: reply keys include the model, so models never mix
     dr = dl.run(E.direct_requests(docs, opts))
     arms["direct"] = {d["id"]: E.parse_fill(r, opts) for d, r in zip(docs, dr)}
     spend["direct"] = list(dr)
@@ -101,7 +102,7 @@ def run_split(split, opts, encoder, with_reader, scopes_cache={}):
     arms["graph+Z3"] = S.z3(arms["graph"], extra["evidence"]["graph"], scopes_cache)
     spend["graph+Z3"] = spend["graph"]
     if with_reader:
-        rl = LLM(f"e10_{split}_reader")
+        rl = LLM("e4_reader", workers=32)  # cached for both splits from E4 and E5 when the model is gpt-6-luna
         reqs, where = E.reader_requests(docs, opts)
         reps = rl.run(reqs)
         arms["reader"] = {d["id"]: {} for d in docs}
@@ -112,6 +113,8 @@ def run_split(split, opts, encoder, with_reader, scopes_cache={}):
     notes = {d["id"]: d["note"] for d in docs}
     loc = S.Local(docs, opts)
     pairs = [("direct", "graph+audit"), ("graph+audit", "direct"), ("A1", "direct"), ("A2", "direct"), ("A3", "direct"), ("graph+Z3", "direct")]
+    if with_reader:
+        pairs += [("direct", "reader"), ("graph+audit", "reader")]
     for a, b in pairs:
         A, B = arms[a], arms[b]
         agreed = {k: {i: v for i, v in A[k].items() if B[k].get(i) == v} for k in A}
@@ -140,13 +143,13 @@ def main():
     with_reader = "--with-reader" in sys.argv
     encoder = SentenceTransformer("BAAI/bge-small-en-v1.5", device="cpu")
     opts = E.options()
-    _, _, _, dev, dev_info = run_split("development", opts, encoder, False)
+    _, _, _, dev, dev_info = run_split("development", opts, encoder, with_reader)
     proposed = [a for a in dev if a not in ("direct", "reader") and not a.startswith("agree(") and a != "graph-encoder"]
     best = max(dev[a]["macro_f1"] for a in proposed)
     pick = min((a for a in proposed if dev[a]["macro_f1"] >= best - .005), key=lambda a: dev[a]["generated_tokens_per_note"])
     docs, arms, per, test, test_info = run_split("test", opts, encoder, with_reader)
     out = {"model": LLM("x").model, "dev": dev, "dev_info": dev_info, "headline_picked_on_dev": pick, "test": test, "test_info": test_info,
-           "test_looks": 3, "reader_included": with_reader}
+           "test_looks": LOOKS, "reader_included": with_reader}
     OUT.write_text(json.dumps(out, indent=1))
     ranked = sorted(test.items(), key=lambda kv: -kv[1]["macro_f1"])
     print("headline", pick)

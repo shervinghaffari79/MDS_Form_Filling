@@ -6,6 +6,7 @@ const LABELS = [
   ["absent", "Absent", "2"],
   ["unclear", "Can't tell", "3"],
 ];
+const AGREE_TEXT = { both_yes: "both say yes", graph_only: "graph only: check", direct_only: "direct only: check" };
 const SECTION_SHORT = { I: "I · Diagnoses", O: "O · Medications", P: "P · Special treatments" };
 
 function Answer({ name, value }) {
@@ -29,6 +30,18 @@ function Detail({ item, label, mode, onComment }) {
       </p>
       {show ? (
         <>
+          {item.direct && item.direct.evidence.length > 0 && (
+            <div className="ev ev-d small">
+              <strong>Direct, evidence sentences</strong>
+              <div>
+                {item.direct.evidence.map((id) => (
+                  <button key={id} className="evline" onClick={() => jump(id)}>
+                    sentence {id}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           {item.graph.note_evidence.length > 0 && (
             <div className="ev small">
               <strong>Graph, note evidence</strong>
@@ -102,6 +115,12 @@ export default function ItemPanel(p) {
           </button>
         ))}
       </div>
+      {p.canFilter && (
+        <label className="filter-line small">
+          <input type="checkbox" checked={p.reviewOnly} onChange={(e) => p.onReviewOnly(e.target.checked)} /> Only items to check (direct and graph disagree):{" "}
+          {(p.sectionItems || []).filter((i) => ["graph_only", "direct_only"].includes(i.agreement)).length} in this section
+        </label>
+      )}
       <div className="items" ref={listRef}>
         {groups.map((g) => (
           <section key={g.prefix}>
@@ -126,8 +145,10 @@ export default function ItemPanel(p) {
                     </div>
                     {show && (
                       <div className="answers">
+                        <Answer name="Direct" value={i.direct ? i.direct.answer : null} />
                         <Answer name="Graph" value={i.graph.answer} />
                         <Answer name="Reader" value={i.reader ? i.reader.answer : null} />
+                        {i.agreement && i.agreement !== "both_no" && <span className={`agree ${i.agreement}`}>{AGREE_TEXT[i.agreement]}</span>}
                         {i.graph.answer && (
                           <span className="muted small">
                             {i.graph.note_evidence.length ? "note" : ""}

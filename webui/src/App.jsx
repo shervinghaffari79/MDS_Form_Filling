@@ -31,6 +31,7 @@ export default function App() {
   const [adm, setAdm] = useState(null);
   const [labels, setLabels] = useState({});
   const [section, setSection] = useState("I");
+  const [reviewOnly, setReviewOnly] = useState(store.get("mds.reviewOnly", "0") === "1");
   const [selected, setSelected] = useState(null);
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
@@ -60,7 +61,13 @@ export default function App() {
       .catch((e) => setError(e.message));
   }, [key, reviewer]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const items = useMemo(() => (adm ? adm.items.filter((i) => i.section === section) : []), [adm, section]);
+  const sectionItems = useMemo(() => (adm ? adm.items.filter((i) => i.section === section) : []), [adm, section]);
+  // The filter shows only items where the systems disagree; it is offered only while system answers are shown, so it cannot leak them.
+  const filtering = reviewOnly && mode === "shown";
+  const items = useMemo(
+    () => (filtering ? sectionItems.filter((i) => ["graph_only", "direct_only"].includes(i.agreement)) : sectionItems),
+    [sectionItems, filtering],
+  );
   const selectedItem = adm?.items.find((i) => i.code === selected) ?? null;
 
   const save = useCallback(
@@ -98,7 +105,7 @@ export default function App() {
     if (labels[code]) save([{ code, label: labels[code].label, comment }]);
   };
   const markRestAbsent = () => {
-    const rest = items.filter((i) => !labels[i.code]);
+    const rest = sectionItems.filter((i) => !labels[i.code]);
     if (!rest.length) return;
     if (window.confirm(`Mark the ${rest.length} unlabelled items in this section as Absent?`))
       save(rest.map((i) => ({ code: i.code, label: "absent" })));
@@ -200,7 +207,7 @@ export default function App() {
         </div>
       )}
       <div className="layout">
-        <AdmissionList list={list} current={key} onPick={setKey} />
+        <AdmissionList list={list} current={key} onPick={setKey} mode={mode} />
         <NoteView adm={adm} item={selectedItem} label={labels[selected]} mode={mode} />
         <ItemPanel
           meta={meta}
@@ -208,6 +215,13 @@ export default function App() {
           section={section}
           onSection={setSection}
           items={items}
+          sectionItems={sectionItems}
+          reviewOnly={filtering}
+          canFilter={mode === "shown"}
+          onReviewOnly={(v) => {
+            store.set("mds.reviewOnly", v ? "1" : "0");
+            setReviewOnly(v);
+          }}
           labels={labels}
           selected={selected}
           onSelect={setSelected}

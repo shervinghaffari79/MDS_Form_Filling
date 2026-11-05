@@ -28,6 +28,7 @@ SECTIONS = {"I": "Section I — Disease diagnoses", "O": "Section O — Medicati
 def main(out_path):
     state = pickle.loads((WORK / "p2_graphs.pkl").read_bytes())
     graph = state["arms"]["graph"]
+    direct = pickle.loads((WORK / "mimic_direct.pkl").read_bytes())  # {note_key: {code: [evidence sentence ids]}}
     sents = pd.read_parquet(PRIVATE / "proxy_sentences.parquet")
     keys = sorted(graph)
     reader = reader_decisions(keys[:20], sents)
@@ -42,10 +43,14 @@ def main(out_path):
             note_ev = [{"sentence": int(p["sentence"]), "status": p["status"], "concept": p["concept"]} for p in paths if p["source"] == "note"]
             rec_ev = [{"source": p["source"], "concept": p["concept"], "time": None if p.get("time") in (None, "None") else p["time"][:16]}
                       for p in paths if p["source"] != "note"]
+            d_yes = it["code"] in direct.get(k, {})
+            g_yes = bool(paths)
             entries.append({
                 "code": it["code"], "section": it["section"], "label": it["label"], "wording": it["wording"],
                 "look_back_days": A.window_days(it),
-                "graph": {"answer": bool(paths), "note_evidence": note_ev, "record_evidence": rec_ev},
+                "graph": {"answer": g_yes, "note_evidence": note_ev, "record_evidence": rec_ev},
+                "direct": {"answer": d_yes, "evidence": direct.get(k, {}).get(it["code"], [])},
+                "agreement": "both_yes" if d_yes and g_yes else "graph_only" if g_yes else "direct_only" if d_yes else "both_no",
                 "reader": ({"answer": (k, it["code"]) in reader, "evidence": reader.get((k, it["code"]), [])} if k in reader_run else None),
             })
         admissions.append({"key": k, "sentences": [{"id": int(s), "section": sec, "text": t}
@@ -53,7 +58,8 @@ def main(out_path):
                            "items": entries})
     data = {"form": "MDS 2.0", "sections": SECTIONS,
             "groups": [{"section": s, "prefix": p, "title": t} for s, p, t in GROUPS],
-            "systems": {"graph": "Knowledge graph (note mentions with status, plus dated records)",
+            "systems": {"direct": "Whole-form prompt over the note (one call)",
+                        "graph": "Knowledge graph (note mentions with status, plus dated records)",
                         "reader": "Item-by-item note reader"},
             "admissions": admissions}
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)

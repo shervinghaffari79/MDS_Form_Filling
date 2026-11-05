@@ -35,7 +35,8 @@ def load(db, data):
     done = {r[0] for r in con.execute("SELECT DISTINCT note_key FROM done")}
     review = json.loads(Path(data).read_text())
     reader = {(a["key"], i["code"]): i["reader"]["answer"] for a in review["admissions"] for i in a["items"] if i["reader"] is not None}
-    return labels, done, reader
+    direct = {(a["key"], i["code"]): i["direct"]["answer"] for a in review["admissions"] for i in a["items"] if i.get("direct")}
+    return labels, done, reader, direct
 
 
 def reference(labels, done):
@@ -88,11 +89,14 @@ def main():
     ap.add_argument("--db", default="/home/user/mimic/review/labels.sqlite")
     ap.add_argument("--data", default="/home/user/mimic/review/review_data.json")
     a = ap.parse_args()
-    labels, done, reader = load(a.db, a.data)
+    labels, done, reader, direct = load(a.db, a.data)
     truth, modes, kappas = reference(labels, done)
     arms = pickle.loads((WORK / "p2_graphs.pkl").read_bytes())["arms"]
     systems = {m: (lambda k, m=m: k[1] in arms[m].get(k[0], {})) for m in ("notes", "notes+v", "records", "graph")}
     systems["reader"] = lambda k: reader.get(k, False)
+    systems["direct"] = lambda k: direct.get(k, False)
+    systems["agree(direct,graph)"] = lambda k: direct.get(k, False) and k[1] in arms["graph"].get(k[0], {})
+    systems["graph, direct only where they agree or graph has records"] = lambda k: k[1] in arms["graph"].get(k[0], {}) and (direct.get(k, False) or any(p["source"] != "note" for p in arms["graph"][k[0]][k[1]]))
     out = {"admissions_done": len(done), "items_with_reference": len(truth), "reviewer_kappa": kappas, "systems": {}}
     for name, pred in systems.items():
         keys = [k for k in truth if name != "reader" or k in reader]
