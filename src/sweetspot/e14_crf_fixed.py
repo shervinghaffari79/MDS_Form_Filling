@@ -1,11 +1,11 @@
 """E14 (CRF): fixes for the graph, sub-graph consensus and summary checks, with a full ablation, on one open model (Qwen3.8-27B, vLLM).
 
 Every arm runs on Qwen, so all arms are compared on one model. Nothing is tuned to a dataset: the same prompts, thresholds and
-combination rules run on English dev, English test and Italian test, and every item-specific decision (an item's time scope) is
+combination rules run on English dev and English test (and would run unchanged on the Italian split, which is not used here), and every item-specific decision (an item's time scope) is
 made by the model from the item's wording, not written by hand. Rules set before any run.
 
 Splits and looks: development (80 English notes) picks; English test (200) is scored once for every arm (5th look at that split:
-  E4, E5, E10, E12 before); Italian test (200) once for every arm (2nd look; the pick is made on English dev and carried over).
+  E4, E5, E10, E12 before). The Italian test split is not used in E14.
 Base arms (the earlier ones, regenerated on Qwen): direct; graph and its ablations (-verify, -status, -encoder, +audit);
   A1 = F, the form-guided graph (extraction sees the item names); A2 graph-guided direct; A3 = S, form-blind summary then fill.
 Fixes for the graph (each one fill call per note from the evidence shown):
@@ -33,7 +33,7 @@ Label-free battery on dev (30 notes, seed 141), the same pipelines on: reorder (
   stability and labelled dev macro-F1 across all arms.
 Reported: macro-F1 with 95% CI over notes, paired differences against direct and against the earlier best (tie-break(A1|direct,Z4)),
   false positives (values where gold is unknown), accuracy on documented items, items per note, generated and prompt tokens per note.
-Usage: e14_crf_fixed.py dev|test_en|test_it|report   (each split writes its own part; report combines them and makes the pick).
+Usage: e14_crf_fixed.py dev|test_en|report   (each split writes its own part; report combines them and makes the pick).
 """
 import hashlib
 import json
@@ -400,7 +400,7 @@ def run_split(part):
 
 def report():
     from sweetspot.e2_negex_battery import kendall
-    parts = {p: json.loads((PARTS / f"{p}.json").read_text()) for p in ("dev", "test_en", "test_it") if (PARTS / f"{p}.json").exists()}
+    parts = {p: json.loads((PARTS / f"{p}.json").read_text()) for p in ("dev", "test_en") if (PARTS / f"{p}.json").exists()}
     dev = parts["dev"]["arms"]
     proposed = [a for a in dev if a not in ("direct", "reader", "graph-encoder") and not a.startswith("agree(")]
     best = max(dev[a]["macro_f1"] for a in proposed)
@@ -414,7 +414,7 @@ def report():
     ladder = ["graph", "G+T", "G+B", "G+B+T", "G+B+T-verify", "G+B+T-status", "F+T", "A1", "A3", "S+verify", "S+NER", "S+verify&NER",
               "S+verify|NER", "S+quote", "S+NER->quote", "S+NLI", "tie-break(G+B+T|direct,Z4)", "tie-break(G+B+T|direct,Z2)", "vote(G+B+T,F+T,S+verify)",
               "vote(G+B+T,F+T,S+verify,direct)", "vote(G+B+T,F+T,S+verify,direct)+rescue", PREVIOUS_BEST, "direct", pick]
-    out = {"model": parts["dev"]["model"], "headline_picked_on_dev": pick, "looks": {"test_en": 5, "test_it": 2},
+    out = {"model": parts["dev"]["model"], "headline_picked_on_dev": pick, "looks": {"test_en": 5},
            "battery_validity_kendall_tau": validity, "ablation_ladder": list(dict.fromkeys(ladder)),
            "parts": {p: {k: v for k, v in x.items() if k != "per_note"} for p, x in parts.items()}}
     OUT.write_text(json.dumps(out, indent=1))
