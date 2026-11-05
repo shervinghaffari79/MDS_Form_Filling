@@ -89,3 +89,15 @@ def test_request_key_and_cost_accounting():
             {"input_tokens": 0, "output_tokens": 1_000_000, "seconds": 3.0}]
     c = cost(rows, "gpt-6-luna")
     assert c["calls"] == 2 and c["usd"] == 0.6 and c["median_call_seconds"] == 3.0
+
+
+def test_budget_cap_stops_new_calls_without_network(tmp_path):
+    from sweetspot import llm as L
+    old = L.BUDGET["limit"]
+    L.BUDGET["limit"] = 0.0
+    try:
+        client = L.LLM("budget_test", cache_dir=tmp_path)
+        rows = client.run([{"name": "x", "system": "s", "prompt": "p", "schema": {"type": "object"}}])
+        assert rows == [None] and client.last_failures == {"budget": 1}
+    finally:
+        L.BUDGET["limit"] = old

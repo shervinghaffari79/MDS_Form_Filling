@@ -15,6 +15,16 @@ from pathlib import Path
 PRICES = {"gpt-6-luna": (0.10, 0.50)}
 CACHE_DIR = Path(os.environ.get("SWEETSPOT_CACHE", "/home/user/cache"))
 DEFAULT_MODEL = os.environ.get("MDS_LLM_MODEL", "gpt-6-luna")
+# Hard cap on new spending in this process (USD), from SWEETSPOT_MAX_USD; cached replies are free and never count.
+BUDGET = {"limit": float(os.environ.get("SWEETSPOT_MAX_USD", "inf")), "spent": 0.0, "lock": threading.Lock()}
+
+
+class BudgetExceeded(Exception):
+    pass
+
+
+def spent_usd():
+    return round(BUDGET["spent"], 4)
 
 
 def request_key(model, system, prompt, schema):
@@ -47,6 +57,8 @@ class LLM:
         key = request_key(self.model, system, prompt, schema)
         if key in self.done:
             return self.done[key]
+        if BUDGET["spent"] >= BUDGET["limit"]:
+            raise BudgetExceeded()
         start = time.time()
         reply = self.client.chat.completions.create(
             model=self.model, store=False,
@@ -55,6 +67,9 @@ class LLM:
         row = {"key": key, "parsed": json.loads(reply.choices[0].message.content),
                "input_tokens": reply.usage.prompt_tokens, "output_tokens": reply.usage.completion_tokens,
                "seconds": round(time.time() - start, 3)}
+        pin, pout = PRICES.get(self.model, (0.0, 0.0))
+        with BUDGET["lock"]:
+            BUDGET["spent"] += row["input_tokens"] / 1e6 * pin + row["output_tokens"] / 1e6 * pout
         with self.lock:
             self.done[key] = row
             with self.path.open("a") as handle:
@@ -69,6 +84,9 @@ class LLM:
             for attempt in range(3):
                 try:
                     return self._call(r["name"], r["system"], r["prompt"], r["schema"])
+                except BudgetExceeded:
+                    failures["budget"] = failures.get("budget", 0) + 1
+                    return None
                 except Exception as error:  # noqa: BLE001 - counted and reported
                     last = type(error).__name__
                     time.sleep(2 ** attempt)
