@@ -1,0 +1,144 @@
+{
+ "notes": 80,
+ "gold_documented_items": 399,
+ "outcome_on_documented_items": {
+  "direct": {
+   "miss": 75,
+   "right": 303,
+   "wrong": 19,
+   "format": 2
+  },
+  "graph": {
+   "right": 287,
+   "miss": 84,
+   "wrong": 28
+  },
+  "graph+audit": {
+   "miss": 51,
+   "right": 321,
+   "wrong": 27
+  }
+ },
+ "false_positives_on_unknown_items": {
+  "graph+audit": 226,
+  "graph": 238,
+  "direct": 164
+ },
+ "by_item_kind": {
+  "direct": {
+   "yes_no": {
+    "miss": 64,
+    "right": 147,
+    "wrong": 5,
+    "false_positive": 111
+   },
+   "other_closed_set": {
+    "miss": 8,
+    "right": 121,
+    "false_positive": 44,
+    "wrong": 2
+   },
+   "measured": {
+    "right": 35,
+    "false_positive": 9,
+    "format": 2,
+    "miss": 3,
+    "wrong": 12
+   }
+  },
+  "graph": {
+   "yes_no": {
+    "right": 141,
+    "miss": 72,
+    "false_positive": 172,
+    "wrong": 3
+   },
+   "other_closed_set": {
+    "wrong": 4,
+    "right": 116,
+    "false_positive": 54,
+    "miss": 11
+   },
+   "measured": {
+    "false_positive": 12,
+    "wrong": 21,
+    "right": 30,
+    "miss": 1
+   }
+  },
+  "graph+audit": {
+   "yes_no": {
+    "false_positive": 160,
+    "miss": 44,
+    "right": 168,
+    "wrong": 4
+   },
+   "other_closed_set": {
+    "miss": 6,
+    "right": 122,
+    "false_positive": 56,
+    "wrong": 3
+   },
+   "measured": {
+    "false_positive": 10,
+    "wrong": 20,
+    "right": 31,
+    "miss": 1
+   }
+  }
+ },
+ "graph_miss_stage": {
+  "no_mention": 79,
+  "not_linked": 5
+ },
+ "graph_miss_stage_by_kind": {
+  "yes_no": {
+   "no_mention": 68,
+   "not_linked": 4
+  },
+  "other_closed_set": {
+   "no_mention": 10,
+   "not_linked": 1
+  },
+  "measured": {
+   "no_mention": 1
+  }
+ },
+ "graph_misses_that_direct_got_right_by_stage": {
+  "no_mention": 33,
+  "not_linked": 3
+ },
+ "mentions_per_note": 29.4,
+ "graph_false_positive_values": {
+  "y": 153,
+  "measured value": 12,
+  "bedridden": 2,
+  "n": 19,
+  "A": 9,
+  "walking independently": 9,
+  "certainly chronic": 11,
+  "current": 3,
+  "pos": 3,
+  "walking with auxiliary aids": 2,
+  "possibly chronic": 2,
+  "normotensive": 1,
+  "hyperthermic": 2,
+  "normocardic": 1,
+  "neg": 2,
+  "certainly not active": 1,
+  "tachycardic": 2,
+  "tachypneic": 1,
+  "normothermic": 1,
+  "possibly active": 1,
+  "past": 1
+ },
+ "graph_false_positive_evidence": {
+  "all evidence past or hypothetical": 51,
+  "affirmed current evidence": 175,
+  "all evidence negated": 12
+ },
+ "items_linked_per_note": 7.83,
+ "gold_documented_per_note": 4.99,
+ "items_per_linked_concept_mean": 1.11,
+ "concepts_linked_to_3plus_items": 8
+}
