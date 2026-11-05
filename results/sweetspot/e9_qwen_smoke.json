@@ -1,0 +1,567 @@
+{
+ "model": "Qwen/Qwen3.8-27B",
+ "split": "development",
+ "notes": 20,
+ "gpt_6_luna_on_same_notes": {
+  "direct": 0.707,
+  "graph": 0.6833,
+  "graph+audit": 0.6732
+ },
+ "item_scopes": {
+  "current": 110,
+  "history": 20,
+  "any": 4
+ },
+ "unparsed_json_by_arm": {
+  "direct": {},
+  "A1_ner": {},
+  "A1_fill": {},
+  "A2": {},
+  "A3_summary": {},
+  "A3_fill": {}
+ },
+ "graph_info": {
+  "mentions_per_note": 18.0,
+  "kept_per_note": 16.4,
+  "distinct_concepts": 336
+ },
+ "arms": {
+  "direct": {
+   "macro_f1": 0.5863,
+   "false_positives": 462,
+   "accuracy_on_documented_items": 0.8378,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "direct +Z1(K=20)": {
+   "macro_f1": 0.5629,
+   "false_positives": 75,
+   "accuracy_on_documented_items": 0.5225,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0233,
+    "ci": [
+     -0.1061,
+     0.0697
+    ]
+   }
+  },
+  "direct +Z2": {
+   "macro_f1": 0.5679,
+   "false_positives": 85,
+   "accuracy_on_documented_items": 0.4775,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0183,
+    "ci": [
+     -0.1177,
+     0.089
+    ]
+   }
+  },
+  "direct +Z4": {
+   "macro_f1": 0.5727,
+   "false_positives": 73,
+   "accuracy_on_documented_items": 0.4144,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0136,
+    "ci": [
+     -0.0924,
+     0.0746
+    ]
+   }
+  },
+  "direct disagreements checked by Z2": {
+   "macro_f1": 0.6566,
+   "false_positives": 272,
+   "accuracy_on_documented_items": 0.8198,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0704,
+    "ci": [
+     0.0193,
+     0.1374
+    ]
+   }
+  },
+  "direct disagreements checked by Z4": {
+   "macro_f1": 0.635,
+   "false_positives": 259,
+   "accuracy_on_documented_items": 0.8018,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0487,
+    "ci": [
+     0.0025,
+     0.1098
+    ]
+   }
+  },
+  "graph": {
+   "macro_f1": 0.5514,
+   "false_positives": 70,
+   "accuracy_on_documented_items": 0.4865,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0349,
+    "ci": [
+     -0.1186,
+     0.0439
+    ]
+   }
+  },
+  "graph +Z1(K=20)": {
+   "macro_f1": 0.4902,
+   "false_positives": 25,
+   "accuracy_on_documented_items": 0.3243,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0961,
+    "ci": [
+     -0.1876,
+     -0.0022
+    ]
+   }
+  },
+  "graph +Z2": {
+   "macro_f1": 0.5112,
+   "false_positives": 40,
+   "accuracy_on_documented_items": 0.2432,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0751,
+    "ci": [
+     -0.1796,
+     0.0382
+    ]
+   }
+  },
+  "graph +Z4": {
+   "macro_f1": 0.5204,
+   "false_positives": 15,
+   "accuracy_on_documented_items": 0.2703,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0659,
+    "ci": [
+     -0.1648,
+     0.0337
+    ]
+   }
+  },
+  "graph disagreements checked by Z2": {
+   "macro_f1": 0.6228,
+   "false_positives": 53,
+   "accuracy_on_documented_items": 0.4775,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0365,
+    "ci": [
+     -0.0454,
+     0.1188
+    ]
+   }
+  },
+  "graph disagreements checked by Z4": {
+   "macro_f1": 0.5833,
+   "false_positives": 33,
+   "accuracy_on_documented_items": 0.4775,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.003,
+    "ci": [
+     -0.0908,
+     0.0759
+    ]
+   }
+  },
+  "graph +Z3": {
+   "macro_f1": 0.5902,
+   "false_positives": 57,
+   "accuracy_on_documented_items": 0.4865,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0039,
+    "ci": [
+     -0.0916,
+     0.0934
+    ]
+   }
+  },
+  "graph-verify": {
+   "macro_f1": 0.5336,
+   "false_positives": 78,
+   "accuracy_on_documented_items": 0.5135,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0527,
+    "ci": [
+     -0.1517,
+     0.0446
+    ]
+   }
+  },
+  "graph-status": {
+   "macro_f1": 0.5595,
+   "false_positives": 50,
+   "accuracy_on_documented_items": 0.4955,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0268,
+    "ci": [
+     -0.1172,
+     0.0673
+    ]
+   }
+  },
+  "graph-encoder": {
+   "macro_f1": 0.3399,
+   "false_positives": 145,
+   "accuracy_on_documented_items": 0.3514,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.2463,
+    "ci": [
+     -0.3545,
+     -0.1393
+    ]
+   }
+  },
+  "graph+audit": {
+   "macro_f1": 0.4424,
+   "false_positives": 586,
+   "accuracy_on_documented_items": 0.8018,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.1438,
+    "ci": [
+     -0.2953,
+     -0.0096
+    ]
+   }
+  },
+  "graph+audit +Z1(K=20)": {
+   "macro_f1": 0.4382,
+   "false_positives": 106,
+   "accuracy_on_documented_items": 0.5135,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.148,
+    "ci": [
+     -0.2724,
+     -0.0248
+    ]
+   }
+  },
+  "graph+audit +Z2": {
+   "macro_f1": 0.4816,
+   "false_positives": 87,
+   "accuracy_on_documented_items": 0.4505,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.1046,
+    "ci": [
+     -0.2239,
+     0.0219
+    ]
+   }
+  },
+  "graph+audit +Z4": {
+   "macro_f1": 0.4656,
+   "false_positives": 75,
+   "accuracy_on_documented_items": 0.3964,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.1207,
+    "ci": [
+     -0.2318,
+     -0.0099
+    ]
+   }
+  },
+  "graph+audit disagreements checked by Z2": {
+   "macro_f1": 0.567,
+   "false_positives": 274,
+   "accuracy_on_documented_items": 0.7928,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0193,
+    "ci": [
+     -0.1172,
+     0.0807
+    ]
+   }
+  },
+  "graph+audit disagreements checked by Z4": {
+   "macro_f1": 0.527,
+   "false_positives": 261,
+   "accuracy_on_documented_items": 0.7838,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0593,
+    "ci": [
+     -0.165,
+     0.0434
+    ]
+   }
+  },
+  "graph+audit +Z3": {
+   "macro_f1": 0.4809,
+   "false_positives": 573,
+   "accuracy_on_documented_items": 0.8018,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.1054,
+    "ci": [
+     -0.2645,
+     0.0459
+    ]
+   }
+  },
+  "A1 form-guided NER": {
+   "macro_f1": 0.5498,
+   "false_positives": 129,
+   "accuracy_on_documented_items": 0.7838,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0365,
+    "ci": [
+     -0.1571,
+     0.079
+    ]
+   }
+  },
+  "A1 form-guided NER +Z1(K=20)": {
+   "macro_f1": 0.4907,
+   "false_positives": 58,
+   "accuracy_on_documented_items": 0.5135,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0956,
+    "ci": [
+     -0.2042,
+     0.0136
+    ]
+   }
+  },
+  "A1 form-guided NER +Z2": {
+   "macro_f1": 0.5476,
+   "false_positives": 54,
+   "accuracy_on_documented_items": 0.4414,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0386,
+    "ci": [
+     -0.1452,
+     0.0726
+    ]
+   }
+  },
+  "A1 form-guided NER +Z4": {
+   "macro_f1": 0.5712,
+   "false_positives": 35,
+   "accuracy_on_documented_items": 0.3694,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.015,
+    "ci": [
+     -0.1163,
+     0.087
+    ]
+   }
+  },
+  "A1 form-guided NER disagreements checked by Z2": {
+   "macro_f1": 0.6582,
+   "false_positives": 87,
+   "accuracy_on_documented_items": 0.7477,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.072,
+    "ci": [
+     -0.0054,
+     0.1586
+    ]
+   }
+  },
+  "A1 form-guided NER disagreements checked by Z4": {
+   "macro_f1": 0.6636,
+   "false_positives": 84,
+   "accuracy_on_documented_items": 0.7477,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0774,
+    "ci": [
+     -0.0029,
+     0.1672
+    ]
+   }
+  },
+  "A2 graph-guided direct": {
+   "macro_f1": 0.56,
+   "false_positives": 490,
+   "accuracy_on_documented_items": 0.8198,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0263,
+    "ci": [
+     -0.0931,
+     0.0316
+    ]
+   }
+  },
+  "A2 graph-guided direct +Z1(K=20)": {
+   "macro_f1": 0.5203,
+   "false_positives": 79,
+   "accuracy_on_documented_items": 0.5225,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0659,
+    "ci": [
+     -0.1568,
+     0.0246
+    ]
+   }
+  },
+  "A2 graph-guided direct +Z2": {
+   "macro_f1": 0.5535,
+   "false_positives": 113,
+   "accuracy_on_documented_items": 0.4775,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0328,
+    "ci": [
+     -0.1321,
+     0.0735
+    ]
+   }
+  },
+  "A2 graph-guided direct +Z4": {
+   "macro_f1": 0.547,
+   "false_positives": 72,
+   "accuracy_on_documented_items": 0.4144,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0392,
+    "ci": [
+     -0.1319,
+     0.0542
+    ]
+   }
+  },
+  "A2 graph-guided direct disagreements checked by Z2": {
+   "macro_f1": 0.6045,
+   "false_positives": 474,
+   "accuracy_on_documented_items": 0.8108,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0183,
+    "ci": [
+     -0.023,
+     0.079
+    ]
+   }
+  },
+  "A2 graph-guided direct disagreements checked by Z4": {
+   "macro_f1": 0.5826,
+   "false_positives": 441,
+   "accuracy_on_documented_items": 0.8108,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0037,
+    "ci": [
+     -0.073,
+     0.0521
+    ]
+   }
+  },
+  "A3 summary then fill": {
+   "macro_f1": 0.579,
+   "false_positives": 377,
+   "accuracy_on_documented_items": 0.6306,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0073,
+    "ci": [
+     -0.0933,
+     0.0798
+    ]
+   }
+  },
+  "A3 summary then fill +Z1(K=20)": {
+   "macro_f1": 0.5303,
+   "false_positives": 62,
+   "accuracy_on_documented_items": 0.3784,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.056,
+    "ci": [
+     -0.148,
+     0.0446
+    ]
+   }
+  },
+  "A3 summary then fill +Z2": {
+   "macro_f1": 0.5366,
+   "false_positives": 58,
+   "accuracy_on_documented_items": 0.3243,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0497,
+    "ci": [
+     -0.1606,
+     0.0716
+    ]
+   }
+  },
+  "A3 summary then fill +Z4": {
+   "macro_f1": 0.5385,
+   "false_positives": 53,
+   "accuracy_on_documented_items": 0.3243,
+   "notes": 20,
+   "minus_direct": {
+    "difference": -0.0478,
+    "ci": [
+     -0.1434,
+     0.0503
+    ]
+   }
+  },
+  "A3 summary then fill disagreements checked by Z2": {
+   "macro_f1": 0.6042,
+   "false_positives": 228,
+   "accuracy_on_documented_items": 0.6216,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.018,
+    "ci": [
+     -0.0596,
+     0.0963
+    ]
+   }
+  },
+  "A3 summary then fill disagreements checked by Z4": {
+   "macro_f1": 0.608,
+   "false_positives": 242,
+   "accuracy_on_documented_items": 0.6216,
+   "notes": 20,
+   "minus_direct": {
+    "difference": 0.0217,
+    "ci": [
+     -0.0542,
+     0.1007
+    ]
+   }
+  }
+ },
+ "generation_seconds": {
+  "direct": 30.817,
+  "A2": 26.14
+ }
+}

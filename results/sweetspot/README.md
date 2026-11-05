@@ -173,3 +173,33 @@ Checks applied only where two methods disagree (`e8b_disagreement_gate.py`, 80 n
 
 Reading: encoder-only checks are useful as tie-breakers where methods disagree, not as gates. Gains on top of direct are small
 (+0.004 to +0.007); a GLiNER tie-break closes about two thirds of graph + audit's gap to direct. These are dev-split smoke results.
+
+# E9: the E8 ideas on an open model (Qwen3.8-27B on a Colab G4, CRF dev split, 20 notes)
+
+Same 20 development notes as E8's paid part, thinking off, greedy decoding, schema in the prompt (no replies failed to parse).
+Every model arm, including the direct baseline, ran on Qwen, so ideas are compared with each other; scores are not comparable with
+gpt-6-luna (direct 0.707 on these notes). Small sample, about 40 variants tried, wide intervals: these are hypotheses for a larger
+run, not results. No test look.
+
+| Arm (Qwen, 20 dev notes) | Macro-F1 | Values set where gold is unknown | Correct on documented items |
+| --- | --- | --- | --- |
+| direct | 0.586 | 462 | 0.838 |
+| graph | 0.551 | 70 | 0.486 |
+| graph + status gate by item scope (Z3) | 0.590 | 57 | 0.486 |
+| graph + audit | 0.442 | 586 | 0.802 |
+| form-guided NER, then fill (A1) | 0.550 | 129 | 0.784 |
+| graph-guided direct (A2) | 0.560 | 490 | 0.820 |
+| form-blind summary, then fill (A3) | 0.579 | 377 | 0.631 |
+| direct, disagreements with graph + audit checked by NLI | **0.657** (+0.070 [0.019, 0.137]) | 272 | 0.820 |
+| form-guided NER, disagreements with direct checked by GLiNER | **0.664** (+0.077 [-0.003, 0.167]) | 84 | 0.748 |
+
+Reading, with that caveat:
+- Qwen over-fills badly when asked for the whole form (462 values where gold is unknown, against 57 for gpt-6-luna), so everything
+  that removes unsupported values pays off more than it did on gpt-6-luna. The consistency audit, which helped gpt-6-luna, makes
+  Qwen's over-filling worse (586), so the audit's value depends on the model.
+- Form-guided NER fixes the graph's recall gap: correct on documented items 0.784 against 0.486 for the graph, with 129 rather
+  than 462 wrong fills. Its F1 equals the graph's here, but with a disagreement check it is the best arm (0.664).
+- Encoder, NLI and GLiNER checks applied to every value still lose (as in E8). Applied only where a second method disagrees they
+  give +0.05 to +0.08 on the two over-filling bases, in line with E8's small gain on gpt-6-luna.
+- Status gate with item scopes from one model call: +0.039 over the graph (0.551 to 0.590) at no loss in documented items.
+- Graph-guided direct and summary-then-fill did not beat direct (A2 -0.026, A3 -0.007), both within noise.
