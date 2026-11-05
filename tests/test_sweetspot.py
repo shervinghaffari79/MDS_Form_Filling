@@ -101,3 +101,25 @@ def test_budget_cap_stops_new_calls_without_network(tmp_path):
         assert rows == [None] and client.last_failures == {"budget": 1}
     finally:
         L.BUDGET["limit"] = old
+
+
+def test_parse_json_from_open_model_replies():
+    from sweetspot.llm import parse_json
+    assert parse_json('<think>x</think>\n```json\n{"values": [{"item": "a", "value": "y"}]}\n```') == {"values": [{"item": "a", "value": "y"}]}
+    assert parse_json("Sure: {not json} then {\"ok\": 1}") == {"ok": 1}
+    assert parse_json("no json here") is None
+
+
+def test_conform_repairs_open_model_json():
+    import pytest
+    from sweetspot.llm import Nonconforming, conform
+    from sweetspot import e4_crf_benchmark as E
+    raw = {"mentions": [{"sentence": "2", "text": "cough", "type": "condition", "subject": "patient", "assertion": "affirmed",
+                         "timing": "current"},                       # value missing, sentence as a string
+                        {"sentence": 1, "text": "x", "type": "nonsense", "value": "", "subject": "patient",
+                         "assertion": "affirmed", "timing": "current"}]}   # bad enum: dropped
+    out = conform(raw, E.MENTION_SCHEMA)
+    assert out == {"mentions": [{"sentence": 2, "text": "cough", "type": "condition", "value": "", "subject": "patient",
+                                 "assertion": "affirmed", "timing": "current"}]}
+    with pytest.raises(Nonconforming):
+        conform({"value": 3}, {"type": "object", "required": ["value"], "properties": {"value": {"type": "string", "enum": ["a"]}}})
