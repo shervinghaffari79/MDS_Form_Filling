@@ -1,0 +1,56 @@
+{
+ "model": "gpt-5-nano",
+ "cases": 20,
+ "events": 284,
+ "labels": "silver (LLM-made PMOA-TTS timelines)",
+ "arms": {
+  "direct": {
+   "right_side_of_t0": 0.613,
+   "within_tolerance": 0.493,
+   "order_concordance_mean": 0.621
+  },
+  "decomposed": {
+   "right_side_of_t0": 0.451,
+   "within_tolerance": 0.412,
+   "order_concordance_mean": 0.615
+  },
+  "hybrid (post hoc)": {
+   "right_side_of_t0": 0.496,
+   "within_tolerance": 0.408,
+   "order_concordance_mean": 0.556
+  }
+ },
+ "events_with_a_stated_anchor": {
+  "n": 205,
+  "direct": 0.483,
+  "decomposed": 0.366
+ },
+ "decomposed_anchor_classes": {
+  "reference": 168,
+  "other_event": 37,
+  "none_stated": 79
+ },
+ "decomposed_error_split": {
+  "direction": 136,
+  "magnitude": 31
+ },
+ "cost": {
+  "direct": {
+   "calls": 20,
+   "input_tokens": 48370,
+   "output_tokens": 30948,
+   "usd": 0.0148,
+   "median_call_seconds": 10.004,
+   "p95_call_seconds": 24.936
+  },
+  "decomposed": {
+   "calls": 20,
+   "input_tokens": 50750,
+   "output_tokens": 39293,
+   "usd": 0.0183,
+   "median_call_seconds": 12.432,
+   "p95_call_seconds": 26.316
+  }
+ },
+ "api_spent_usd_this_run": 0.0
+}

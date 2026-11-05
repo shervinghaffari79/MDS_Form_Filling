@@ -15,6 +15,7 @@ llm+verify (E1's best arm). A configuration is called stable when its core F1 ra
 otherwise dataset-dependent. Output: results/sweetspot/e13a_span_configs.json (no text).
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -24,7 +25,7 @@ import modal_ner_bench as G  # noqa: E402
 from sweetspot import e1_entity_layer as E1  # noqa: E402
 from sweetspot.llm import LLM, spent_usd  # noqa: E402
 
-OUT = ROOT / "results/sweetspot/e13a_span_configs.json"
+OUT = ROOT / os.environ.get("E13A_OUT", "results/sweetspot/e13a_span_configs.json")
 
 
 def overlap(a, b):
