@@ -1,0 +1,87 @@
+{
+ "encoder": "Simonlee711/Clinical_ModernBERT",
+ "train_mentions": 2016,
+ "held_out": 360,
+ "heads": {
+  "original": {
+   "n": 360,
+   "labelled_accuracy": 0.8111,
+   "per_label": {
+    "negation": 0.9139,
+    "temporality": 0.8972,
+    "experiencer": 0.9944
+   }
+  },
+  "negate": {
+   "n": 264,
+   "labelled_accuracy": 0.2538,
+   "per_label": {
+    "negation": 0.3447,
+    "temporality": 0.8068,
+    "experiencer": 0.9924
+   },
+   "label_free_consistency": 0.2311
+  },
+  "paraphrase": {
+   "n": 335,
+   "labelled_accuracy": 0.7373,
+   "per_label": {
+    "negation": 0.8806,
+    "temporality": 0.8388,
+    "experiencer": 0.997
+   },
+   "label_free_consistency": 0.809
+  },
+  "reorder": {
+   "n": 336,
+   "labelled_accuracy": 0.7946,
+   "per_label": {
+    "negation": 0.875,
+    "temporality": 0.9018,
+    "experiencer": 0.997
+   },
+   "label_free_consistency": 0.8482
+  },
+  "distractor": {
+   "n": 67,
+   "labelled_accuracy": 0.5373,
+   "per_label": {
+    "negation": 0.8955,
+    "temporality": 0.6269,
+    "experiencer": 0.9701
+   },
+   "label_free_consistency": 0.5373
+  }
+ },
+ "routing_at_0.9": {
+  "confident_share": 0.6111,
+  "accuracy_confident": 0.9227,
+  "accuracy_unsure": 0.6357
+ },
+ "e2_arms_same_cases": {
+  "status": {
+   "original": 0.8528,
+   "negate": 0.7462,
+   "paraphrase": 0.8478,
+   "reorder": 0.8839,
+   "distractor": 0.806,
+   "pooled": 0.8303
+  },
+  "direct": {
+   "original": 0.8611,
+   "negate": 0.8258,
+   "paraphrase": 0.8746,
+   "reorder": 0.8958,
+   "distractor": 0.6716,
+   "pooled": 0.8553
+  },
+  "context": {
+   "original": 0.8167,
+   "negate": 0.6364,
+   "paraphrase": 0.7582,
+   "reorder": 0.7738,
+   "distractor": 0.791,
+   "pooled": 0.7335
+  }
+ }
+}
