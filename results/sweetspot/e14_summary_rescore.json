@@ -1,0 +1,58 @@
+{
+ "development": {
+  "A3": {
+   "as_run": 0.5498,
+   "empty_fact_notes": 12,
+   "items_per_note_as_run": 26.07,
+   "fill_nothing_when_no_facts": 0.5873,
+   "items_per_note_fixed": 13.62,
+   "values_where_gold_unknown_fixed": 839
+  },
+  "S+verify": {
+   "as_run": 0.5492,
+   "empty_fact_notes": 12,
+   "items_per_note_as_run": 25.48,
+   "fill_nothing_when_no_facts": 0.5867,
+   "items_per_note_fixed": 13.03,
+   "values_where_gold_unknown_fixed": 793
+  },
+  "S+quote": {
+   "as_run": 0.3788,
+   "empty_fact_notes": 35,
+   "items_per_note_as_run": 46.84,
+   "fill_nothing_when_no_facts": 0.5398,
+   "items_per_note_fixed": 10.53,
+   "values_where_gold_unknown_fixed": 667
+  },
+  "summary_calls_failed": 12,
+  "notes": 80
+ },
+ "test": {
+  "A3": {
+   "as_run": 0.5277,
+   "empty_fact_notes": 19,
+   "items_per_note_as_run": 22.89,
+   "fill_nothing_when_no_facts": 0.5541,
+   "items_per_note_fixed": 15.0,
+   "values_where_gold_unknown_fixed": 2333
+  },
+  "S+verify": {
+   "as_run": 0.5232,
+   "empty_fact_notes": 19,
+   "items_per_note_as_run": 22.84,
+   "fill_nothing_when_no_facts": 0.5497,
+   "items_per_note_fixed": 14.96,
+   "values_where_gold_unknown_fixed": 2320
+  },
+  "S+quote": {
+   "as_run": 0.3246,
+   "empty_fact_notes": 95,
+   "items_per_note_as_run": 49.54,
+   "fill_nothing_when_no_facts": 0.4985,
+   "items_per_note_fixed": 10.12,
+   "values_where_gold_unknown_fixed": 1618
+  },
+  "summary_calls_failed": 19,
+  "notes": 200
+ }
+}
