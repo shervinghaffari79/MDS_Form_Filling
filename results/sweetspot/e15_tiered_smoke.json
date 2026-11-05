@@ -1,0 +1,95 @@
+{
+ "model": "gpt-5-nano",
+ "admissions": 15,
+ "items": 29,
+ "decisions": 435,
+ "tiers": {
+  "1": 252,
+  "2": 52,
+  "3": 131
+ },
+ "final_answers": {
+  "yes": 243,
+  "no": 61,
+  "unknown": 15,
+  "escalated": 116
+ },
+ "drafts": {
+  "yes": 261,
+  "no": 174
+ },
+ "no_drafts_window_not_covered": 91,
+ "anchoring": {
+  "items": 168,
+  "blind_agrees_with_draft": 52,
+  "shown_agrees_with_draft": 63
+ },
+ "proxy_reference": {
+  "draft (notes + records)": {
+   "tp": 95,
+   "fp": 166,
+   "fn": 15,
+   "tn": 159,
+   "precision": 0.364,
+   "recall": 0.864
+  },
+  "draft (notes only)": {
+   "tp": 75,
+   "fp": 119,
+   "fn": 35,
+   "tn": 206,
+   "precision": 0.387,
+   "recall": 0.682
+  },
+  "final, settled items only": {
+   "tp": 93,
+   "fp": 150,
+   "fn": 2,
+   "tn": 59,
+   "precision": 0.383,
+   "recall": 0.979
+  },
+  "blind answer, items sent to tier 2": {
+   "tp": 14,
+   "fp": 8,
+   "fn": 6,
+   "tn": 140,
+   "precision": 0.636,
+   "recall": 0.7
+  },
+  "shown-draft answer, same items": {
+   "tp": 13,
+   "fp": 14,
+   "fn": 7,
+   "tn": 134,
+   "precision": 0.481,
+   "recall": 0.65
+  }
+ },
+ "mentions_per_admission": 409.2,
+ "distinct_concepts": 3472,
+ "llm_calls": {
+  "member": 87,
+  "frame": 15,
+  "scope": 1,
+  "blind": 168,
+  "shown": 168
+ },
+ "api_spent_usd_this_run": 0.1387,
+ "cost_all_cached_rows": {
+  "calls": 439,
+  "input_tokens": 262393,
+  "output_tokens": 314048,
+  "usd": 0.1387,
+  "median_call_seconds": 3.124,
+  "p95_call_seconds": 14.828
+ },
+ "wall_seconds": 746,
+ "failures": {
+  "member": {},
+  "frame": {},
+  "scope": {},
+  "blind": {},
+  "shown": {}
+ }
+}
