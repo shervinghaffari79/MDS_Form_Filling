@@ -23,10 +23,11 @@ def request_key(model, system, prompt, schema):
 
 
 class LLM:
-    def __init__(self, cache_name, model=DEFAULT_MODEL, workers=16):
+    def __init__(self, cache_name, model=DEFAULT_MODEL, workers=16, cache_dir=None):
         self.model, self.workers = model, workers
-        CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        self.path = CACHE_DIR / f"{cache_name}.jsonl"
+        folder = Path(cache_dir) if cache_dir else CACHE_DIR  # MIMIC-derived replies are kept under /home/user/mimic
+        folder.mkdir(parents=True, exist_ok=True)
+        self.path = folder / f"{cache_name}.jsonl"
         self.lock, self.done = threading.Lock(), {}
         if self.path.exists():
             for line in self.path.read_text().splitlines():

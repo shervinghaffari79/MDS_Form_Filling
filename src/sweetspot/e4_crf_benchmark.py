@@ -48,8 +48,8 @@ STATUS_FIELDS = {"subject": ["patient", "other_person", "unclear"], "assertion":
                  "timing": ["current", "chronic_ongoing", "past_resolved", "future_or_hypothetical", "unclear"]}
 
 
-def load(split):
-    d = pd.read_parquet(DATA / f"{split}_en.parquet")
+def load(split, lang="en"):
+    d = pd.read_parquet(DATA / f"{split}_{lang}.parquet")
     return [{"id": r.document_id, "note": r.clinical_note, "gold": {a["item"]: a["ground_truth"] for a in r.annotations},
              "order": [a["item"] for a in r.annotations]} for r in d.itertuples()]
 
@@ -258,12 +258,14 @@ def graph_arms(docs, opts, split, encoder):
 
     variants = {"graph": (kept, member, True), "graph-verify": (raw, member, True), "graph-status": (kept, member, False),
                 "graph-encoder": (kept, enc_member, True)}
-    preds, arm_spend = {}, {}
+    preds, arm_spend, evidence = {}, {}, {}
     fill = LLM("e4_fill")
     for arm, (ms_by, table, with_status) in variants.items():
         reqs, ids = [], []
+        evidence[arm] = {}
         for d in docs:
             linked = link(ms_by[d["id"]], table)
+            evidence[arm][d["id"]] = linked
             if linked:
                 reqs.append(fill_request(sents[d["id"]], linked, opts, with_status))
                 ids.append(d["id"])
@@ -286,8 +288,9 @@ def graph_arms(docs, opts, split, encoder):
         groups = [spend["extract"]] + ([spend["verify"]] if arm != "graph-verify" else []) + \
                  [arm_spend["graph" if arm == "graph+audit" else arm]] + ([arm_spend["graph+audit"]] if arm == "graph+audit" else [])
         lat[arm] = round(float(sum(np.median([r["seconds"] for r in g if r]) for g in groups if any(g))), 2)
-    return preds, costs, lat, {"mentions_per_note": round(np.mean([len(v) for v in raw.values()]), 1),
-                               "kept_per_note": round(np.mean([len(v) for v in kept.values()]), 1), "distinct_concepts": len(concepts)}
+    info = {"mentions_per_note": round(np.mean([len(v) for v in raw.values()]), 1),
+            "kept_per_note": round(np.mean([len(v) for v in kept.values()]), 1), "distinct_concepts": len(concepts)}
+    return preds, costs, lat, info, {"evidence": evidence, "sentences": sents, "spend": spend, "arm_spend": arm_spend}
 
 
 def run_split(split, opts, encoder, with_reader):
@@ -314,7 +317,7 @@ def run_split(split, opts, encoder, with_reader):
             if r:
                 per_note[k].append(r["seconds"])
         lat["reader"] = round(float(np.median([sum(v) / 32 for v in per_note.values()])), 2)
-    g_preds, g_costs, g_lat, g_info = graph_arms(docs, opts, split, encoder)
+    g_preds, g_costs, g_lat, g_info, _ = graph_arms(docs, opts, split, encoder)
     preds.update(g_preds)
     costs.update(g_costs)
     lat.update(g_lat)

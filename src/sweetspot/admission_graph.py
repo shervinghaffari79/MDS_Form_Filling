@@ -130,7 +130,15 @@ def norm(text):
     return re.sub(r"\s+", " ", text.strip().lower())
 
 
+def use_items(cfg):
+    """Swap the item set (a dict shaped like items_mds20.json). The method is unchanged; only the form's items and wording differ."""
+    global ITEMS
+    ITEMS = cfg
+
+
 def window_days(item):
+    if "window_days" in item:  # look-back stated in the item configuration (used for forms other than MDS 2.0)
+        return item["window_days"]
     code = item["code"]
     if code.startswith("O4"):
         return 7
