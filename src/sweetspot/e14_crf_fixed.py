@@ -16,7 +16,10 @@ Fixes for the graph (each one fill call per note from the evidence shown):
   G+B, G+T, G+B+T, and G+B+T without the verifier (-verify) or without the status record in the fill (-status); F+T
 Summary checks (A3's facts are checked before the fill; E13b's design): S+verify (an LLM pass marks each fact supported by the note),
   S+NER (GLiNER-BioMed, six broad types, run over the whole note in windows, must find a span matching the fact),
-  S+verify&NER (both), S+verify|NER (either)
+  S+verify&NER (both), S+verify|NER (either); fixes after E13b (that verifier passed nearly every fact, NER removed many true ones,
+  the encoder cut needed a threshold): S+quote (the verifier must copy the passage that states each fact; a fact stays only if the
+  copied passage occurs in the note), S+NER->quote (NER keeps what it finds; the rest goes to the quote check), S+NLI (the NLI model
+  must find the fact entailed by one of the 3 most similar sentences; no threshold)
 Consensus over sub-graphs (no extra calls): vote(a, b, c[, d]) keeps a value that at least two of the arms give;
   vote(...)+rescue keeps also the first arm's other values that pass the NER check (Z4)
 Disagreement checks with direct (no extra calls): tie-break(a|b, Z) keeps a's values that b gives too, and a's other values that pass
@@ -111,6 +114,19 @@ class Checks:
             self._spans[k] = [e["text"] for w in self.windows(note) for e in self.gl.predict_entities(w, C.LABELS, threshold=0.5)]
         return self._spans[k]
 
+    def entailed(self, note, facts):
+        """A fact is kept if the NLI model finds it entailed by one of the 3 note sentences most similar to it (no threshold)."""
+        ss = E.sentences(note)
+        if not facts or not ss:
+            return [False] * len(facts)
+        hyp = [(("No " if f["assertion"] == "negated" else "") + f["text"] + (f" {f['value']}" if f["value"] else "")).strip() or " " for f in facts]
+        sv = self.enc.encode(ss, normalize_embeddings=True)
+        fv = self.enc.encode(hyp, normalize_embeddings=True)
+        top = np.argsort(-(fv @ sv.T), axis=1)[:, :3]
+        pairs = [(ss[t], h) for h, row in zip(hyp, top) for t in row]
+        lab = np.argmax(self.nli.predict(pairs, batch_size=64), axis=1).reshape(len(facts), -1)
+        return [bool((row == self.ent).any()) for row in lab]
+
     def z4(self, preds, notes):
         return {k: {i: v for i, v in p.items() if i in self.found(notes[k])} for k, p in preds.items()}
 
@@ -137,6 +153,21 @@ class Checks:
                 if S.kind(self.opts[i]) != "measured" and (k, i) not in ok:
                     out[k].pop(i)
         return out
+
+
+QUOTE_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["quotes"],
+                "properties": {"quotes": {"type": "array", "items": {
+                    "type": "object", "additionalProperties": False, "required": ["fact", "quote"],
+                    "properties": {"fact": {"type": "integer"}, "quote": {"type": "string"}}}}}}
+
+
+def quote_request(note, facts):
+    lines = "\n".join(f"[{i}] {f['category']}: {f['text']}" + (f" = {f['value']}" if f["value"] else "") +
+                      f" ({f['subject']}, {f['assertion']}, {f['timing']})" for i, f in enumerate(facts))
+    return {"name": "quotes", "system": E.SYSTEM, "schema": QUOTE_SCHEMA,
+            "prompt": ("For each fact below, copy the shortest passage of the note that states it for this patient, as described "
+                       "(including whether it is affirmed or negated), exactly as written in the note. Give an empty string if the note "
+                       f"does not state it.\n\nNote:\n{note}\n\nFacts:\n{lines}")}
 
 
 def item_scopes(opts):
@@ -215,10 +246,22 @@ def run_all(docs, opts, chk, scopes, encoder):
         vflags.append([by.get(j, True) for j in range(len(fs))])
         vrows.append(r)
     nflags = [[C.ner_match(f, chk.spans(notes[k])) for f in fs] for k, fs in zip(ids, facts)]
+    # fixed checks (after E13b): a quote-grounded verifier, the NER -> verifier cascade, and NLI entailment instead of a cosine cut
+    qr = LLM("e14_fact_quote").run([quote_request(notes[k], fs) for k, fs in zip(ids, facts) if fs])
+    it = iter(qr)
+    qflags, qrows = [], []
+    for k, fs in zip(ids, facts):
+        r = next(it) if fs else None
+        by = {v["fact"]: v["quote"] for v in (r["parsed"].get("quotes", []) if r else [])}
+        qflags.append([bool(by.get(j, "").strip()) and S.norm(by[j]) in S.norm(notes[k]) for j in range(len(fs))])
+        qrows.append(r)
+    eflags = [chk.entailed(notes[k], fs) for k, fs in zip(ids, facts)]
     sfill = LLM("e10_summary_fill")
     for name, flags, extra_rows in (("A3", [[True] * len(f) for f in facts], []), ("S+verify", vflags, vrows), ("S+NER", nflags, []),
                                     ("S+verify&NER", [[a and b for a, b in zip(x, y)] for x, y in zip(vflags, nflags)], vrows),
-                                    ("S+verify|NER", [[a or b for a, b in zip(x, y)] for x, y in zip(vflags, nflags)], vrows)):
+                                    ("S+verify|NER", [[a or b for a, b in zip(x, y)] for x, y in zip(vflags, nflags)], vrows),
+                                    ("S+quote", qflags, qrows), ("S+NER->quote", [[a or b for a, b in zip(x, y)] for x, y in zip(nflags, qflags)], qrows),
+                                    ("S+NLI", eflags, [])):
         kept = [[f for f, ok in zip(fs, fl) if ok] for fs, fl in zip(facts, flags)]
         reps = sfill.run([S.fill_from_summary_request(fs, opts) for fs in kept])
         arms[name] = {k: E.parse_fill(r, opts) for k, r in zip(ids, reps)}
@@ -248,7 +291,7 @@ def run_all(docs, opts, chk, scopes, encoder):
         return out
 
     combos = {}
-    for a in ("G+B+T", "G+B", "G+T", "graph", "A1", "F+T", "A3", "S+verify", "S+verify&NER", "A2", "graph+audit"):
+    for a in ("G+B+T", "G+B", "G+T", "graph", "A1", "F+T", "A3", "S+verify", "S+verify&NER", "S+quote", "S+NER->quote", "S+NLI", "A2", "graph+audit"):
         for z in ("Z4", "Z2"):
             combos[f"tie-break({a}|direct,{z})"] = (tie(a, "direct", z), [a, "direct"])
         combos[f"agree({a},direct)"] = ({k: {i: v for i, v in arms[a][k].items() if arms["direct"][k].get(i) == v} for k in ids}, [a, "direct"])
@@ -369,7 +412,7 @@ def report():
         common = [a for a in labelled if a in row]
         validity[kind] = kendall({a: labelled[a] for a in common}, {a: row[a] for a in common})
     ladder = ["graph", "G+T", "G+B", "G+B+T", "G+B+T-verify", "G+B+T-status", "F+T", "A1", "A3", "S+verify", "S+NER", "S+verify&NER",
-              "S+verify|NER", "tie-break(G+B+T|direct,Z4)", "tie-break(G+B+T|direct,Z2)", "vote(G+B+T,F+T,S+verify)",
+              "S+verify|NER", "S+quote", "S+NER->quote", "S+NLI", "tie-break(G+B+T|direct,Z4)", "tie-break(G+B+T|direct,Z2)", "vote(G+B+T,F+T,S+verify)",
               "vote(G+B+T,F+T,S+verify,direct)", "vote(G+B+T,F+T,S+verify,direct)+rescue", PREVIOUS_BEST, "direct", pick]
     out = {"model": parts["dev"]["model"], "headline_picked_on_dev": pick, "looks": {"test_en": 5, "test_it": 2},
            "battery_validity_kendall_tau": validity, "ablation_ladder": list(dict.fromkeys(ladder)),
