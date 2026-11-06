@@ -1,0 +1,1103 @@
+{
+ "admissions": 100,
+ "chunk_sentences": 60,
+ "mentions_per_admission": {
+  "notes": 171.7,
+  "notes+v": 154.9
+ },
+ "distinct_concepts": 9716,
+ "membership_calls": 325,
+ "arms": {
+  "notes": {
+   "items_per_admission_mean": 10.6,
+   "by_section_mean": {
+    "I": 7.03,
+    "O": 2.33,
+    "P": 1.24
+   },
+   "prevalence": {
+    "I1a": 0.32,
+    "I1b": 0.01,
+    "I1c": 0.25,
+    "I1d": 0.42,
+    "I1e": 0.46,
+    "I1f": 0.29,
+    "I1g": 0.03,
+    "I1h": 0.83,
+    "I1i": 0.12,
+    "I1j": 0.19,
+    "I1k": 0.51,
+    "I1l": 0.32,
+    "I1m": 0.09,
+    "I1n": 0.05,
+    "I1o": 0.15,
+    "I1p": 0.03,
+    "I1r": 0.06,
+    "I1s": 0.06,
+    "I1t": 0.01,
+    "I1u": 0.08,
+    "I1v": 0.04,
+    "I1w": 0.07,
+    "I1z": 0.01,
+    "I1cc": 0.06,
+    "I1dd": 0.01,
+    "I1ee": 0.03,
+    "I1ff": 0.03,
+    "I1gg": 0.16,
+    "I1hh": 0.02,
+    "I1ii": 0.01,
+    "I1jj": 0.1,
+    "I1kk": 0.19,
+    "I1nn": 0.05,
+    "I1oo": 0.02,
+    "I1pp": 0.02,
+    "I1qq": 0.29,
+    "I1rr": 0.2,
+    "I1ss": 0.48,
+    "I1tt": 0.09,
+    "I1uu": 0.21,
+    "I2a": 0.02,
+    "I2b": 0.02,
+    "I2c": 0.03,
+    "I2d": 0.01,
+    "I2e": 0.01,
+    "I2f": 0.14,
+    "I2g": 0.14,
+    "I2h": 0.07,
+    "I2k": 0.19,
+    "I2l": 0.03,
+    "O4a": 0.15,
+    "O4b": 0.25,
+    "O4c": 0.39,
+    "O4d": 0.1,
+    "O4e": 0.5,
+    "O4f": 0.94,
+    "P1a-a": 0.04,
+    "P1a-b": 0.06,
+    "P1a-c": 0.57,
+    "P1a-d": 0.01,
+    "P1a-e": 0.12,
+    "P1a-f": 0.01,
+    "P1a-g": 0.19,
+    "P1a-h": 0.01,
+    "P1a-k": 0.18,
+    "P1a-l": 0.05
+   }
+  },
+  "notes+v": {
+   "items_per_admission_mean": 10.55,
+   "by_section_mean": {
+    "I": 7.01,
+    "O": 2.33,
+    "P": 1.21
+   },
+   "prevalence": {
+    "I1a": 0.32,
+    "I1b": 0.01,
+    "I1c": 0.25,
+    "I1d": 0.42,
+    "I1e": 0.46,
+    "I1f": 0.29,
+    "I1g": 0.03,
+    "I1h": 0.83,
+    "I1i": 0.11,
+    "I1j": 0.19,
+    "I1k": 0.51,
+    "I1l": 0.32,
+    "I1m": 0.09,
+    "I1n": 0.05,
+    "I1o": 0.15,
+    "I1p": 0.03,
+    "I1r": 0.06,
+    "I1s": 0.05,
+    "I1t": 0.01,
+    "I1u": 0.08,
+    "I1v": 0.04,
+    "I1w": 0.07,
+    "I1z": 0.01,
+    "I1cc": 0.06,
+    "I1dd": 0.01,
+    "I1ee": 0.03,
+    "I1ff": 0.03,
+    "I1gg": 0.16,
+    "I1hh": 0.02,
+    "I1ii": 0.01,
+    "I1jj": 0.1,
+    "I1kk": 0.19,
+    "I1nn": 0.05,
+    "I1oo": 0.02,
+    "I1pp": 0.02,
+    "I1qq": 0.29,
+    "I1rr": 0.2,
+    "I1ss": 0.48,
+    "I1tt": 0.09,
+    "I1uu": 0.21,
+    "I2a": 0.02,
+    "I2b": 0.02,
+    "I2c": 0.03,
+    "I2d": 0.01,
+    "I2e": 0.01,
+    "I2f": 0.14,
+    "I2g": 0.14,
+    "I2h": 0.07,
+    "I2k": 0.19,
+    "I2l": 0.03,
+    "O4a": 0.15,
+    "O4b": 0.25,
+    "O4c": 0.39,
+    "O4d": 0.1,
+    "O4e": 0.5,
+    "O4f": 0.94,
+    "P1a-a": 0.04,
+    "P1a-b": 0.06,
+    "P1a-c": 0.57,
+    "P1a-d": 0.01,
+    "P1a-e": 0.09,
+    "P1a-f": 0.01,
+    "P1a-g": 0.19,
+    "P1a-h": 0.01,
+    "P1a-k": 0.18,
+    "P1a-l": 0.05
+   }
+  },
+  "notes+v+t": {
+   "items_per_admission_mean": 10.5,
+   "by_section_mean": {
+    "I": 6.96,
+    "O": 2.33,
+    "P": 1.21
+   },
+   "prevalence": {
+    "I1a": 0.32,
+    "I1b": 0.01,
+    "I1c": 0.25,
+    "I1d": 0.42,
+    "I1e": 0.46,
+    "I1f": 0.28,
+    "I1g": 0.03,
+    "I1h": 0.83,
+    "I1i": 0.11,
+    "I1j": 0.19,
+    "I1k": 0.51,
+    "I1l": 0.32,
+    "I1m": 0.09,
+    "I1n": 0.05,
+    "I1o": 0.15,
+    "I1p": 0.03,
+    "I1r": 0.06,
+    "I1s": 0.05,
+    "I1t": 0.01,
+    "I1u": 0.07,
+    "I1v": 0.04,
+    "I1w": 0.07,
+    "I1z": 0.01,
+    "I1cc": 0.06,
+    "I1dd": 0.01,
+    "I1ee": 0.03,
+    "I1ff": 0.03,
+    "I1gg": 0.16,
+    "I1hh": 0.02,
+    "I1ii": 0.01,
+    "I1jj": 0.1,
+    "I1kk": 0.19,
+    "I1nn": 0.05,
+    "I1oo": 0.02,
+    "I1pp": 0.02,
+    "I1qq": 0.29,
+    "I1rr": 0.2,
+    "I1ss": 0.48,
+    "I1tt": 0.09,
+    "I1uu": 0.21,
+    "I2a": 0.02,
+    "I2b": 0.02,
+    "I2c": 0.03,
+    "I2d": 0.01,
+    "I2e": 0.01,
+    "I2f": 0.13,
+    "I2g": 0.12,
+    "I2h": 0.07,
+    "I2k": 0.19,
+    "I2l": 0.03,
+    "O4a": 0.15,
+    "O4b": 0.25,
+    "O4c": 0.39,
+    "O4d": 0.1,
+    "O4e": 0.5,
+    "O4f": 0.94,
+    "P1a-a": 0.04,
+    "P1a-b": 0.06,
+    "P1a-c": 0.57,
+    "P1a-d": 0.01,
+    "P1a-e": 0.09,
+    "P1a-f": 0.01,
+    "P1a-g": 0.19,
+    "P1a-h": 0.01,
+    "P1a-k": 0.18,
+    "P1a-l": 0.05
+   }
+  },
+  "records": {
+   "items_per_admission_mean": 10.3,
+   "by_section_mean": {
+    "I": 6.61,
+    "O": 2.63,
+    "P": 1.06
+   },
+   "prevalence": {
+    "I1a": 0.39,
+    "I1b": 0.01,
+    "I1c": 0.24,
+    "I1d": 0.42,
+    "I1e": 0.44,
+    "I1f": 0.28,
+    "I1g": 0.01,
+    "I1h": 0.78,
+    "I1i": 0.09,
+    "I1j": 0.14,
+    "I1k": 0.26,
+    "I1l": 0.09,
+    "I1m": 0.08,
+    "I1n": 0.06,
+    "I1o": 0.12,
+    "I1p": 0.02,
+    "I1r": 0.05,
+    "I1s": 0.05,
+    "I1t": 0.01,
+    "I1u": 0.23,
+    "I1v": 0.05,
+    "I1w": 0.08,
+    "I1z": 0.01,
+    "I1cc": 0.1,
+    "I1dd": 0.1,
+    "I1ee": 0.04,
+    "I1ff": 0.11,
+    "I1gg": 0.15,
+    "I1hh": 0.04,
+    "I1ii": 0.01,
+    "I1jj": 0.09,
+    "I1kk": 0.16,
+    "I1mm": 0.01,
+    "I1nn": 0.04,
+    "I1oo": 0.01,
+    "I1pp": 0.01,
+    "I1qq": 0.35,
+    "I1rr": 0.17,
+    "I1ss": 0.42,
+    "I1tt": 0.07,
+    "I1uu": 0.24,
+    "I2b": 0.02,
+    "I2c": 0.03,
+    "I2d": 0.01,
+    "I2e": 0.01,
+    "I2f": 0.09,
+    "I2g": 0.08,
+    "I2h": 0.08,
+    "I2k": 0.24,
+    "I2l": 0.02,
+    "O4a": 0.25,
+    "O4b": 0.4,
+    "O4c": 0.43,
+    "O4d": 0.12,
+    "O4e": 0.45,
+    "O4f": 0.98,
+    "P1a-b": 0.04,
+    "P1a-c": 0.72,
+    "P1a-d": 0.01,
+    "P1a-f": 0.01,
+    "P1a-g": 0.01,
+    "P1a-j": 0.01,
+    "P1a-k": 0.16,
+    "P1a-l": 0.1
+   }
+  },
+  "graph": {
+   "items_per_admission_mean": 13.04,
+   "by_section_mean": {
+    "I": 8.47,
+    "O": 2.88,
+    "P": 1.69
+   },
+   "prevalence": {
+    "I1a": 0.4,
+    "I1b": 0.01,
+    "I1c": 0.26,
+    "I1d": 0.46,
+    "I1e": 0.52,
+    "I1f": 0.3,
+    "I1g": 0.03,
+    "I1h": 0.86,
+    "I1i": 0.17,
+    "I1j": 0.22,
+    "I1k": 0.52,
+    "I1l": 0.32,
+    "I1m": 0.1,
+    "I1n": 0.07,
+    "I1o": 0.18,
+    "I1p": 0.05,
+    "I1r": 0.06,
+    "I1s": 0.07,
+    "I1t": 0.01,
+    "I1u": 0.24,
+    "I1v": 0.07,
+    "I1w": 0.1,
+    "I1z": 0.01,
+    "I1cc": 0.1,
+    "I1dd": 0.11,
+    "I1ee": 0.04,
+    "I1ff": 0.12,
+    "I1gg": 0.2,
+    "I1hh": 0.04,
+    "I1ii": 0.01,
+    "I1jj": 0.12,
+    "I1kk": 0.21,
+    "I1mm": 0.01,
+    "I1nn": 0.05,
+    "I1oo": 0.03,
+    "I1pp": 0.03,
+    "I1qq": 0.4,
+    "I1rr": 0.22,
+    "I1ss": 0.57,
+    "I1tt": 0.1,
+    "I1uu": 0.31,
+    "I2a": 0.02,
+    "I2b": 0.03,
+    "I2c": 0.03,
+    "I2d": 0.01,
+    "I2e": 0.01,
+    "I2f": 0.15,
+    "I2g": 0.15,
+    "I2h": 0.1,
+    "I2k": 0.24,
+    "I2l": 0.03,
+    "O4a": 0.27,
+    "O4b": 0.45,
+    "O4c": 0.47,
+    "O4d": 0.16,
+    "O4e": 0.55,
+    "O4f": 0.98,
+    "P1a-a": 0.04,
+    "P1a-b": 0.06,
+    "P1a-c": 0.85,
+    "P1a-d": 0.02,
+    "P1a-e": 0.09,
+    "P1a-f": 0.02,
+    "P1a-g": 0.2,
+    "P1a-h": 0.01,
+    "P1a-j": 0.01,
+    "P1a-k": 0.27,
+    "P1a-l": 0.12
+   }
+  }
+ },
+ "note_vs_records_agreement": {
+  "notes+v": {
+   "I1a": {
+    "both": 31,
+    "note_only": 1,
+    "records_only": 8
+   },
+   "I1b": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1c": {
+    "both": 23,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1d": {
+    "both": 38,
+    "note_only": 4,
+    "records_only": 4
+   },
+   "I1e": {
+    "both": 38,
+    "note_only": 8,
+    "records_only": 6
+   },
+   "I1f": {
+    "both": 27,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1g": {
+    "both": 1,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "I1h": {
+    "both": 75,
+    "note_only": 8,
+    "records_only": 3
+   },
+   "I1i": {
+    "both": 3,
+    "note_only": 8,
+    "records_only": 6
+   },
+   "I1j": {
+    "both": 11,
+    "note_only": 8,
+    "records_only": 3
+   },
+   "I1k": {
+    "both": 25,
+    "note_only": 26,
+    "records_only": 1
+   },
+   "I1l": {
+    "both": 9,
+    "note_only": 23,
+    "records_only": 0
+   },
+   "I1m": {
+    "both": 7,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1n": {
+    "both": 4,
+    "note_only": 1,
+    "records_only": 2
+   },
+   "I1o": {
+    "both": 9,
+    "note_only": 6,
+    "records_only": 3
+   },
+   "I1p": {
+    "both": 0,
+    "note_only": 3,
+    "records_only": 2
+   },
+   "I1r": {
+    "both": 5,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "I1s": {
+    "both": 3,
+    "note_only": 2,
+    "records_only": 2
+   },
+   "I1t": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1u": {
+    "both": 7,
+    "note_only": 1,
+    "records_only": 16
+   },
+   "I1v": {
+    "both": 2,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I1w": {
+    "both": 5,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I1z": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1cc": {
+    "both": 6,
+    "note_only": 0,
+    "records_only": 4
+   },
+   "I1dd": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 10
+   },
+   "I1ee": {
+    "both": 3,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "I1ff": {
+    "both": 2,
+    "note_only": 1,
+    "records_only": 9
+   },
+   "I1gg": {
+    "both": 11,
+    "note_only": 5,
+    "records_only": 4
+   },
+   "I1hh": {
+    "both": 2,
+    "note_only": 0,
+    "records_only": 2
+   },
+   "I1ii": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1jj": {
+    "both": 7,
+    "note_only": 3,
+    "records_only": 2
+   },
+   "I1kk": {
+    "both": 14,
+    "note_only": 5,
+    "records_only": 2
+   },
+   "I1mm": {
+    "both": 0,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "I1nn": {
+    "both": 4,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "I1oo": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1pp": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1qq": {
+    "both": 24,
+    "note_only": 5,
+    "records_only": 11
+   },
+   "I1rr": {
+    "both": 15,
+    "note_only": 5,
+    "records_only": 2
+   },
+   "I1ss": {
+    "both": 33,
+    "note_only": 15,
+    "records_only": 9
+   },
+   "I1tt": {
+    "both": 6,
+    "note_only": 3,
+    "records_only": 1
+   },
+   "I1uu": {
+    "both": 14,
+    "note_only": 7,
+    "records_only": 10
+   },
+   "I2a": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "I2b": {
+    "both": 1,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "I2c": {
+    "both": 3,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2d": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2e": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2f": {
+    "both": 8,
+    "note_only": 6,
+    "records_only": 1
+   },
+   "I2g": {
+    "both": 7,
+    "note_only": 7,
+    "records_only": 1
+   },
+   "I2h": {
+    "both": 5,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I2k": {
+    "both": 19,
+    "note_only": 0,
+    "records_only": 5
+   },
+   "I2l": {
+    "both": 2,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "O4a": {
+    "both": 13,
+    "note_only": 2,
+    "records_only": 12
+   },
+   "O4b": {
+    "both": 20,
+    "note_only": 5,
+    "records_only": 20
+   },
+   "O4c": {
+    "both": 35,
+    "note_only": 4,
+    "records_only": 8
+   },
+   "O4d": {
+    "both": 6,
+    "note_only": 4,
+    "records_only": 6
+   },
+   "O4e": {
+    "both": 40,
+    "note_only": 10,
+    "records_only": 5
+   },
+   "O4f": {
+    "both": 94,
+    "note_only": 0,
+    "records_only": 4
+   },
+   "P1a-a": {
+    "both": 0,
+    "note_only": 4,
+    "records_only": 0
+   },
+   "P1a-b": {
+    "both": 4,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "P1a-c": {
+    "both": 44,
+    "note_only": 13,
+    "records_only": 28
+   },
+   "P1a-d": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "P1a-e": {
+    "both": 0,
+    "note_only": 9,
+    "records_only": 0
+   },
+   "P1a-f": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "P1a-g": {
+    "both": 0,
+    "note_only": 19,
+    "records_only": 1
+   },
+   "P1a-h": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "P1a-j": {
+    "both": 0,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "P1a-k": {
+    "both": 7,
+    "note_only": 11,
+    "records_only": 9
+   },
+   "P1a-l": {
+    "both": 3,
+    "note_only": 2,
+    "records_only": 7
+   }
+  },
+  "notes+v+t": {
+   "I1a": {
+    "both": 31,
+    "note_only": 1,
+    "records_only": 8
+   },
+   "I1b": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1c": {
+    "both": 23,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1d": {
+    "both": 38,
+    "note_only": 4,
+    "records_only": 4
+   },
+   "I1e": {
+    "both": 38,
+    "note_only": 8,
+    "records_only": 6
+   },
+   "I1f": {
+    "both": 26,
+    "note_only": 2,
+    "records_only": 2
+   },
+   "I1g": {
+    "both": 1,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "I1h": {
+    "both": 75,
+    "note_only": 8,
+    "records_only": 3
+   },
+   "I1i": {
+    "both": 3,
+    "note_only": 8,
+    "records_only": 6
+   },
+   "I1j": {
+    "both": 11,
+    "note_only": 8,
+    "records_only": 3
+   },
+   "I1k": {
+    "both": 25,
+    "note_only": 26,
+    "records_only": 1
+   },
+   "I1l": {
+    "both": 9,
+    "note_only": 23,
+    "records_only": 0
+   },
+   "I1m": {
+    "both": 7,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1n": {
+    "both": 4,
+    "note_only": 1,
+    "records_only": 2
+   },
+   "I1o": {
+    "both": 9,
+    "note_only": 6,
+    "records_only": 3
+   },
+   "I1p": {
+    "both": 0,
+    "note_only": 3,
+    "records_only": 2
+   },
+   "I1r": {
+    "both": 5,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "I1s": {
+    "both": 3,
+    "note_only": 2,
+    "records_only": 2
+   },
+   "I1t": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1u": {
+    "both": 7,
+    "note_only": 0,
+    "records_only": 16
+   },
+   "I1v": {
+    "both": 2,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I1w": {
+    "both": 5,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I1z": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1cc": {
+    "both": 6,
+    "note_only": 0,
+    "records_only": 4
+   },
+   "I1dd": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 10
+   },
+   "I1ee": {
+    "both": 3,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "I1ff": {
+    "both": 2,
+    "note_only": 1,
+    "records_only": 9
+   },
+   "I1gg": {
+    "both": 11,
+    "note_only": 5,
+    "records_only": 4
+   },
+   "I1hh": {
+    "both": 2,
+    "note_only": 0,
+    "records_only": 2
+   },
+   "I1ii": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I1jj": {
+    "both": 7,
+    "note_only": 3,
+    "records_only": 2
+   },
+   "I1kk": {
+    "both": 14,
+    "note_only": 5,
+    "records_only": 2
+   },
+   "I1mm": {
+    "both": 0,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "I1nn": {
+    "both": 4,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "I1oo": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1pp": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 1
+   },
+   "I1qq": {
+    "both": 24,
+    "note_only": 5,
+    "records_only": 11
+   },
+   "I1rr": {
+    "both": 15,
+    "note_only": 5,
+    "records_only": 2
+   },
+   "I1ss": {
+    "both": 33,
+    "note_only": 15,
+    "records_only": 9
+   },
+   "I1tt": {
+    "both": 6,
+    "note_only": 3,
+    "records_only": 1
+   },
+   "I1uu": {
+    "both": 14,
+    "note_only": 7,
+    "records_only": 10
+   },
+   "I2a": {
+    "both": 0,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "I2b": {
+    "both": 1,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "I2c": {
+    "both": 3,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2d": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2e": {
+    "both": 1,
+    "note_only": 0,
+    "records_only": 0
+   },
+   "I2f": {
+    "both": 7,
+    "note_only": 6,
+    "records_only": 2
+   },
+   "I2g": {
+    "both": 6,
+    "note_only": 6,
+    "records_only": 2
+   },
+   "I2h": {
+    "both": 5,
+    "note_only": 2,
+    "records_only": 3
+   },
+   "I2k": {
+    "both": 19,
+    "note_only": 0,
+    "records_only": 5
+   },
+   "I2l": {
+    "both": 2,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "O4a": {
+    "both": 13,
+    "note_only": 2,
+    "records_only": 12
+   },
+   "O4b": {
+    "both": 20,
+    "note_only": 5,
+    "records_only": 20
+   },
+   "O4c": {
+    "both": 35,
+    "note_only": 4,
+    "records_only": 8
+   },
+   "O4d": {
+    "both": 6,
+    "note_only": 4,
+    "records_only": 6
+   },
+   "O4e": {
+    "both": 40,
+    "note_only": 10,
+    "records_only": 5
+   },
+   "O4f": {
+    "both": 94,
+    "note_only": 0,
+    "records_only": 4
+   },
+   "P1a-a": {
+    "both": 0,
+    "note_only": 4,
+    "records_only": 0
+   },
+   "P1a-b": {
+    "both": 4,
+    "note_only": 2,
+    "records_only": 0
+   },
+   "P1a-c": {
+    "both": 44,
+    "note_only": 13,
+    "records_only": 28
+   },
+   "P1a-d": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "P1a-e": {
+    "both": 0,
+    "note_only": 9,
+    "records_only": 0
+   },
+   "P1a-f": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 1
+   },
+   "P1a-g": {
+    "both": 0,
+    "note_only": 19,
+    "records_only": 1
+   },
+   "P1a-h": {
+    "both": 0,
+    "note_only": 1,
+    "records_only": 0
+   },
+   "P1a-j": {
+    "both": 0,
+    "note_only": 0,
+    "records_only": 1
+   },
+   "P1a-k": {
+    "both": 7,
+    "note_only": 11,
+    "records_only": 9
+   },
+   "P1a-l": {
+    "both": 3,
+    "note_only": 2,
+    "records_only": 7
+   }
+  }
+ },
+ "cost_usd_per_admission": {
+  "extract": 0.0063,
+  "verify": 0.0031,
+  "membership_amortised": 0.002,
+  "membership_cold_start": 0.0687
+ },
+ "delay_seconds_per_admission": {
+  "notes": {
+   "median": 32.87,
+   "p95": 44.84
+  },
+  "notes+v": {
+   "median": 51.84,
+   "p95": 68.46
+  },
+  "graph_cold": {
+   "median": 74.09,
+   "p95": 94.11
+  }
+ },
+ "failures": {
+  "extract": {},
+  "verify": {},
+  "membership": {}
+ }
+}

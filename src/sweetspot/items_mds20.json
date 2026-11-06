@@ -1,0 +1,636 @@
+{
+ "form": "MDS 2.0 Canadian (CCRS)",
+ "source": "MDS 2.0 Field Reference workbook supplied by the project owner; codes and wording only",
+ "look_back": {
+  "O4": "last 7 days",
+  "P1a": "last 14 days",
+  "I2k": "last 30 days",
+  "I": "active diagnoses related to current status"
+ },
+ "items": [
+  {
+   "code": "I1a",
+   "section": "I",
+   "group": "Disease",
+   "label": "Diabetes mellitus",
+   "field_type": "Binary (checked / unchecked; active, related to current status)",
+   "wording": "Disease \u2014 Diabetes mellitus"
+  },
+  {
+   "code": "I1b",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hyperthyroidism",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hyperthyroidism"
+  },
+  {
+   "code": "I1c",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hypothyroidism",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hypothyroidism"
+  },
+  {
+   "code": "I1d",
+   "section": "I",
+   "group": "Disease",
+   "label": "Arteriosclerotic heart disease (ASHD)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Arteriosclerotic heart disease (ASHD)"
+  },
+  {
+   "code": "I1e",
+   "section": "I",
+   "group": "Disease",
+   "label": "Cardiac dysrhythmia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Cardiac dysrhythmia"
+  },
+  {
+   "code": "I1f",
+   "section": "I",
+   "group": "Disease",
+   "label": "Congestive heart failure",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Congestive heart failure"
+  },
+  {
+   "code": "I1g",
+   "section": "I",
+   "group": "Disease",
+   "label": "Deep vein thrombosis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Deep vein thrombosis"
+  },
+  {
+   "code": "I1h",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hypertension",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hypertension"
+  },
+  {
+   "code": "I1i",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hypotension",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hypotension"
+  },
+  {
+   "code": "I1j",
+   "section": "I",
+   "group": "Disease",
+   "label": "Peripheral vascular disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Peripheral vascular disease"
+  },
+  {
+   "code": "I1k",
+   "section": "I",
+   "group": "Disease",
+   "label": "Other cardiovascular disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Other cardiovascular disease"
+  },
+  {
+   "code": "I1l",
+   "section": "I",
+   "group": "Disease",
+   "label": "Arthritis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Arthritis"
+  },
+  {
+   "code": "I1m",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hip fracture",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hip fracture"
+  },
+  {
+   "code": "I1n",
+   "section": "I",
+   "group": "Disease",
+   "label": "Missing limb (e.g. amputation)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Missing limb (e.g. amputation)"
+  },
+  {
+   "code": "I1o",
+   "section": "I",
+   "group": "Disease",
+   "label": "Osteoporosis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Osteoporosis"
+  },
+  {
+   "code": "I1p",
+   "section": "I",
+   "group": "Disease",
+   "label": "Pathological bone fracture",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Pathological bone fracture"
+  },
+  {
+   "code": "I1q",
+   "section": "I",
+   "group": "Disease",
+   "label": "Amyotrophic lateral sclerosis (ALS)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Amyotrophic lateral sclerosis (ALS)"
+  },
+  {
+   "code": "I1r",
+   "section": "I",
+   "group": "Disease",
+   "label": "Alzheimer's disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Alzheimer's disease"
+  },
+  {
+   "code": "I1s",
+   "section": "I",
+   "group": "Disease",
+   "label": "Aphasia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Aphasia"
+  },
+  {
+   "code": "I1t",
+   "section": "I",
+   "group": "Disease",
+   "label": "Cerebral palsy",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Cerebral palsy"
+  },
+  {
+   "code": "I1u",
+   "section": "I",
+   "group": "Disease",
+   "label": "Cerebrovascular accident (stroke)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Cerebrovascular accident (stroke)"
+  },
+  {
+   "code": "I1v",
+   "section": "I",
+   "group": "Disease",
+   "label": "Dementia other than Alzheimer's disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Dementia other than Alzheimer's disease"
+  },
+  {
+   "code": "I1w",
+   "section": "I",
+   "group": "Disease",
+   "label": "Hemiplegia/hemiparesis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Hemiplegia/hemiparesis"
+  },
+  {
+   "code": "I1x",
+   "section": "I",
+   "group": "Disease",
+   "label": "Huntington's chorea",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Huntington's chorea"
+  },
+  {
+   "code": "I1y",
+   "section": "I",
+   "group": "Disease",
+   "label": "Multiple sclerosis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Multiple sclerosis"
+  },
+  {
+   "code": "I1z",
+   "section": "I",
+   "group": "Disease",
+   "label": "Paraplegia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Paraplegia"
+  },
+  {
+   "code": "I1aa",
+   "section": "I",
+   "group": "Disease",
+   "label": "Parkinson's disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Parkinson's disease"
+  },
+  {
+   "code": "I1bb",
+   "section": "I",
+   "group": "Disease",
+   "label": "Quadriplegia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Quadriplegia"
+  },
+  {
+   "code": "I1cc",
+   "section": "I",
+   "group": "Disease",
+   "label": "Seizure disorder",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Seizure disorder"
+  },
+  {
+   "code": "I1dd",
+   "section": "I",
+   "group": "Disease",
+   "label": "Transient ischemic attack (TIA)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Transient ischemic attack (TIA)"
+  },
+  {
+   "code": "I1ee",
+   "section": "I",
+   "group": "Disease",
+   "label": "Traumatic brain injury",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Traumatic brain injury"
+  },
+  {
+   "code": "I1ff",
+   "section": "I",
+   "group": "Disease",
+   "label": "Anxiety disorder",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Anxiety disorder"
+  },
+  {
+   "code": "I1gg",
+   "section": "I",
+   "group": "Disease",
+   "label": "Depression",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Depression"
+  },
+  {
+   "code": "I1hh",
+   "section": "I",
+   "group": "Disease",
+   "label": "Manic depressive (bipolar disorder)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Manic depressive (bipolar disorder)"
+  },
+  {
+   "code": "I1ii",
+   "section": "I",
+   "group": "Disease",
+   "label": "Schizophrenia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Schizophrenia"
+  },
+  {
+   "code": "I1jj",
+   "section": "I",
+   "group": "Disease",
+   "label": "Asthma",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Asthma"
+  },
+  {
+   "code": "I1kk",
+   "section": "I",
+   "group": "Disease",
+   "label": "Emphysema/COPD",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Emphysema/COPD"
+  },
+  {
+   "code": "I1ll",
+   "section": "I",
+   "group": "Disease",
+   "label": "Cataracts",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Cataracts"
+  },
+  {
+   "code": "I1mm",
+   "section": "I",
+   "group": "Disease",
+   "label": "Diabetic retinopathy",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Diabetic retinopathy"
+  },
+  {
+   "code": "I1nn",
+   "section": "I",
+   "group": "Disease",
+   "label": "Glaucoma",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Glaucoma"
+  },
+  {
+   "code": "I1oo",
+   "section": "I",
+   "group": "Disease",
+   "label": "Macular degeneration",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Macular degeneration"
+  },
+  {
+   "code": "I1pp",
+   "section": "I",
+   "group": "Disease",
+   "label": "Allergies",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Allergies"
+  },
+  {
+   "code": "I1qq",
+   "section": "I",
+   "group": "Disease",
+   "label": "Anemia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Anemia"
+  },
+  {
+   "code": "I1rr",
+   "section": "I",
+   "group": "Disease",
+   "label": "Cancer",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Cancer"
+  },
+  {
+   "code": "I1ss",
+   "section": "I",
+   "group": "Disease",
+   "label": "Gastrointestinal disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Gastrointestinal disease"
+  },
+  {
+   "code": "I1tt",
+   "section": "I",
+   "group": "Disease",
+   "label": "Liver disease",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Liver disease"
+  },
+  {
+   "code": "I1uu",
+   "section": "I",
+   "group": "Disease",
+   "label": "Renal failure",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Disease \u2014 Renal failure"
+  },
+  {
+   "code": "I2a",
+   "section": "I",
+   "group": "Infection",
+   "label": "Antibiotic resistant infection (e.g. MRSA)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Antibiotic resistant infection (e.g. MRSA)"
+  },
+  {
+   "code": "I2b",
+   "section": "I",
+   "group": "Infection",
+   "label": "Cellulitis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Cellulitis"
+  },
+  {
+   "code": "I2c",
+   "section": "I",
+   "group": "Infection",
+   "label": "Clostridium difficile",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Clostridium difficile"
+  },
+  {
+   "code": "I2d",
+   "section": "I",
+   "group": "Infection",
+   "label": "Conjunctivitis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Conjunctivitis"
+  },
+  {
+   "code": "I2e",
+   "section": "I",
+   "group": "Infection",
+   "label": "HIV infection",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 HIV infection"
+  },
+  {
+   "code": "I2f",
+   "section": "I",
+   "group": "Infection",
+   "label": "Pneumonia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Pneumonia"
+  },
+  {
+   "code": "I2g",
+   "section": "I",
+   "group": "Infection",
+   "label": "Respiratory infection",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Respiratory infection"
+  },
+  {
+   "code": "I2h",
+   "section": "I",
+   "group": "Infection",
+   "label": "Septicemia",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Septicemia"
+  },
+  {
+   "code": "I2i",
+   "section": "I",
+   "group": "Infection",
+   "label": "Sexually transmitted diseases",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Sexually transmitted diseases"
+  },
+  {
+   "code": "I2j",
+   "section": "I",
+   "group": "Infection",
+   "label": "Tuberculosis (active)",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Tuberculosis (active)"
+  },
+  {
+   "code": "I2k",
+   "section": "I",
+   "group": "Infection",
+   "label": "Urinary tract infection",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Urinary tract infection (last 30 days)"
+  },
+  {
+   "code": "I2l",
+   "section": "I",
+   "group": "Infection",
+   "label": "Viral hepatitis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Viral hepatitis"
+  },
+  {
+   "code": "I2m",
+   "section": "I",
+   "group": "Infection",
+   "label": "Wound infection",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Infection \u2014 Wound infection"
+  },
+  {
+   "code": "O4a",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Antipsychotic",
+   "field_type": "Numeric (days; enter 1 for long-acting meds used less than weekly)",
+   "wording": "Days Received \u2014 Antipsychotic (last 7 days)"
+  },
+  {
+   "code": "O4b",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Antianxiety",
+   "field_type": "Numeric (days)",
+   "wording": "Days Received \u2014 Antianxiety"
+  },
+  {
+   "code": "O4c",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Antidepressant",
+   "field_type": "Numeric (days)",
+   "wording": "Days Received \u2014 Antidepressant"
+  },
+  {
+   "code": "O4d",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Hypnotic",
+   "field_type": "Numeric (days)",
+   "wording": "Days Received \u2014 Hypnotic"
+  },
+  {
+   "code": "O4e",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Diuretic",
+   "field_type": "Numeric (days)",
+   "wording": "Days Received \u2014 Diuretic"
+  },
+  {
+   "code": "O4f",
+   "section": "O",
+   "group": "Days Received",
+   "label": "Analgesic",
+   "field_type": "Numeric (days)",
+   "wording": "Days Received \u2014 Analgesic"
+  },
+  {
+   "code": "P1a-a",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Chemotherapy",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Chemotherapy (last 14 days)"
+  },
+  {
+   "code": "P1a-b",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Dialysis",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Dialysis"
+  },
+  {
+   "code": "P1a-c",
+   "section": "P",
+   "group": "Special Care",
+   "label": "IV medication",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 IV medication"
+  },
+  {
+   "code": "P1a-d",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Intake/output",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Intake/output"
+  },
+  {
+   "code": "P1a-e",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Monitoring acute medical condition",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Monitoring acute medical condition"
+  },
+  {
+   "code": "P1a-f",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Ostomy care",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Ostomy care"
+  },
+  {
+   "code": "P1a-g",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Oxygen therapy",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Oxygen therapy"
+  },
+  {
+   "code": "P1a-h",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Radiation",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Radiation"
+  },
+  {
+   "code": "P1a-i",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Suctioning",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Suctioning"
+  },
+  {
+   "code": "P1a-j",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Tracheostomy care",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Tracheostomy care"
+  },
+  {
+   "code": "P1a-k",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Transfusions",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Transfusions"
+  },
+  {
+   "code": "P1a-l",
+   "section": "P",
+   "group": "Special Care",
+   "label": "Ventilator or respirator",
+   "field_type": "Binary (checked / unchecked)",
+   "wording": "Special Care \u2014 Ventilator or respirator"
+  }
+ ]
+}

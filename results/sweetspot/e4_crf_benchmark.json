@@ -1,0 +1,250 @@
+{
+ "dev": {
+  "unknown": {
+   "macro_f1": 0.4137,
+   "ci": [
+    0.3445,
+    0.4851
+   ],
+   "accuracy_on_documented_items": 0.0,
+   "items_set_per_note": 0.0,
+   "usd_per_note": 0.0,
+   "calls_per_note": 0.0,
+   "median_seconds_per_note": 0.0
+  },
+  "direct": {
+   "macro_f1": 0.7118,
+   "ci": [
+    0.6619,
+    0.7607
+   ],
+   "accuracy_on_documented_items": 0.7594,
+   "items_set_per_note": 6.1,
+   "usd_per_note": 0.00047,
+   "calls_per_note": 1.0,
+   "median_seconds_per_note": 5.59
+  },
+  "graph": {
+   "macro_f1": 0.6645,
+   "ci": [
+    0.617,
+    0.7137
+   ],
+   "accuracy_on_documented_items": 0.7193,
+   "items_set_per_note": 6.91,
+   "usd_per_note": 0.00263,
+   "calls_per_note": 3.75,
+   "median_seconds_per_note": 25.82
+  },
+  "graph-verify": {
+   "macro_f1": 0.6637,
+   "ci": [
+    0.6144,
+    0.7142
+   ],
+   "accuracy_on_documented_items": 0.7143,
+   "items_set_per_note": 6.9,
+   "usd_per_note": 0.00208,
+   "calls_per_note": 2.75,
+   "median_seconds_per_note": 19.63
+  },
+  "graph-status": {
+   "macro_f1": 0.6566,
+   "ci": [
+    0.6087,
+    0.7078
+   ],
+   "accuracy_on_documented_items": 0.7143,
+   "items_set_per_note": 6.96,
+   "usd_per_note": 0.00261,
+   "calls_per_note": 3.75,
+   "median_seconds_per_note": 25.53
+  },
+  "graph-encoder": {
+   "macro_f1": 0.5582,
+   "ci": [
+    0.509,
+    0.6086
+   ],
+   "accuracy_on_documented_items": 0.4962,
+   "items_set_per_note": 5.44,
+   "usd_per_note": 0.00218,
+   "calls_per_note": 3.0,
+   "median_seconds_per_note": 27.43
+  },
+  "graph+audit": {
+   "macro_f1": 0.6887,
+   "ci": [
+    0.642,
+    0.7349
+   ],
+   "accuracy_on_documented_items": 0.8045,
+   "items_set_per_note": 7.18,
+   "usd_per_note": 0.00322,
+   "calls_per_note": 4.75,
+   "median_seconds_per_note": 32.3
+  }
+ },
+ "dev_graph_info": {
+  "mentions_per_note": 29.4,
+  "kept_per_note": 28.2,
+  "distinct_concepts": 2075
+ },
+ "headline_picked_on_dev": "graph+audit",
+ "test": {
+  "unknown": {
+   "macro_f1": 0.4067,
+   "ci": [
+    0.3628,
+    0.4517
+   ],
+   "accuracy_on_documented_items": 0.0,
+   "items_set_per_note": 0.0,
+   "usd_per_note": 0.0,
+   "calls_per_note": 0.0,
+   "median_seconds_per_note": 0.0
+  },
+  "direct": {
+   "macro_f1": 0.6627,
+   "ci": [
+    0.6313,
+    0.6929
+   ],
+   "accuracy_on_documented_items": 0.7411,
+   "items_set_per_note": 5.98,
+   "usd_per_note": 0.00046,
+   "calls_per_note": 1.0,
+   "median_seconds_per_note": 4.85
+  },
+  "reader": {
+   "macro_f1": 0.5208,
+   "ci": [
+    0.4904,
+    0.5519
+   ],
+   "accuracy_on_documented_items": 0.8176,
+   "items_set_per_note": 11.3,
+   "usd_per_note": 0.00702,
+   "calls_per_note": 134.0,
+   "median_seconds_per_note": 4.43
+  },
+  "graph": {
+   "macro_f1": 0.5776,
+   "ci": [
+    0.544,
+    0.6091
+   ],
+   "accuracy_on_documented_items": 0.6583,
+   "items_set_per_note": 6.46,
+   "usd_per_note": 0.00236,
+   "calls_per_note": 3.58,
+   "median_seconds_per_note": 28.42
+  },
+  "graph-verify": {
+   "macro_f1": 0.571,
+   "ci": [
+    0.5383,
+    0.6036
+   ],
+   "accuracy_on_documented_items": 0.6593,
+   "items_set_per_note": 6.56,
+   "usd_per_note": 0.00187,
+   "calls_per_note": 2.59,
+   "median_seconds_per_note": 21.8
+  },
+  "graph-status": {
+   "macro_f1": 0.5724,
+   "ci": [
+    0.5395,
+    0.604
+   ],
+   "accuracy_on_documented_items": 0.6572,
+   "items_set_per_note": 6.5,
+   "usd_per_note": 0.00234,
+   "calls_per_note": 3.58,
+   "median_seconds_per_note": 28.01
+  },
+  "graph-encoder": {
+   "macro_f1": 0.5224,
+   "ci": [
+    0.4918,
+    0.5532
+   ],
+   "accuracy_on_documented_items": 0.5335,
+   "items_set_per_note": 5.9,
+   "usd_per_note": 0.00208,
+   "calls_per_note": 3.0,
+   "median_seconds_per_note": 31.07
+  },
+  "graph+audit": {
+   "macro_f1": 0.6071,
+   "ci": [
+    0.5742,
+    0.637
+   ],
+   "accuracy_on_documented_items": 0.7579,
+   "items_set_per_note": 7.2,
+   "usd_per_note": 0.00296,
+   "calls_per_note": 4.58,
+   "median_seconds_per_note": 35.29
+  }
+ },
+ "test_graph_info": {
+  "mentions_per_note": 26.2,
+  "kept_per_note": 25.1,
+  "distinct_concepts": 4171
+ },
+ "test_contrasts": {
+  "graph+audit minus direct": {
+   "difference": -0.0556,
+   "ci": [
+    -0.0752,
+    -0.0367
+   ]
+  },
+  "graph+audit minus reader": {
+   "difference": 0.0863,
+   "ci": [
+    0.0608,
+    0.1108
+   ]
+  },
+  "graph minus graph-verify": {
+   "difference": 0.0066,
+   "ci": [
+    -0.0011,
+    0.0159
+   ]
+  },
+  "graph minus graph-status": {
+   "difference": 0.0051,
+   "ci": [
+    -0.0034,
+    0.0145
+   ]
+  },
+  "graph minus graph-encoder": {
+   "difference": 0.0552,
+   "ci": [
+    0.0281,
+    0.0817
+   ]
+  },
+  "graph+audit minus graph": {
+   "difference": 0.0295,
+   "ci": [
+    0.0109,
+    0.0481
+   ]
+  },
+  "direct minus unknown": {
+   "difference": 0.256,
+   "ci": [
+    0.2076,
+    0.305
+   ]
+  }
+ },
+ "test_looks": 1,
+ "model": "gpt-6-luna"
+}

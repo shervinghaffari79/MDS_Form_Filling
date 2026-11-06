@@ -1,0 +1,349 @@
+{
+ "glaucoma": {
+  "units": 400,
+  "gold_spans": 433,
+  "scores": {
+   "llm": {
+    "core_lenient": {
+     "precision": 0.8082,
+     "recall": 0.9693,
+     "f1": 0.8815
+    },
+    "core_strict": {
+     "precision": 0.7903,
+     "recall": 0.9479,
+     "f1": 0.8619
+    },
+    "by_type_lenient_f1": {
+     "DRUG": 0.9377,
+     "ROUTE": 0.7265,
+     "FREQUENCY": 0.981,
+     "DRUG USE": 0.592,
+     "DRUG STOP": 0.7273,
+     "ADHERENCE": 0.7027,
+     "STRENGTH": 0.6667,
+     "DOSAGE": 0.5,
+     "DURATION": 0.1429
+    }
+   },
+   "gliner": {
+    "core_lenient": {
+     "precision": 0.4556,
+     "recall": 0.6288,
+     "f1": 0.5284
+    },
+    "core_strict": {
+     "precision": 0.4267,
+     "recall": 0.589,
+     "f1": 0.4948
+    },
+    "by_type_lenient_f1": {
+     "DRUG": 0.5831,
+     "ROUTE": 0.0699,
+     "FREQUENCY": 0.7248,
+     "DRUG USE": 0.0,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.2564,
+     "STRENGTH": 0.0645,
+     "DOSAGE": 0.0308,
+     "DURATION": 0.0241
+    }
+   },
+   "llm+verify": {
+    "core_lenient": {
+     "precision": 0.8848,
+     "recall": 0.9663,
+     "f1": 0.9238
+    },
+    "core_strict": {
+     "precision": 0.868,
+     "recall": 0.9479,
+     "f1": 0.9062
+    },
+    "by_type_lenient_f1": {
+     "DRUG": 0.9407,
+     "ROUTE": 0.8333,
+     "FREQUENCY": 0.9904,
+     "DRUG USE": 0.592,
+     "DRUG STOP": 0.7273,
+     "ADHERENCE": 0.7222,
+     "STRENGTH": 0.6667,
+     "DOSAGE": 0.5,
+     "DURATION": 0.4
+    }
+   },
+   "gliner+verify": {
+    "core_lenient": {
+     "precision": 0.8881,
+     "recall": 0.8037,
+     "f1": 0.8438
+    },
+    "core_strict": {
+     "precision": 0.8508,
+     "recall": 0.7699,
+     "f1": 0.8084
+    },
+    "by_type_lenient_f1": {
+     "DRUG": 0.9091,
+     "ROUTE": 0.6587,
+     "FREQUENCY": 0.9158,
+     "DRUG USE": 0.2667,
+     "DRUG STOP": 0.0,
+     "ADHERENCE": 0.75,
+     "STRENGTH": 0.6667,
+     "DOSAGE": 0.6667,
+     "DURATION": 0.2
+    }
+   }
+  },
+  "cost": {
+   "llm": {
+    "calls": 400,
+    "input_tokens": 115253,
+    "output_tokens": 32666,
+    "usd": 0.0279,
+    "median_call_seconds": 1.474,
+    "p95_call_seconds": 3.664,
+    "wall_seconds": 41.5,
+    "failures": {}
+   },
+   "gliner": {
+    "calls": 0,
+    "usd": 0.0,
+    "cpu_seconds_total": 58.6,
+    "cpu_seconds_per_unit": 0.147
+   },
+   "llm+verify": {
+    "verifier": {
+     "calls": 176,
+     "input_tokens": 59144,
+     "output_tokens": 18578,
+     "usd": 0.0152,
+     "median_call_seconds": 1.858,
+     "p95_call_seconds": 3.629,
+     "wall_seconds": 24.6,
+     "failures": {}
+    }
+   },
+   "gliner+verify": {
+    "verifier": {
+     "calls": 329,
+     "input_tokens": 108295,
+     "output_tokens": 41139,
+     "usd": 0.0314,
+     "median_call_seconds": 2.07,
+     "p95_call_seconds": 4.055,
+     "wall_seconds": 42.9,
+     "failures": {}
+    }
+   }
+  },
+  "decisions": {
+   "D1_llm": {
+    "precision_gain": [
+     0.0766,
+     [
+      0.047,
+      0.11
+     ]
+    ],
+    "f1_change": [
+     0.0423,
+     [
+      0.0244,
+      0.0628
+     ]
+    ]
+   },
+   "D1_gliner": {
+    "precision_gain": [
+     0.4326,
+     [
+      0.3786,
+      0.4919
+     ]
+    ],
+    "f1_change": [
+     0.3154,
+     [
+      0.2728,
+      0.3624
+     ]
+    ]
+   },
+   "D2_gliner_verify_minus_llm_verify_f1": [
+    -0.08,
+    [
+     -0.1153,
+     -0.0435
+    ]
+   ]
+  }
+ },
+ "maccrobat": {
+  "units": 40,
+  "gold_spans": 450,
+  "scores": {
+   "llm": {
+    "core_lenient": {
+     "precision": 0.3703,
+     "recall": 0.78,
+     "f1": 0.5021
+    },
+    "core_strict": {
+     "precision": 0.2173,
+     "recall": 0.4578,
+     "f1": 0.2947
+    },
+    "by_type_lenient_f1": {
+     "Disease_disorder": 0.3496,
+     "Medication": 0.7287,
+     "Therapeutic_procedure": 0.5986
+    }
+   },
+   "gliner": {
+    "core_lenient": {
+     "precision": 0.403,
+     "recall": 0.6511,
+     "f1": 0.4979
+    },
+    "core_strict": {
+     "precision": 0.3026,
+     "recall": 0.4889,
+     "f1": 0.3738
+    },
+    "by_type_lenient_f1": {
+     "Disease_disorder": 0.4529,
+     "Medication": 0.7213,
+     "Therapeutic_procedure": 0.3077
+    }
+   },
+   "llm+verify": {
+    "core_lenient": {
+     "precision": 0.3819,
+     "recall": 0.7578,
+     "f1": 0.5078
+    },
+    "core_strict": {
+     "precision": 0.224,
+     "recall": 0.4444,
+     "f1": 0.2978
+    },
+    "by_type_lenient_f1": {
+     "Disease_disorder": 0.3482,
+     "Medication": 0.7405,
+     "Therapeutic_procedure": 0.5971
+    }
+   },
+   "gliner+verify": {
+    "core_lenient": {
+     "precision": 0.5091,
+     "recall": 0.6244,
+     "f1": 0.5609
+    },
+    "core_strict": {
+     "precision": 0.3822,
+     "recall": 0.4689,
+     "f1": 0.4212
+    },
+    "by_type_lenient_f1": {
+     "Disease_disorder": 0.4698,
+     "Medication": 0.7586,
+     "Therapeutic_procedure": 0.4251
+    }
+   }
+  },
+  "cost": {
+   "llm": {
+    "calls": 40,
+    "input_tokens": 32498,
+    "output_tokens": 61626,
+    "usd": 0.0341,
+    "median_call_seconds": 14.207,
+    "p95_call_seconds": 20.584,
+    "wall_seconds": 41.8,
+    "failures": {}
+   },
+   "gliner": {
+    "calls": 0,
+    "usd": 0.0,
+    "cpu_seconds_total": 819.3,
+    "cpu_seconds_per_unit": 20.484
+   },
+   "llm+verify": {
+    "verifier": {
+     "calls": 40,
+     "input_tokens": 46746,
+     "output_tokens": 30080,
+     "usd": 0.0197,
+     "median_call_seconds": 7.744,
+     "p95_call_seconds": 16.794,
+     "wall_seconds": 27.9,
+     "failures": {}
+    }
+   },
+   "gliner+verify": {
+    "verifier": {
+     "calls": 40,
+     "input_tokens": 43141,
+     "output_tokens": 23615,
+     "usd": 0.0161,
+     "median_call_seconds": 5.697,
+     "p95_call_seconds": 9.883,
+     "wall_seconds": 23.0,
+     "failures": {}
+    }
+   }
+  },
+  "decisions": {
+   "D1_llm": {
+    "precision_gain": [
+     0.0116,
+     [
+      0.0043,
+      0.0192
+     ]
+    ],
+    "f1_change": [
+     0.0057,
+     [
+      -0.0012,
+      0.0118
+     ]
+    ]
+   },
+   "D1_gliner": {
+    "precision_gain": [
+     0.106,
+     [
+      0.0748,
+      0.1423
+     ]
+    ],
+    "f1_change": [
+     0.063,
+     [
+      0.0402,
+      0.0892
+     ]
+    ]
+   },
+   "D2_gliner_verify_minus_llm_verify_f1": [
+    0.0531,
+    [
+     -0.0052,
+     0.1021
+    ]
+   ]
+  }
+ },
+ "summary": {
+  "D1_verifier_kept_everywhere": true,
+  "D2_gliner_backbone_within_0.03_everywhere": false
+ },
+ "reference_saved_glaucoma_all_test_lines": {
+  "test_lines": 1634,
+  "novel_lines": 1136,
+  "gold_spans_test": 1799
+ }
+}

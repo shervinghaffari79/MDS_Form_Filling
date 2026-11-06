@@ -1,0 +1,752 @@
+{
+ "model": "Qwen/Qwen3.8-27B",
+ "admissions": 100,
+ "battery_admissions": 12,
+ "cases": 216,
+ "scope_from_wording": {
+  "lookback_days": {
+   "I1": [
+    0
+   ],
+   "I2": [
+    0,
+    30
+   ],
+   "I3": [],
+   "O4": [
+    7
+   ],
+   "P1a": [
+    14
+   ],
+   "P1b": []
+  },
+  "chronic_counts": {
+   "I": 59,
+   "O": 0,
+   "P": 0
+  }
+ },
+ "arms": {
+  "D": {
+   "items_per_admission": 11.08,
+   "by_section": {
+    "I": 7.89,
+    "O": 1.81,
+    "P": 1.38
+   }
+  },
+  "N": {
+   "items_per_admission": 7.53,
+   "by_section": {
+    "I": 4.74,
+    "O": 1.7,
+    "P": 1.09
+   }
+  },
+  "R": {
+   "items_per_admission": 11.13,
+   "by_section": {
+    "I": 7.43,
+    "O": 2.65,
+    "P": 1.05
+   }
+  },
+  "G": {
+   "items_per_admission": 13.5,
+   "by_section": {
+    "I": 9.01,
+    "O": 2.87,
+    "P": 1.62
+   }
+  },
+  "N+B": {
+   "items_per_admission": 10.85,
+   "by_section": {
+    "I": 7.45,
+    "O": 2.0,
+    "P": 1.4
+   }
+  },
+  "G+B": {
+   "items_per_admission": 15.09,
+   "by_section": {
+    "I": 10.28,
+    "O": 2.96,
+    "P": 1.85
+   }
+  },
+  "N-verify": {
+   "items_per_admission": 8.08,
+   "by_section": {
+    "I": 4.9,
+    "O": 1.85,
+    "P": 1.33
+   }
+  },
+  "N-old": {
+   "items_per_admission": 14.71,
+   "by_section": {
+    "I": 11.22,
+    "O": 2.29,
+    "P": 1.2
+   }
+  },
+  "G-old": {
+   "items_per_admission": 17.9,
+   "by_section": {
+    "I": 13.2,
+    "O": 2.99,
+    "P": 1.71
+   }
+  },
+  "vote(N+B,R,D)": {
+   "items_per_admission": 10.4,
+   "by_section": {
+    "I": 7.07,
+    "O": 2.13,
+    "P": 1.2
+   }
+  },
+  "agree(D,G+B)": {
+   "items_per_admission": 9.38,
+   "by_section": {
+    "I": 6.54,
+    "O": 1.71,
+    "P": 1.13
+   }
+  },
+  "tie-break(D|G+B,NLI)": {
+   "items_per_admission": 10.13,
+   "by_section": {
+    "I": 6.99,
+    "O": 1.78,
+    "P": 1.36
+   }
+  }
+ },
+ "pairwise_agreement": {
+  "N~R": {
+   "jaccard": 0.382,
+   "both": 516,
+   "either": 1350
+  },
+  "N+B~R": {
+   "jaccard": 0.457,
+   "both": 689,
+   "either": 1509
+  },
+  "D~N+B": {
+   "jaccard": 0.564,
+   "both": 791,
+   "either": 1402
+  },
+  "D~R": {
+   "jaccard": 0.494,
+   "both": 734,
+   "either": 1487
+  },
+  "D~G+B": {
+   "jaccard": 0.559,
+   "both": 938,
+   "either": 1679
+  },
+  "N~N-old": {
+   "jaccard": 0.512,
+   "both": 753,
+   "either": 1471
+  },
+  "G~G-old": {
+   "jaccard": 0.754,
+   "both": 1350,
+   "either": 1790
+  }
+ },
+ "battery": {
+  "mask": {
+   "D": {
+    "cases": 12,
+    "holds": 0.583,
+    "ci": [
+     0.333,
+     0.833
+    ]
+   },
+   "N-old": {
+    "cases": 12,
+    "holds": 0.75,
+    "ci": [
+     0.5,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 12,
+    "holds": 0.5,
+    "ci": [
+     0.25,
+     0.75
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 12,
+    "holds": 0.75,
+    "ci": [
+     0.5,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 12,
+    "holds": 0.583,
+    "ci": [
+     0.333,
+     0.833
+    ]
+   }
+  },
+  "sufficiency": {
+   "D": {
+    "cases": 12,
+    "holds": 0.917,
+    "ci": [
+     0.75,
+     1.0
+    ]
+   },
+   "N-old": {
+    "cases": 12,
+    "holds": 0.75,
+    "ci": [
+     0.5,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 12,
+    "holds": 0.75,
+    "ci": [
+     0.5,
+     1.0
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 12,
+    "holds": 0.917,
+    "ci": [
+     0.75,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 12,
+    "holds": 0.833,
+    "ci": [
+     0.583,
+     1.0
+    ]
+   }
+  },
+  "negate": {
+   "D": {
+    "cases": 3,
+    "holds": 0.667,
+    "ci": [
+     0.0,
+     1.0
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 3,
+    "holds": 0.667,
+    "ci": [
+     0.0,
+     1.0
+    ]
+   },
+   "N-old": {
+    "cases": 2,
+    "holds": 0.5,
+    "ci": [
+     0.0,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 3,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 2,
+    "holds": 0.5,
+    "ci": [
+     0.0,
+     1.0
+    ]
+   }
+  },
+  "paraphrase": {
+   "N-old": {
+    "cases": 4,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 7,
+    "holds": 0.857,
+    "ci": [
+     0.571,
+     1.0
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 7,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 4,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "D": {
+    "cases": 1,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "paraphrase_invariance": {
+   "D": {
+    "cases": 23,
+    "holds": 0.826,
+    "ci": [
+     0.682,
+     0.957
+    ]
+   },
+   "N": {
+    "cases": 23,
+    "holds": 0.913,
+    "ci": [
+     0.789,
+     1.0
+    ]
+   },
+   "R": {
+    "cases": 23,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G": {
+    "cases": 23,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 23,
+    "holds": 0.957,
+    "ci": [
+     0.85,
+     1.0
+    ]
+   },
+   "G+B": {
+    "cases": 23,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N-verify": {
+    "cases": 23,
+    "holds": 0.957,
+    "ci": [
+     0.864,
+     1.0
+    ]
+   },
+   "N-old": {
+    "cases": 23,
+    "holds": 0.913,
+    "ci": [
+     0.789,
+     1.0
+    ]
+   },
+   "G-old": {
+    "cases": 23,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 23,
+    "holds": 0.913,
+    "ci": [
+     0.773,
+     1.0
+    ]
+   },
+   "agree(D,G+B)": {
+    "cases": 23,
+    "holds": 0.826,
+    "ci": [
+     0.682,
+     0.958
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 23,
+    "holds": 0.826,
+    "ci": [
+     0.682,
+     0.957
+    ]
+   }
+  },
+  "reorder_stability": {
+   "D": {
+    "cases": 12,
+    "holds": 0.801,
+    "ci": [
+     0.746,
+     0.861
+    ]
+   },
+   "N": {
+    "cases": 12,
+    "holds": 0.516,
+    "ci": [
+     0.332,
+     0.685
+    ]
+   },
+   "R": {
+    "cases": 12,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G": {
+    "cases": 12,
+    "holds": 0.903,
+    "ci": [
+     0.844,
+     0.951
+    ]
+   },
+   "N+B": {
+    "cases": 12,
+    "holds": 0.671,
+    "ci": [
+     0.571,
+     0.759
+    ]
+   },
+   "G+B": {
+    "cases": 12,
+    "holds": 0.817,
+    "ci": [
+     0.754,
+     0.869
+    ]
+   },
+   "N-verify": {
+    "cases": 12,
+    "holds": 0.554,
+    "ci": [
+     0.389,
+     0.699
+    ]
+   },
+   "N-old": {
+    "cases": 12,
+    "holds": 0.669,
+    "ci": [
+     0.527,
+     0.781
+    ]
+   },
+   "G-old": {
+    "cases": 12,
+    "holds": 0.812,
+    "ci": [
+     0.692,
+     0.904
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 12,
+    "holds": 0.806,
+    "ci": [
+     0.704,
+     0.882
+    ]
+   },
+   "agree(D,G+B)": {
+    "cases": 12,
+    "holds": 0.726,
+    "ci": [
+     0.641,
+     0.798
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 12,
+    "holds": 0.764,
+    "ci": [
+     0.696,
+     0.829
+    ]
+   }
+  },
+  "family": {
+   "D": {
+    "cases": 24,
+    "holds": 0.958,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "N": {
+    "cases": 24,
+    "holds": 0.958,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "R": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G": {
+    "cases": 24,
+    "holds": 0.958,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 24,
+    "holds": 0.625,
+    "ci": [
+     0.375,
+     0.875
+    ]
+   },
+   "G+B": {
+    "cases": 24,
+    "holds": 0.625,
+    "ci": [
+     0.375,
+     0.875
+    ]
+   },
+   "N-verify": {
+    "cases": 24,
+    "holds": 0.958,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "N-old": {
+    "cases": 24,
+    "holds": 0.417,
+    "ci": [
+     0.167,
+     0.667
+    ]
+   },
+   "G-old": {
+    "cases": 24,
+    "holds": 0.417,
+    "ci": [
+     0.167,
+     0.667
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "agree(D,G+B)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "ruled_out": {
+   "D": {
+    "cases": 24,
+    "holds": 0.958,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "N": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "R": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N+B": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G+B": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N-verify": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "N-old": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "G-old": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "vote(N+B,R,D)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "agree(D,G+B)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "tie-break(D|G+B,NLI)": {
+    "cases": 24,
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  }
+ },
+ "rewrites": {
+  "negate": {
+   "generated": 142,
+   "accepted": 59
+  },
+  "paraphrase": {
+   "generated": 145,
+   "accepted": 107
+  }
+ },
+ "generated_tokens": 5412339,
+ "prompt_tokens": 8101374,
+ "wall_seconds": {
+  "base_100": 3236,
+  "battery": 2513
+ },
+ "failures": {
+  "extract": {
+   "truncated": 10
+  },
+  "form": {},
+  "verify": {},
+  "direct": {},
+  "membership": {}
+ }
+}

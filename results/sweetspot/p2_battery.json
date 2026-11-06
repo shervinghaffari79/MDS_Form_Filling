@@ -1,0 +1,197 @@
+{
+ "admissions": 30,
+ "yes_cases": 90,
+ "battery": {
+  "mask": {
+   "cases": 90,
+   "expected": "off",
+   "notes": {
+    "holds": 0.822,
+    "ci": [
+     0.744,
+     0.889
+    ]
+   },
+   "notes+v": {
+    "holds": 0.844,
+    "ci": [
+     0.778,
+     0.911
+    ]
+   },
+   "notes+v+t": {
+    "holds": 0.844,
+    "ci": [
+     0.767,
+     0.911
+    ]
+   }
+  },
+  "sufficiency": {
+   "cases": 90,
+   "expected": "on",
+   "notes": {
+    "holds": 0.822,
+    "ci": [
+     0.722,
+     0.911
+    ]
+   },
+   "notes+v": {
+    "holds": 0.811,
+    "ci": [
+     0.711,
+     0.9
+    ]
+   },
+   "notes+v+t": {
+    "holds": 0.811,
+    "ci": [
+     0.7,
+     0.9
+    ]
+   }
+  },
+  "paraphrase": {
+   "cases": 48,
+   "expected": "on",
+   "notes": {
+    "holds": 0.938,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   },
+   "notes+v": {
+    "holds": 0.938,
+    "ci": [
+     0.872,
+     1.0
+    ]
+   },
+   "notes+v+t": {
+    "holds": 0.938,
+    "ci": [
+     0.875,
+     1.0
+    ]
+   }
+  },
+  "reorder": {
+   "cases": 90,
+   "expected": "on",
+   "notes": {
+    "holds": 0.967,
+    "ci": [
+     0.922,
+     1.0
+    ]
+   },
+   "notes+v": {
+    "holds": 0.967,
+    "ci": [
+     0.933,
+     1.0
+    ]
+   },
+   "notes+v+t": {
+    "holds": 0.967,
+    "ci": [
+     0.922,
+     1.0
+    ]
+   }
+  },
+  "negate": {
+   "cases": 50,
+   "expected": "off",
+   "notes": {
+    "holds": 0.9,
+    "ci": [
+     0.808,
+     0.979
+    ]
+   },
+   "notes+v": {
+    "holds": 0.9,
+    "ci": [
+     0.812,
+     0.978
+    ]
+   },
+   "notes+v+t": {
+    "holds": 0.9,
+    "ci": [
+     0.812,
+     0.978
+    ]
+   }
+  },
+  "family": {
+   "cases": 60,
+   "expected": "off",
+   "notes": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "notes+v": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "notes+v+t": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "ruled_out": {
+   "cases": 60,
+   "expected": "off",
+   "notes": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "notes+v": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   "notes+v+t": {
+    "holds": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  }
+ },
+ "rewrites_accepted": {
+  "negate": {
+   "cases_with_all_cited_rewritten": 50
+  },
+  "paraphrase": {
+   "cases_with_all_cited_rewritten": 48
+  }
+ },
+ "cost": {
+  "calls": 3664,
+  "input_tokens": 5444400,
+  "output_tokens": 6606967,
+  "usd": 3.8479,
+  "median_call_seconds": 14.409,
+  "p95_call_seconds": 39.189
+ }
+}

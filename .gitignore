@@ -13,3 +13,6 @@ mimic-iv-note-deidentified-free-text-clinical-notes-2.2
 mimic-iv-note-deidentified-free-text-clinical-notes-2.2/
 pilot_private
 pilot_private/
+node_modules/
+webui/dist/
+*.sqlite

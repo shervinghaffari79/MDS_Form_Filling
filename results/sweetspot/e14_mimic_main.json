@@ -1,0 +1,143 @@
+{
+ "model": "Qwen/Qwen3.8-27B",
+ "admissions": 100,
+ "arms": {
+  "D": {
+   "items_per_admission": 11.08,
+   "by_section": {
+    "I": 7.89,
+    "O": 1.81,
+    "P": 1.38
+   }
+  },
+  "N": {
+   "items_per_admission": 7.53,
+   "by_section": {
+    "I": 4.74,
+    "O": 1.7,
+    "P": 1.09
+   }
+  },
+  "R": {
+   "items_per_admission": 11.13,
+   "by_section": {
+    "I": 7.43,
+    "O": 2.65,
+    "P": 1.05
+   }
+  },
+  "G": {
+   "items_per_admission": 13.5,
+   "by_section": {
+    "I": 9.01,
+    "O": 2.87,
+    "P": 1.62
+   }
+  },
+  "N+B": {
+   "items_per_admission": 10.85,
+   "by_section": {
+    "I": 7.45,
+    "O": 2.0,
+    "P": 1.4
+   }
+  },
+  "G+B": {
+   "items_per_admission": 15.09,
+   "by_section": {
+    "I": 10.28,
+    "O": 2.96,
+    "P": 1.85
+   }
+  },
+  "N-verify": {
+   "items_per_admission": 8.08,
+   "by_section": {
+    "I": 4.9,
+    "O": 1.85,
+    "P": 1.33
+   }
+  },
+  "N-old": {
+   "items_per_admission": 14.71,
+   "by_section": {
+    "I": 11.22,
+    "O": 2.29,
+    "P": 1.2
+   }
+  },
+  "G-old": {
+   "items_per_admission": 17.9,
+   "by_section": {
+    "I": 13.2,
+    "O": 2.99,
+    "P": 1.71
+   }
+  },
+  "vote(N+B,R,D)": {
+   "items_per_admission": 10.4,
+   "by_section": {
+    "I": 7.07,
+    "O": 2.13,
+    "P": 1.2
+   }
+  },
+  "agree(D,G+B)": {
+   "items_per_admission": 9.38,
+   "by_section": {
+    "I": 6.54,
+    "O": 1.71,
+    "P": 1.13
+   }
+  },
+  "tie-break(D|G+B,NLI)": {
+   "items_per_admission": 10.13,
+   "by_section": {
+    "I": 6.99,
+    "O": 1.78,
+    "P": 1.36
+   }
+  }
+ },
+ "pairwise_agreement": {
+  "N~R": {
+   "jaccard": 0.382,
+   "both": 516,
+   "either": 1350
+  },
+  "N+B~R": {
+   "jaccard": 0.457,
+   "both": 689,
+   "either": 1509
+  },
+  "D~N+B": {
+   "jaccard": 0.564,
+   "both": 791,
+   "either": 1402
+  },
+  "D~R": {
+   "jaccard": 0.494,
+   "both": 734,
+   "either": 1487
+  },
+  "D~G+B": {
+   "jaccard": 0.559,
+   "both": 938,
+   "either": 1679
+  },
+  "N~N-old": {
+   "jaccard": 0.512,
+   "both": 753,
+   "either": 1471
+  },
+  "G~G-old": {
+   "jaccard": 0.754,
+   "both": 1350,
+   "either": 1790
+  }
+ },
+ "battery": "not finished",
+ "wall_seconds": {
+  "base_100": 3236
+ }
+}
